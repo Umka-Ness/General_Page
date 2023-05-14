@@ -5,10 +5,11 @@
 
 .blockCard {
   word-break: break-all;
-  max-width: 365px;
-  max-height: 355px;
+  max-width: 350px;
+  height: 80px;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-top: 10px;
 }
 
 .blockCard::-webkit-scrollbar {
@@ -26,16 +27,22 @@
 
 .name {
   text-align: "center";
-  margin-top: 20px;
   margin-bottom: 10px;
-}
-
-.nameDescription {
-  margin-top: 10px;
 }
 
 .btn {
   display: flex;
   max-width: 350px;
   max-height: 200px;
+}
+
+.NavigationBtn {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 100px;
+  height: 50px;
+  color: #000;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(56, 55, 55, 0.619);
 }
