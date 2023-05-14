@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.blockCard {
+  word-break: break-all;
+  max-width: 365px;
+  max-height: 355px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.blockCard::-webkit-scrollbar {
+  background: #87adbf84;
+  max-height: 4px;
+  max-width: 7px;
+  border-radius: 25px;
+}
+
+.blockCard::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: #999;
+  border-radius: 25px;
+}
+
+.name {
+  text-align: "center";
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.nameDescription {
+  margin-top: 10px;
+}
+
+.btn {
+  display: flex;
+  max-width: 350px;
+  max-height: 200px;
+}
