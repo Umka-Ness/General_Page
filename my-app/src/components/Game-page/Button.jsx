@@ -8,7 +8,7 @@ export const Button = ({ url }) => {
         <button className={css.btn}>
           <img
             src={logo}
-            alt="lalala"
+            alt="Logo"
             style={{ width: "350px", height: "200px" }}
           />
         </button>
