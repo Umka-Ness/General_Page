@@ -86,7 +86,7 @@ import { Button } from "./Button";
 import gameInfo from "./gameInfo.json";
 import css from "./GamePage.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
-import { MoveBox } from "../MoveBox/MoveBox";
+import { StepByStep } from "../StepByStep/StepByStep";
 
 export const PageOne = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -108,7 +108,7 @@ export const PageOne = () => {
     if (selectedId === "back") {
       return <NavigationBtn />;
     } else if (DraggableDiv === "Logo") {
-      return <MoveBox />;
+      return <StepByStep />;
     } else {
       return (
         <div>
@@ -134,14 +134,14 @@ export const PageOne = () => {
                 height: "100%",
               }}
             >
-              <p className={css.name}>Name</p>
+              <p className={css.name}>1 StepByStep</p>
               <div onClick={GoMoveBox}>
                 <Button />
               </div>
               <p className={css.blockCard}>lala</p>
             </div>
 
-            {gameInfo.map((i) => (
+            {gameInfo.map((i, index) => (
               <div
                 key={i.id}
                 style={{
@@ -152,7 +152,7 @@ export const PageOne = () => {
                 <div style={{ display: "flex", gap: "5px" }}>
                   <div>
                     <p className={css.name}>
-                      {i.id + " "}
+                      {index + 2 + " "}
                       {i.name}
                     </p>
                     <Button url={i.url} onClick={GoMoveBox} />

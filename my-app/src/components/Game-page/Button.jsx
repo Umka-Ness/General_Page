@@ -9,7 +9,7 @@ export const Button = ({ url }) => {
           <img
             src={logo}
             alt="Logo"
-            style={{ width: "350px", height: "200px" }}
+            style={{ width: "350px", height: "200px", borderRadius: "10px" }}
           />
         </a>
       </form>

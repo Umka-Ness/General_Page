@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btnComponent {
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 10px;
+  background: aqua;
+  justify-content: center;
+  /* margin: 55px; */
+}
+
+.container {
+  display: flex;
+  gap: 140px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  gap: 120px;
+  flex-direction: column;
+}
