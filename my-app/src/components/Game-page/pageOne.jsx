@@ -112,9 +112,12 @@ export const PageOne = () => {
     } else {
       return (
         <div>
-          <button className={css.BackBtn} onClick={handleOnClick} id="back">
-            Back
-          </button>
+          <div
+            style={{
+              display: "flex",
+              textAlign: "center",
+            }}
+          ></div>
           <div
             style={{
               display: "flex",
@@ -124,9 +127,12 @@ export const PageOne = () => {
               padding: "20px",
               verticalAlign: "middle",
               maxWidth: "100%",
-              minHeight: "100vh",
+              // minHeight: "100vh",
             }}
           >
+            <button className={css.BackBtn} onClick={handleOnClick} id="back">
+              Back
+            </button>
             {/* {DraggableDiv === true ? <MoveBox /> : <p>dadada</p>} */}
             <div
               style={{
