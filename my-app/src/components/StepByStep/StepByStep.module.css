@@ -11,6 +11,7 @@
   background: aqua;
   justify-content: center;
   /* margin: 55px; */
+  cursor: pointer;
 }
 
 .container {
@@ -25,4 +26,29 @@ li {
   display: flex;
   gap: 120px;
   flex-direction: column;
+}
+
+.btnContainerGame {
+  background: url(https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg);
+}
+
+.btnGame:hover {
+  transform: scale(2);
+  z-index: 9999;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btnContainerGame:hover {
+  animation: zoomIn 1.5s;
 }
