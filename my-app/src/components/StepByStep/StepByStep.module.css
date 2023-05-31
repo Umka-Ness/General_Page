@@ -32,9 +32,13 @@ li {
   background: url(https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg);
 }
 
+.btnGame {
+  transition: transform 1.3s;
+}
+
 .btnGame:hover {
-  transform: scale(2);
-  z-index: 9999;
+  /* transform: scale(2.5); */
+  /* transform: translateX(-50vh); */
 }
 
 @keyframes zoomIn {

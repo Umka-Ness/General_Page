@@ -6,7 +6,6 @@ import data from "./StepByStepDataBtn.json";
 export const StepByStepGame = (dataId) => {
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
-  const [elem, setElem] = useState("200px");
 
   const handleOnClick = (e) => {
     const id = e.target.id;
@@ -18,7 +17,7 @@ export const StepByStepGame = (dataId) => {
       return <StepByStep />;
     } else {
       const handleClickBtn = (e) => {
-        console.log(e);
+        console.log(e.target);
       };
 
       return (

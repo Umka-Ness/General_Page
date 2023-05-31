@@ -1,8 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import css from "../StepByStep/StepByStep.module.css";
 
-export const StepByStepButtonGame = ({ name, index }) => {
+export const StepByStepButtonGame = ({ name, index, id }) => {
   const containerRef = useRef(null);
+  const refActive = useRef();
+  const [isActive, setIsActive] = useState(false);
+  const [value, setValue] = useState(false);
 
   const handleClick = () => {
     const container = containerRef.current;
@@ -14,6 +17,23 @@ export const StepByStepButtonGame = ({ name, index }) => {
         container.style.transform = "scale(1)";
         container.style.transition = "transform 0.5s";
       }, 500);
+    }
+    setIsActive(true);
+    const refActiveCurrent = refActive.current;
+    const temporaryId = refActiveCurrent.id;
+    if (!isActive) {
+      refActiveCurrent.style.transform = "scale(2.5)";
+      refActiveCurrent.style.zIndex = "9999";
+      setIsActive(false);
+      console.log(refActiveCurrent.id);
+    } else {
+      if (value) {
+        refActiveCurrent.style.transform = "scale(1)";
+        refActiveCurrent.style.zIndex = "1";
+        console.log(12312);
+      } else {
+        return;
+      }
     }
   };
 
@@ -28,6 +48,8 @@ export const StepByStepButtonGame = ({ name, index }) => {
       }}
       onClick={handleClick}
       className={css.btnGame}
+      ref={refActive}
+      id={id}
     >
       <div
         ref={containerRef}
@@ -47,6 +69,7 @@ export const StepByStepButtonGame = ({ name, index }) => {
           borderRadius: "13px",
         }}
         className={css.btnContainerGame}
+        id={id}
       >
         {index}
       </div>
@@ -58,6 +81,8 @@ export const StepByStepButtonGame = ({ name, index }) => {
           border: "none",
           borderRadius: "13px",
         }}
+        id={id}
+        value={value}
         // className={css.btnGame}
       >
         {name}
