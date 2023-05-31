@@ -24,14 +24,18 @@ export const StepByStepButtonGame = ({ name, index, id }) => {
     if (!isActive) {
       refActiveCurrent.style.transform = "scale(2.5)";
       refActiveCurrent.style.zIndex = "9999";
-      setIsActive(false);
+      setIsActive(true);
+
       console.log(refActiveCurrent.id);
     } else {
-      if (value) {
+      if (!refActiveCurrent.value) {
         refActiveCurrent.style.transform = "scale(1)";
         refActiveCurrent.style.zIndex = "1";
         console.log(12312);
+        setIsActive(false);
       } else {
+        setIsActive(false);
+        console.log(5555);
         return;
       }
     }
