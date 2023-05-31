@@ -20,7 +20,6 @@ export const StepByStepButtonGame = ({ name, index, id }) => {
     }
     setIsActive(true);
     const refActiveCurrent = refActive.current;
-    const temporaryId = refActiveCurrent.id;
     if (!isActive) {
       refActiveCurrent.style.transform = "scale(2.5)";
       refActiveCurrent.style.zIndex = "9999";
