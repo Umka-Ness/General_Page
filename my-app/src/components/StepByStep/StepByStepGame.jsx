@@ -12,6 +12,7 @@ export const StepByStepGame = (dataId) => {
     console.log(id);
     setBackBtn(true);
   };
+
   const renderGame = () => {
     if (backBtn) {
       return <StepByStep />;
