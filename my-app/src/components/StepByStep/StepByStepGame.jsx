@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
-import data from "./StepByStepDataBtn.json";
-export const StepByStepGame = (dataId) => {
+
+export const StepByStepGame = (dataId, data) => {
+  data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
 
@@ -13,14 +14,14 @@ export const StepByStepGame = (dataId) => {
     setBackBtn(true);
   };
 
-  const renderGame = () => {
+  const handleClickBtn = (e) => {
+    console.log(e.target);
+  };
+
+  const renderGame = (data) => {
     if (backBtn) {
       return <StepByStep />;
     } else {
-      const handleClickBtn = (e) => {
-        console.log(e.target);
-      };
-
       return (
         <div
           style={{
@@ -73,5 +74,5 @@ export const StepByStepGame = (dataId) => {
       );
     }
   };
-  return renderGame();
+  return renderGame(data);
 };

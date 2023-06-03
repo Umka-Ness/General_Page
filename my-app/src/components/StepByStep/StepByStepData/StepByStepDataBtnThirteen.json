@@ -1,0 +1,18 @@
+[
+  { "id": 1, "name": "Kraków to polskie __________________" },
+  { "id": 2, "name": "Ela ma __________________" },
+  { "id": 3, "name": "Andrzej jest z zawodu ____________________" },
+  { "id": 4, "name": "Idziemy na ________, pójdziesz z nami?" },
+  { "id": 5, "name": "Kuba to bardzo __________ chłopak." },
+  { "id": 6, "name": "_______ się zajmujesz?" },
+  { "id": 7, "name": "Nie lubię piłki nożnej, wolę grać w ________" },
+  {
+    "id": 8,
+    "name": "Dzisiaj temperatura jest bardzo wysoka, jest ___________"
+  },
+  { "id": 9, "name": "Dwa lata temu _________ szkołę." },
+  {
+    "id": 10,
+    "name": "W czwartek studenci będą _________ egzamin z języka polskiego."
+  }
+]

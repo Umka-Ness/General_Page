@@ -4,6 +4,23 @@ import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStepButton } from "./StepByStepButton";
 import { PageOne } from "../Game-page/pageOne";
 import { StepByStepGame } from "./StepByStepGame";
+import data from "./StepByStepData/StepByStepDataBtn.json";
+import dataTwo from "./StepByStepData/StepByStepDataBtnTwo.json";
+import dataThree from "./StepByStepData/StepByStepDataBtnThree.json";
+import dataFour from "./StepByStepData/StepByStepDataBtnFour.json";
+import dataFive from "./StepByStepData/StepByStepDataBtnFive.json";
+import dataSix from "./StepByStepData/StepByStepDataBtnSix.json";
+import dataSeven from "./StepByStepData/StepByStepDataBtnSeven.json";
+import dataEight from "./StepByStepData/StepByStepDataBtnEight.json";
+import dataNine from "./StepByStepData/StepByStepDataBtnNine.json";
+import dataTen from "./StepByStepData/StepByStepDataBtnTen.json";
+import dataEleven from "./StepByStepData/StepByStepDataBtnEleven.json";
+import dataTwelve from "./StepByStepData/StepByStepDataBtnTwelve.json";
+import dataThirteen from "./StepByStepData/StepByStepDataBtnThirteen.json";
+import dataFourteen from "./StepByStepData/StepByStepDataBtnFourteen.json";
+import dataFifteen from "./StepByStepData/StepByStepDataBtnFifteen.json";
+import dataSixteen from "./StepByStepData/StepByStepDataBtnSixteen.json";
+import dataSeventeen from "./StepByStepData/StepByStepDataBtnSeventeen.json";
 
 export const StepByStep = () => {
   const [backBtn, setBackBtn] = useState(false);
@@ -26,7 +43,41 @@ export const StepByStep = () => {
     if (backBtn === true) {
       return <PageOne />;
     } else if (run) {
-      return <StepByStepGame dataId={dataId} />;
+      if (dataId === "1") {
+        return <StepByStepGame dataId={dataId} data={data} />;
+      } else if (dataId === "2") {
+        return <StepByStepGame dataId={dataId} data={dataTwo} />;
+      } else if (dataId === "3") {
+        return <StepByStepGame dataId={dataId} data={dataThree} />;
+      } else if (dataId === "4") {
+        return <StepByStepGame dataId={dataId} data={dataFour} />;
+      } else if (dataId === "5") {
+        return <StepByStepGame dataId={dataId} data={dataFive} />;
+      } else if (dataId === "6") {
+        return <StepByStepGame dataId={dataId} data={dataSix} />;
+      } else if (dataId === "7") {
+        return <StepByStepGame dataId={dataId} data={dataSeven} />;
+      } else if (dataId === "8") {
+        return <StepByStepGame dataId={dataId} data={dataEight} />;
+      } else if (dataId === "9") {
+        return <StepByStepGame dataId={dataId} data={dataNine} />;
+      } else if (dataId === "10") {
+        return <StepByStepGame dataId={dataId} data={dataTen} />;
+      } else if (dataId === "11") {
+        return <StepByStepGame dataId={dataId} data={dataEleven} />;
+      } else if (dataId === "12") {
+        return <StepByStepGame dataId={dataId} data={dataTwelve} />;
+      } else if (dataId === "13") {
+        return <StepByStepGame dataId={dataId} data={dataThirteen} />;
+      } else if (dataId === "14") {
+        return <StepByStepGame dataId={dataId} data={dataFourteen} />;
+      } else if (dataId === "15") {
+        return <StepByStepGame dataId={dataId} data={dataFifteen} />;
+      } else if (dataId === "16") {
+        return <StepByStepGame dataId={dataId} data={dataSixteen} />;
+      } else if (dataId === "17") {
+        return <StepByStepGame dataId={dataId} data={dataSeventeen} />;
+      }
     } else {
       return (
         <div
