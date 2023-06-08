@@ -1,38 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
 import css from "../StepByStep/StepByStep.module.css";
 
-export const StepByStepButtonGame = ({ name, index, id, value }) => {
+export const StepByStepModal = ({ name, index, id, value, data }) => {
+  const selectedItem = data.find((item) => item.id === id);
+
   const containerRef = useRef(null);
   const refActive = useRef();
   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = (e) => {
-    console.log(e);
+  useEffect(() => {
+    console.log(isActive);
+  }, [isActive]);
+
+  const handleClick = () => {
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
 
     if (!isActive) {
       setIsActive(true);
-      container.style.top = "420px";
+      container.style.top = "120px";
       container.style.transition = "top 0.5s";
       refActiveCurrent.style.transform = "scale(2.5)";
       refActiveCurrent.style.zIndex = "9";
-      refActiveCurrent.style.position = "absolute";
-      refActiveCurrent.style.top = "50%";
-      refActiveCurrent.style.left = "50%";
-      refActiveCurrent.style.transform = "translate(-50%, -50%)";
-      refActiveCurrent.style.transition = "all 1.5s";
-      refActiveCurrent.style.transitionTimingFunction =
-        "cubic-bezier(0, 0, 0, 1.2)";
-      refActiveCurrent.style.width = "900px";
-      refActiveCurrent.style.height = "500px";
     } else {
-      refActiveCurrent.style.transition = "all 0s";
-
-      container.style.top = "120px";
-      refActiveCurrent.style.position = "inherit";
-      refActiveCurrent.style.width = "150px";
-      refActiveCurrent.style.height = "150px";
       refActiveCurrent.style.transform = "scale(1)";
       refActiveCurrent.style.zIndex = "1";
       console.log(12312);
@@ -75,7 +65,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         id={id}
         value={value}
       >
-        {index}
+        {selectedItem.index}
       </div>
       <button
         style={{
@@ -88,14 +78,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         id={id}
         // className={css.btnGame}
       >
-        <div
-          style={{
-            fontSize:
-              containerRef.current?.style.top === "420px" ? "28px" : "inherit",
-          }}
-        >
-          {name}
-        </div>
+        {selectedItem.name}
       </button>
     </div>
   );

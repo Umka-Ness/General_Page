@@ -34,6 +34,19 @@ li {
 
 .btnGame {
   transition: transform 1.3s;
+  animation: btnGame 1.5s;
+}
+
+@keyframes btnGame {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes zoomIn {

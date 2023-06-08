@@ -89,6 +89,8 @@ import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
 
 export const PageOne = () => {
+  const el = document.getElementsByTagName("body")[0];
+  el.style.overflow = "auto";
   const [selectedId, setSelectedId] = useState(null);
   const [DraggableDiv, setDraggableDiv] = useState(false);
 

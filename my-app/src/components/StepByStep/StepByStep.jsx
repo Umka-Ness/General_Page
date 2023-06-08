@@ -23,6 +23,8 @@ import dataSixteen from "./StepByStepData/StepByStepDataBtnSixteen.json";
 import dataSeventeen from "./StepByStepData/StepByStepDataBtnSeventeen.json";
 
 export const StepByStep = () => {
+  const el = document.getElementsByTagName("body")[0];
+  el.style.overflow = "hidden";
   const [backBtn, setBackBtn] = useState(false);
   const [run, setRun] = useState(false);
   const [dataId, setDataId] = useState(null);

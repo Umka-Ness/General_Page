@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
+import { StepByStepModal } from "./StepByStepModal";
 
 export const StepByStepGame = (dataId, data) => {
   data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
+  const [targetId, setTargetId] = useState();
+  const [isGood, setIsGood] = useState(false);
+  // const [client, setClient] = useState({ x: "0", y: "0" });
 
   const handleOnClick = (e) => {
-    const id = e.target.id;
-    console.log(id);
     setBackBtn(true);
   };
 
   const handleClickBtn = (e) => {
-    console.log(e.target);
+    setIsGood(true);
+    // window.resizeBy(-500, -500);
+    // window.moveTo(184, 229);
   };
 
   const renderGame = (data) => {
@@ -54,21 +58,11 @@ export const StepByStepGame = (dataId, data) => {
                   name={i.name}
                   id={i.id}
                   index={index + 1}
+                  value={isGood}
                 />
               </div>
             ))}
-            {/* <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame />
-            <StepByStepButtonGame /> */}
+            {/* {isGood && <StepByStepModal id={targetId} data={data} />} */}
           </div>
         </div>
       );
