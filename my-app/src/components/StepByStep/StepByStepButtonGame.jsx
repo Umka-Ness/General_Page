@@ -14,29 +14,36 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
     if (!isActive) {
       setIsActive(true);
       container.style.top = "420px";
-      container.style.transition = "top 0.5s";
+      container.style.transition = "top 1s";
       refActiveCurrent.style.transform = "scale(2.5)";
       refActiveCurrent.style.zIndex = "9";
       refActiveCurrent.style.position = "absolute";
       refActiveCurrent.style.top = "50%";
       refActiveCurrent.style.left = "50%";
       refActiveCurrent.style.transform = "translate(-50%, -50%)";
-      refActiveCurrent.style.transition = "all 1.5s";
+      refActiveCurrent.style.transition = "all 2s";
       refActiveCurrent.style.transitionTimingFunction =
         "cubic-bezier(0, 0, 0, 1.2)";
       refActiveCurrent.style.width = "900px";
       refActiveCurrent.style.height = "500px";
     } else {
-      refActiveCurrent.style.transition = "all 0s";
-
-      container.style.top = "120px";
-      refActiveCurrent.style.position = "inherit";
-      refActiveCurrent.style.width = "150px";
-      refActiveCurrent.style.height = "150px";
-      refActiveCurrent.style.transform = "scale(1)";
-      refActiveCurrent.style.zIndex = "1";
-      console.log(12312);
-      setIsActive(false);
+      refActiveCurrent.style.position = "absolute";
+      refActiveCurrent.style.transitionTimingFunction =
+        "cubic-bezier(1.2, 1.1, 1.1, 1.2)";
+      refActiveCurrent.style.top = "40%";
+      refActiveCurrent.style.left = "60%";
+      refActiveCurrent.style.transform = "translate(-40%, -60%)";
+      setTimeout(() => {
+        refActiveCurrent.style.transition = "all 0s";
+        container.style.top = "120px";
+        refActiveCurrent.style.position = "inherit";
+        refActiveCurrent.style.width = "150px";
+        refActiveCurrent.style.height = "150px";
+        refActiveCurrent.style.transform = "scale(1)";
+        refActiveCurrent.style.zIndex = "1";
+        console.log(12312);
+        setIsActive(false);
+      }, 1300);
     }
   };
 

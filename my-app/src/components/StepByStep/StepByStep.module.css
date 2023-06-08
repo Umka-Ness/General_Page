@@ -34,7 +34,7 @@ li {
 
 .btnGame {
   transition: transform 1.3s;
-  animation: btnGame 1.5s;
+  animation: btnGame 1s;
 }
 
 @keyframes btnGame {
