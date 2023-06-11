@@ -87,8 +87,13 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       refActiveCurrent.style.width = "950px";
       refActiveCurrent.style.height = "500px";
       setTimeout(() => {
-        refActiveCurrent.style.minWidth = "950px";
-        refActiveCurrent.style.minHeight = "500px";
+        if (!isActive) {
+          refActiveCurrent.style.minWidth = "0";
+          refActiveCurrent.style.minHeight = "0";
+        } else {
+          refActiveCurrent.style.minWidth = "950px";
+          refActiveCurrent.style.minHeight = "500px";
+        }
       }, 2000);
     } else {
       // refActiveCurrent.style.transform = `translate(10%, 10%)`;
