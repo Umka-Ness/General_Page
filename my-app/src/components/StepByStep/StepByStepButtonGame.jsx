@@ -28,13 +28,13 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       let yTranslate = 0;
       if (e.target.id === "1") {
         y = 27.5;
-        x = 12;
+        x = 8;
         xTranslate = -5;
         yTranslate = -20;
         console.log(1);
       } else if (e.target.id === "2") {
         y = 27.5;
-        x = 28;
+        x = 24;
         xTranslate = -25;
         yTranslate = -20;
       } else if (e.target.id === "3") {
@@ -55,7 +55,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       } else if (e.target.id === "6") {
         y = 51.5;
         x = 12;
-        xTranslate = -5;
+        xTranslate = -15;
         yTranslate = -53;
       } else if (e.target.id === "7") {
         y = 51.5;
@@ -86,10 +86,16 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       refActiveCurrent.style.transition = "2s";
       refActiveCurrent.style.width = "950px";
       refActiveCurrent.style.height = "500px";
+      setTimeout(() => {
+        refActiveCurrent.style.minWidth = "950px";
+        refActiveCurrent.style.minHeight = "500px";
+      }, 2000);
     } else {
       // refActiveCurrent.style.transform = `translate(10%, 10%)`;
       container.style.top = "120px";
       refActiveCurrent.style.position = "absolute";
+      refActiveCurrent.style.minWidth = "0";
+      refActiveCurrent.style.minHeight = "0";
       refActiveCurrent.style.width = "150px";
       refActiveCurrent.style.height = "150px";
       refActiveCurrent.style.transform = "scale(1)";

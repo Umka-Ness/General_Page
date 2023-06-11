@@ -31,6 +31,7 @@ export const StepByStepGame = (dataId, data) => {
             minHeight: "100vh",
             justifyContent: "center",
           }}
+          className={cssPageOne.fon}
         >
           <button
             className={cssPageOne.BackBtn}
@@ -42,6 +43,7 @@ export const StepByStepGame = (dataId, data) => {
           </button>
           <div
             style={{
+              position: "relative",
               display: "flex",
               justifyContent: "center",
               alignContent: "center",
