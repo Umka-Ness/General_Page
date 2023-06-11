@@ -1,16 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../StepByStep/StepByStep.module.css";
 
 export const StepByStepButtonGame = ({ name, index, id, value }) => {
   const containerRef = useRef(null);
   const refActive = useRef();
   const [isActive, setIsActive] = useState(false);
-  const [xClient, setXclient] = useState(0);
-  const [yClient, setYclient] = useState(0);
 
-  useEffect(() => {
-    console.log(xClient, yClient);
-  }, [xClient, yClient]);
   const handleClick = (e) => {
     console.log(e);
     const container = containerRef.current;
@@ -27,14 +22,72 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
 
       // clearInterval(interval);
       // return;
-      refActiveCurrent.style.top = `10%`;
-      refActiveCurrent.style.left = `10%`;
-
+      let x = 0;
+      let y = 0;
+      let xTranslate = 0;
+      let yTranslate = 0;
+      if (e.target.id === "1") {
+        y = 27.5;
+        x = 12;
+        xTranslate = -5;
+        yTranslate = -20;
+        console.log(1);
+      } else if (e.target.id === "2") {
+        y = 27.5;
+        x = 28;
+        xTranslate = -25;
+        yTranslate = -20;
+      } else if (e.target.id === "3") {
+        y = 27.5;
+        x = 44;
+        xTranslate = -45;
+        yTranslate = -20;
+      } else if (e.target.id === "4") {
+        y = 27.5;
+        x = 60;
+        xTranslate = -65;
+        yTranslate = -20;
+      } else if (e.target.id === "5") {
+        y = 27.5;
+        x = 76;
+        xTranslate = -82;
+        yTranslate = -20;
+      } else if (e.target.id === "6") {
+        y = 51.5;
+        x = 12;
+        xTranslate = -5;
+        yTranslate = -53;
+      } else if (e.target.id === "7") {
+        y = 51.5;
+        x = 28;
+        xTranslate = -25;
+        yTranslate = -53;
+      } else if (e.target.id === "8") {
+        y = 51.5;
+        x = 44;
+        xTranslate = -45;
+        yTranslate = -53;
+      } else if (e.target.id === "9") {
+        y = 51.5;
+        x = 64;
+        xTranslate = -65;
+        yTranslate = -53;
+      } else if (e.target.id === "10") {
+        y = 51.5;
+        x = 80;
+        xTranslate = -85;
+        yTranslate = -53;
+      } else {
+        console.log("err");
+      }
+      refActiveCurrent.style.top = `${y}%`;
+      refActiveCurrent.style.left = `${x}%`;
+      refActiveCurrent.style.transform = `translate(${xTranslate}%, ${yTranslate}%)`;
       refActiveCurrent.style.transition = "2s";
-      refActiveCurrent.style.width = "900px";
+      refActiveCurrent.style.width = "950px";
       refActiveCurrent.style.height = "500px";
     } else {
-      refActiveCurrent.style.transform = `translate(10%, 10%)`;
+      // refActiveCurrent.style.transform = `translate(10%, 10%)`;
       container.style.top = "120px";
       refActiveCurrent.style.position = "absolute";
       refActiveCurrent.style.width = "150px";
@@ -64,9 +117,6 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       ref={refActive}
       id={id}
     >
-      <button class="zoomTarget" data-targetsize="0.45" data-duration="600">
-        This element zooms when clicked on.
-      </button>
       <div
         ref={containerRef}
         style={{
@@ -106,6 +156,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
             fontSize:
               containerRef.current?.style.top === "420px" ? "28px" : "inherit",
           }}
+          id={id}
         >
           {name}
         </div>

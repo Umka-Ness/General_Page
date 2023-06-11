@@ -28,9 +28,6 @@ export const NavigationBtn = () => {
           </button>
         ))
       )}
-      <button class="zoomTarget" data-targetsize="0.45" data-duration="600">
-        This element zooms when clicked on.
-      </button>
     </>
   );
 };

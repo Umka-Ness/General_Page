@@ -89,8 +89,8 @@ export const StepByStep = () => {
             flexDirection: "column",
             justifyContent: "center",
           }}
+          className={css.wrapper}
         >
-          <div></div>
           <button
             className={cssPageOne.BackBtn}
             onClick={handleOnClick}

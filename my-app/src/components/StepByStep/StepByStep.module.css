@@ -64,3 +64,10 @@ li {
 .btnContainerGame:hover {
   animation: zoomIn 1.5s;
 }
+
+.wrapper {
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}

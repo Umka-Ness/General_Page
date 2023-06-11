@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
-import { StepByStepModal } from "./StepByStepModal";
 
 export const StepByStepGame = (dataId, data) => {
   data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
-  const [targetId, setTargetId] = useState();
   const [isGood, setIsGood] = useState(false);
   // const [client, setClient] = useState({ x: "0", y: "0" });
 
