@@ -1,17 +1,11 @@
 import React from "react";
 import css from "./StepByStep.module.css";
 
-export const StepByStepButton = ({ name }) => {
+export const StepByStepButton = ({ name, dataSvg }) => {
   return (
     <>
-      {/* <svg>
-          <use
-            href="./symbol-defs.svg#icon-pentagon-svgrepo-com"
-            fill="blue"
-            style={{ width: "100px", height: "100px" }}
-          ></use>
-        </svg> */}
-      <button className={css.btnComponent}> {name} </button>
+      <img src={dataSvg} alt="awd" style={{ height: "70px", width: "70px" }} />
+      {/* <button className={css.btnComponent}> {name} </button> */}
     </>
   );
 };
