@@ -1,15 +1,26 @@
 {
   "files": {
-    "main.css": "/General_Page/static/css/main.fda7290b.css",
-    "main.js": "/General_Page/static/js/main.65c82a1e.js",
+    "main.css": "/General_Page/static/css/main.4619c254.css",
+    "main.js": "/General_Page/static/js/main.d73049ac.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
+    "static/media/Go.svg": "/General_Page/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
+    "static/media/question-3-stars.svg": "/General_Page/static/media/question-3-stars.a2afbcd0bba765b5bbfffec6acf2d1b6.svg",
+    "static/media/question-2-stars.svg": "/General_Page/static/media/question-2-stars.c10ff5cda96c5c3ec48d095f1e9ec0bd.svg",
+    "static/media/question-1-star.svg": "/General_Page/static/media/question-1-star.1bc5e74e47a96a44dcfa444dd6e15a0d.svg",
+    "static/media/key-3-stars.svg": "/General_Page/static/media/key-3-stars.d413446b2b6e87426b677c9510f43f73.svg",
+    "static/media/key-2-stars.svg": "/General_Page/static/media/key-2-stars.0e2d3d9e44c71dc04b8f0209105941fe.svg",
+    "static/media/key-1-star.svg": "/General_Page/static/media/key-1-star.e27cbac06427d6218b57403358007f7f.svg",
+    "static/media/bag-3-stars.svg": "/General_Page/static/media/bag-3-stars.416ae4603859a27a57675ec72bb27605.svg",
+    "static/media/bag-2-stars.svg": "/General_Page/static/media/bag-2-stars.676ad479661644aeca9bcd6e66562e10.svg",
+    "static/media/bag-1-star.svg": "/General_Page/static/media/bag-1-star.9c3ec4cb14af5d5225e23fd95e651090.svg",
+    "static/media/bg.svg": "/General_Page/static/media/bg.ab9955925e734a0aa7fa4f1537f8669b.svg",
     "index.html": "/General_Page/index.html",
-    "main.fda7290b.css.map": "/General_Page/static/css/main.fda7290b.css.map",
-    "main.65c82a1e.js.map": "/General_Page/static/js/main.65c82a1e.js.map"
+    "main.4619c254.css.map": "/General_Page/static/css/main.4619c254.css.map",
+    "main.d73049ac.js.map": "/General_Page/static/js/main.d73049ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.fda7290b.css",
-    "static/js/main.65c82a1e.js"
+    "static/css/main.4619c254.css",
+    "static/js/main.d73049ac.js"
   ]
 }
