@@ -38,7 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "css-loader": "^6.8.1"
-  }
+  "devDependencies": {}
 }

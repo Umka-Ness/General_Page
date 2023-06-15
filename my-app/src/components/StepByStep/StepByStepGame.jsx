@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import css from "../../main.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
-
+import fone from "./images/fon.png";
 export const StepByStepGame = (dataId, data) => {
   data = dataId.data;
   console.log(dataId);
@@ -30,6 +30,7 @@ export const StepByStepGame = (dataId, data) => {
             display: "flex",
             minHeight: "100vh",
             justifyContent: "center",
+            backgroundImage: `url(${fone})`,
           }}
           className={css.fon}
         >
