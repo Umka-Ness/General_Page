@@ -96,7 +96,7 @@ export const StepByStep = () => {
     } else {
       return (
         <>
-          <img src={skyBg} alt="asas" className={cssPageOne.bgSvg} />
+          {/* <img src={skyBg} alt="asas" className={cssPageOne.bgSvg} /> */}
           <div
             style={{
               height: "100vh",
@@ -104,6 +104,7 @@ export const StepByStep = () => {
               flexDirection: "column",
               justifyContent: "center",
               zIndex: "2",
+              alignItems: "center",
             }}
             className={css.wrapper}
           >
@@ -115,7 +116,7 @@ export const StepByStep = () => {
             >
               Back
             </button>
-            <ul className={css.container} style={{ zIndex: "2" }}>
+            <ul className={css.container}>
               <li>
                 <div
                   style={{ marginLeft: "50px", maxWidth: "40px" }}
