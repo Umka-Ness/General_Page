@@ -18,11 +18,10 @@
 
 .container {
   display: flex;
-  gap: 150px;
+  // gap: 150px;
   list-style: none;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-between;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
@@ -31,22 +30,25 @@
   background-size: contain;
 
   @media screen and (max-width: "970px") {
-    gap: 100px;
+    // gap: 100px;
   }
   @media screen and (max-width: "720px") {
-    gap: 90px;
+    // gap: 90px;
   }
 }
 
 li {
   display: flex;
-  gap: 100px;
+  // gap: 100px;
   flex-direction: column;
+  height: 90vh;
+  justify-content: space-between;
+
   @media screen and (max-width: "970px") {
-    gap: 100px;
+    // gap: 100px;
   }
   @media screen and (max-width: "720px") {
-    gap: 100px;
+    // gap: 100px;
   }
 }
 
@@ -94,7 +96,8 @@ li {
   transform: translate(-50%, -50%);
   min-width: 100vw;
   min-height: 100vw; */
-
+  padding-left: 40px;
+  padding-right: 40px;
   background-image: url("https://img.freepik.com/premium-vector/top-view-of-the-countryside_70347-2007.jpg");
   background-repeat: no-repeat;
   background-position-x: center;

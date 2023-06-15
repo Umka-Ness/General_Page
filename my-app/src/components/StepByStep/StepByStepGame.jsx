@@ -4,6 +4,8 @@ import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
 import fone from "./images/fon.png";
 export const StepByStepGame = (dataId, data) => {
+  const el = document.getElementsByTagName("body")[0];
+  el.style.overflow = "inherit";
   data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);

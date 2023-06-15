@@ -157,7 +157,7 @@ export const StepByStep = () => {
                 </div>
               </li>
               <li>
-                <div style={{ marginLeft: "-150px" }} id={8} onClick={runGame}>
+                <div style={{ marginLeft: "-140px" }} id={8} onClick={runGame}>
                   <StepByStepButton name="8" dataSvg={svgKeyTwoStars} />
                 </div>
                 <div style={{ marginLeft: "-100px" }} id={9} onClick={runGame}>
