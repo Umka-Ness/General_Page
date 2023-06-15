@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import css from "../StepByStep/StepByStep.module.css";
+import css from "../../main.module.css";
 
 const positions = {
   1: { y: 27.5, x: 8, xTranslate: -5, yTranslate: -20 },

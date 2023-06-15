@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./StepByStep.module.css";
+// import css from "./StepByStep.module.css";
 
 export const StepByStepButton = ({ name, dataSvg }) => {
   return (

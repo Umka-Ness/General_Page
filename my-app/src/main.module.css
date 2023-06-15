@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btnComponent {
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 10px;
+  background: aqua;
+  justify-content: center;
+  /* margin: 55px; */
+  cursor: pointer;
+  /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); */
+}
+
+.container {
+  display: flex;
+  gap: 140px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url("./Picture/SVG/bg.svg"); */
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: contain;
+}
+
+li {
+  display: flex;
+  gap: 120px;
+  flex-direction: column;
+}
+
+.btnContainerGame {
+  background: url(https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg);
+}
+
+.btnGame {
+  transition: transform 1.3s;
+  animation: btnGame 1s;
+}
+
+@keyframes btnGame {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.btnContainerGame:hover {
+  animation: zoomIn 1.5s;
+}
+
+.wrapper {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100vw;
+  min-height: 100vw; */
+  background-image: url("https://img.freepik.com/premium-vector/top-view-of-the-countryside_70347-2007.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  min-height: 100vh;
+}/*# sourceMappingURL=main.module.css.map */

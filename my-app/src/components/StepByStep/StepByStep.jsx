@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import css from "./StepByStep.module.css";
+import css from "../../main.module.css";
 import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStepButton } from "./StepByStepButton";
 import { PageOne } from "../Game-page/pageOne";
