@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -84,4 +85,90 @@ li {
   background-position-y: center;
   background-size: cover;
   min-height: 100vh;
+}
+
+.btnImage {
+  min-height: 70px;
+  min-width: 70px;
+}
+
+.NavigationBtn {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 100px;
+  height: 50px;
+  color: #000;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 1px solid rgba(56, 55, 55, 0.619);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.blockCard {
+  word-break: break-all;
+  max-width: 350px;
+  height: 75px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 10px;
+}
+
+.blockCard::-webkit-scrollbar {
+  background: rgba(135, 173, 191, 0.5176470588);
+  max-height: 4px;
+  max-width: 7px;
+  border-radius: 25px;
+}
+
+.blockCard::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: #999;
+  border-radius: 25px;
+}
+
+.name {
+  text-align: "center";
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: flex;
+  max-width: 350px;
+  max-height: 200px;
+}
+
+.BackBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 40px;
+  min-width: 60px;
+  text-align: center;
+  background: transparent;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 1px solid rgba(56, 55, 55, 0.619);
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+.fon {
+  background-image: url("../StepByStep/Picture/fon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgSvg {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=main.module.css.map */

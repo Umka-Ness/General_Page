@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import btnList from "../Game-page/BtnForLearning.json";
-import css from "./Navigation.module.css";
+import css from "../../main.module.css";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);

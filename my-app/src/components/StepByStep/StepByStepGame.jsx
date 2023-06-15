@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import cssPageOne from "../Game-page/GamePage.module.css";
+import css from "../../main.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
 
@@ -31,10 +31,10 @@ export const StepByStepGame = (dataId, data) => {
             minHeight: "100vh",
             justifyContent: "center",
           }}
-          className={cssPageOne.fon}
+          className={css.fon}
         >
           <button
-            className={cssPageOne.BackBtn}
+            className={css.BackBtn}
             onClick={handleOnClick}
             id="back"
             // style={{ position: "absolute", top: "0" }}

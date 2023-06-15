@@ -84,7 +84,7 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 import gameInfo from "./gameInfo.json";
-import css from "./GamePage.module.css";
+import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../Game-page/Screenshot_9.png";
-import css from "./GamePage.module.css";
+import css from "../../main.module.css";
 export const Button = ({ url }) => {
   return (
     <div>
