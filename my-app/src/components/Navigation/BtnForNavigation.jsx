@@ -1,7 +1,7 @@
 import React from "react";
 import btnList from "../Navigation/BtnForLearning.json";
 import css from "../../main.module.css";
-import svg from "./SVG/bgButtonStars.svg";
+// import svg from "../../../public/bgButtonStars.svg";
 
 export const BtnForNavigation = () => {
   return btnList.map((i) => (

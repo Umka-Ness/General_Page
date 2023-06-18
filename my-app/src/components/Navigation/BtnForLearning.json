@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Game",
     "color": "red",
-    "image": "https://w.forfun.com/fetch/98/98621ef89c5eea3a6bf9562d7d818a82.jpeg"
+    "image": "../../../public/bgButtonStars.svg"
   },
   {
     "id": 2,
