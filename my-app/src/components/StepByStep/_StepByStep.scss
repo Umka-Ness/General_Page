@@ -18,13 +18,11 @@
 
 .container {
   display: flex;
-  // gap: 150px;
+  // gap: 20px;
   list-style: none;
   align-items: center;
   justify-content: space-between;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: center;
+
   min-width: 100%;
   min-height: 100%;
   background-size: contain;
@@ -40,6 +38,7 @@
 li {
   display: flex;
   // gap: 100px;
+
   flex-direction: column;
   height: 90vh;
   justify-content: space-between;
@@ -111,6 +110,7 @@ li {
   height: 100px;
   max-height: 100px;
   max-width: 100px;
+
   @media screen and (max-width: "970px") {
     width: 80px;
     height: 80px;

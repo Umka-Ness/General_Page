@@ -135,7 +135,7 @@ export const StepByStep = () => {
                 <div
                   style={{
                     marginLeft: "-120px",
-                    marginTop: "20px",
+                    marginTop: "85px",
                   }}
                   id={5}
                   onClick={runGame}

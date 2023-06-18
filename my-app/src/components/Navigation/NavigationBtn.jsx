@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
-import btnList from "../Game-page/BtnForLearning.json";
-import css from "../../main.module.css";
+import { BtnForNavigation } from "./BtnForNavigation";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -17,16 +16,19 @@ export const NavigationBtn = () => {
       {selectedId === "1" ? (
         <PageOne />
       ) : (
-        btnList.map((i) => (
-          <button
-            className={css.NavigationBtn}
-            key={i.id}
-            onClick={handleOnClick}
-            data-id={i.id}
-          >
-            {i.name}
-          </button>
-        ))
+        <div
+          onClick={handleOnClick}
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "100vw",
+            height: "100vh",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <BtnForNavigation />
+        </div>
       )}
     </>
   );

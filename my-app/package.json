@@ -38,5 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "svg-inline-loader": "^0.8.2"
+  }
 }
