@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.css": "/General_Page/static/css/main.6b25eef0.css",
-    "main.js": "/General_Page/static/js/main.fd55e599.js",
+    "main.css": "/General_Page/static/css/main.55c4a818.css",
+    "main.js": "/General_Page/static/js/main.6c15f988.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
+    "static/media/zhivopis-illustracia-art-voda-oblako-500x.jpg": "/General_Page/static/media/zhivopis-illustracia-art-voda-oblako-500x.a40562fe7dbc90a63210.jpg",
+    "static/media/top-view-of-the-countryside.jpg": "/General_Page/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
     "static/media/Go.svg": "/General_Page/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
     "static/media/question-3-stars.svg": "/General_Page/static/media/question-3-stars.a2afbcd0bba765b5bbfffec6acf2d1b6.svg",
     "static/media/question-2-stars.svg": "/General_Page/static/media/question-2-stars.c10ff5cda96c5c3ec48d095f1e9ec0bd.svg",
@@ -14,12 +16,15 @@
     "static/media/bag-3-stars.svg": "/General_Page/static/media/bag-3-stars.416ae4603859a27a57675ec72bb27605.svg",
     "static/media/bag-2-stars.svg": "/General_Page/static/media/bag-2-stars.676ad479661644aeca9bcd6e66562e10.svg",
     "static/media/bag-1-star.svg": "/General_Page/static/media/bag-1-star.9c3ec4cb14af5d5225e23fd95e651090.svg",
+    "static/media/bgButtonPurple.svg": "/General_Page/static/media/bgButtonPurple.027a3b4331a04c68b2c98979d0f802d6.svg",
+    "static/media/bgButtonStars.svg": "/General_Page/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
+    "static/media/bgButtonIdk.svg": "/General_Page/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/General_Page/index.html",
-    "main.6b25eef0.css.map": "/General_Page/static/css/main.6b25eef0.css.map",
-    "main.fd55e599.js.map": "/General_Page/static/js/main.fd55e599.js.map"
+    "main.55c4a818.css.map": "/General_Page/static/css/main.55c4a818.css.map",
+    "main.6c15f988.js.map": "/General_Page/static/js/main.6c15f988.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b25eef0.css",
-    "static/js/main.fd55e599.js"
+    "static/css/main.55c4a818.css",
+    "static/js/main.6c15f988.js"
   ]
 }
