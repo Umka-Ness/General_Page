@@ -6,7 +6,7 @@ export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const handleOnClick = (e) => {
-    const id = e.target.dataset.id;
+    const id = e.target.id;
     console.log(id);
     setSelectedId(id);
   };

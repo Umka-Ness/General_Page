@@ -1,54 +1,109 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
+import bgImage from "./images/zhivopis-illustracia-art-voda-oblako-500x.jpg";
 
 const positions = {
-  1: { y: 27.5, x: 8, xTranslate: -5, yTranslate: -20 },
-  2: { y: 27.5, x: 24, xTranslate: -25, yTranslate: -20 },
-  3: { y: 27.5, x: 44, xTranslate: -45, yTranslate: -20 },
-  4: { y: 27.5, x: 60, xTranslate: -65, yTranslate: -20 },
-  5: { y: 27.5, x: 76, xTranslate: -75, yTranslate: -20 },
-  6: { y: 51.5, x: 12, xTranslate: -15, yTranslate: -53 },
-  7: { y: 51.5, x: 28, xTranslate: -25, yTranslate: -53 },
-  8: { y: 51.5, x: 44, xTranslate: -45, yTranslate: -53 },
-  9: { y: 51.5, x: 64, xTranslate: -65, yTranslate: -53 },
-  10: { y: 51.5, x: 80, xTranslate: -85, yTranslate: -53 },
+  1: { y: 27.5, x: 8, xTranslate: -8, yTranslate: -20 },
+  2: { y: 27.5, x: 24, xTranslate: -24, yTranslate: -20 },
+  3: { y: 27.5, x: 44, xTranslate: -44, yTranslate: -20 },
+  4: { y: 27.5, x: 60, xTranslate: -60, yTranslate: -20 },
+  5: { y: 27.5, x: 76, xTranslate: -76, yTranslate: -20 },
+  6: { y: 51.5, x: 12, xTranslate: -12, yTranslate: -53 },
+  7: { y: 51.5, x: 28, xTranslate: -28, yTranslate: -53 },
+  8: { y: 51.5, x: 44, xTranslate: -44, yTranslate: -53 },
+  9: { y: 51.5, x: 64, xTranslate: -64, yTranslate: -53 },
+  10: { y: 51.5, x: 80, xTranslate: -80, yTranslate: -53 },
 };
 
 export const StepByStepButtonGame = ({ name, index, id, value }) => {
+  const el = document.getElementsByTagName("body")[0];
+  el.style.overflowX = "hidden";
   const containerRef = useRef(null);
   const refActive = useRef();
   const [isActive, setIsActive] = useState(false);
 
+  const giveStyles = (
+    x,
+    y,
+    container,
+    refActiveCurrent,
+    xTranslate,
+    yTranslate,
+    zIndex,
+    position,
+    transition,
+    width,
+    height,
+    borderTopLeftRadius,
+    borderTopRightRadius,
+    top
+  ) => {
+    container.style.top = top;
+    container.style.transition = "top 0.5s";
+
+    refActiveCurrent.style.zIndex = zIndex;
+    refActiveCurrent.style.position = position;
+    refActiveCurrent.style.top = `${y}%`;
+    refActiveCurrent.style.left = `${x}%`;
+    refActiveCurrent.style.transform = `translate(${xTranslate}%, ${yTranslate}%)`;
+    refActiveCurrent.style.transition = transition;
+    refActiveCurrent.style.width = width;
+    refActiveCurrent.style.height = height;
+
+    container.style.borderTopLeftRadius = borderTopLeftRadius;
+    container.style.borderTopRightRadius = borderTopRightRadius;
+    setTimeout(() => {
+      if (!isActive) {
+        refActiveCurrent.style.minWidth = "0";
+        refActiveCurrent.style.minHeight = "0";
+      } else {
+        refActiveCurrent.style.minWidth = width;
+        refActiveCurrent.style.minHeight = height;
+      }
+    }, 2000);
+  };
   const handleButtonClick = (e) => {
     const { id } = e.target;
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
+    const { y, x, xTranslate, yTranslate } = positions[id];
 
-    if (!isActive) {
+    if (!isActive && window.innerWidth >= 1000) {
       setIsActive(true);
-
-      container.style.top = "420px";
-      container.style.transition = "top 0.5s";
-
-      const { y, x, xTranslate, yTranslate } = positions[id];
-
-      refActiveCurrent.style.zIndex = "9";
-      refActiveCurrent.style.position = "absolute";
-      refActiveCurrent.style.top = `${y}%`;
-      refActiveCurrent.style.left = `${x}%`;
-      refActiveCurrent.style.transform = `translate(${xTranslate}%, ${yTranslate}%)`;
-      refActiveCurrent.style.transition = "2s";
-      refActiveCurrent.style.width = "950px";
-      refActiveCurrent.style.height = "500px";
-      setTimeout(() => {
-        if (!isActive) {
-          refActiveCurrent.style.minWidth = "0";
-          refActiveCurrent.style.minHeight = "0";
-        } else {
-          refActiveCurrent.style.minWidth = "950px";
-          refActiveCurrent.style.minHeight = "500px";
-        }
-      }, 2000);
+      giveStyles(
+        x,
+        y,
+        container,
+        refActiveCurrent,
+        xTranslate,
+        yTranslate,
+        9,
+        "absolute",
+        "2s",
+        "950px",
+        "500px",
+        "0px",
+        "0px",
+        "420px"
+      );
+    } else if (!isActive && window.innerWidth >= 520) {
+      setIsActive(true);
+      giveStyles(
+        x,
+        y,
+        container,
+        refActiveCurrent,
+        xTranslate,
+        yTranslate,
+        9,
+        "absolute",
+        "2s",
+        "100vw",
+        "620px",
+        "0px",
+        "0px",
+        "520px"
+      );
     } else {
       container.style.top = "120px";
       refActiveCurrent.style.position = "absolute";
@@ -95,6 +150,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
           transformOrigin: "center center",
           cursor: "pointer",
           borderRadius: "13px",
+          backgroundImage: `url(${bgImage})`,
         }}
         className={css.btnContainerGame}
         id={id}

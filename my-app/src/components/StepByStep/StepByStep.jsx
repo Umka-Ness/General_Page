@@ -33,7 +33,7 @@ import svgQuestionOneStar from "./images/SVG/question-1-star.svg";
 import svgQuestionTwoStars from "./images/SVG/question-2-stars.svg";
 import svgQuestionThreeStars from "./images/SVG/question-3-stars.svg";
 
-// import skyBg from "./Picture/SVG/bg.svg";
+import BgImg from "./images/top-view-of-the-countryside.jpg";
 
 export const StepByStep = () => {
   const el = document.getElementsByTagName("body")[0];
@@ -105,6 +105,7 @@ export const StepByStep = () => {
               justifyContent: "center",
               zIndex: "2",
               alignItems: "center",
+              backgroundImage: `url(${BgImg})`,
             }}
             className={css.wrapper}
           >

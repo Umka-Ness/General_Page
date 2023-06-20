@@ -31,10 +31,6 @@ li {
   height: 90vh;
   justify-content: space-between;
 }
-.btnContainerGame {
-  background: url(https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg);
-}
-
 .btnGame {
   transition: transform 1.3s;
   animation: btnGame 1s;
@@ -75,7 +71,6 @@ li {
   min-height: 100vw; */
   padding-left: 40px;
   padding-right: 40px;
-  background-image: url("https://img.freepik.com/premium-vector/top-view-of-the-countryside_70347-2007.jpg");
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
