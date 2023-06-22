@@ -1,0 +1,26 @@
+{
+  "database": {
+    "rules": "database.rules.json",
+    "indexes": "database.indexes.json",
+    "hosting": {
+      "headers": [
+        {
+          "source": "/users/**",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+    "cors": [
+      {
+        "origin": ["http://localhost:3000"],
+        "method": ["GET", "POST", "PUT", "DELETE"],
+        "maxAgeSeconds": 3600
+      }
+    ]
+  }
+}

@@ -15,13 +15,20 @@ const positions = {
   10: { y: 51.5, x: 80, xTranslate: -80, yTranslate: -53 },
 };
 
+// Чтение данных
+// fetch(app)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
+
 export const StepByStepButtonGame = ({ name, index, id, value }) => {
+  const [isActive, setIsActive] = useState(false);
+
   const el = document.getElementsByTagName("body")[0];
   el.style.overflowX = "hidden";
   const containerRef = useRef(null);
   const refActive = useRef();
   const refBtn = useRef();
-  const [isActive, setIsActive] = useState(false);
 
   const giveStyles = (
     x,

@@ -104,6 +104,9 @@ li {
 .btnContainerGame:hover {
   animation: zoomIn 1.5s;
 }
+// img:not(:hover) {
+//   filter: blur(20px);
+// }
 
 .wrapper {
   /* position: absolute;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
+import { Register } from "../Auth/Register";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -28,6 +29,7 @@ export const NavigationBtn = () => {
           }}
         >
           <BtnForNavigation />
+          {/* <Register /> */}
         </div>
       )}
     </>
