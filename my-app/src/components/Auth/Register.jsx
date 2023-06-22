@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
 import { initializeApp } from "firebase/app";
 import "firebase/compat/database"; // Импорт модуля базы данных
@@ -21,28 +21,38 @@ export const Register = () => {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const x = 5;
+  console.log(x);
 
   const [value, setValue] = useState(false);
   const [id, setId] = useState("");
 
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const refError = useRef(null);
 
   const postData = async (e) => {
+    const errorRefCurrent = refError.current;
     e.preventDefault();
-
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        email: email,
-        password: password,
-        date: new Date(),
-      });
-      console.log("Document written with ID: ", docRef.id);
-      setId(docRef.id);
-      setValue(true);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    } finally {
+    if (login === "" || password === "") {
+      errorRefCurrent.style.display = "inherit";
+      setTimeout(() => {
+        errorRefCurrent.style.display = "none";
+      }, 5000);
+    } else {
+      try {
+        const docRef = await addDoc(collection(db, "users"), {
+          login: login,
+          password: password,
+          date: new Date(),
+        });
+        console.log("Document written with ID: ", docRef.id);
+        setId(docRef.id);
+        setValue(true);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      } finally {
+      }
     }
   };
   const renderContent = () => {
@@ -52,14 +62,17 @@ export const Register = () => {
       return (
         <div className={css.authContainer}>
           <div className={css.auth}>
+            <p ref={refError} className={css.errorRegister}>
+              incorrect username or password
+            </p>
             <input
               type="email"
               name="email"
               id="email"
-              placeholder="Email"
-              className={css.email}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Login"
+              className={css.login}
+              value={login.trim()}
+              onChange={(e) => setLogin(e.target.value)}
             />
             <input
               type="password"
@@ -67,7 +80,7 @@ export const Register = () => {
               id="password"
               placeholder="Password"
               className={css.password}
-              value={password}
+              value={password.trim()}
               onChange={(e) => setPassword(e.target.value)}
             />
             <button onClick={postData}>Create account</button>

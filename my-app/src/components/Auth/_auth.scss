@@ -20,8 +20,22 @@
   height: 20%;
 }
 
-.email {
+.login {
+  padding-left: 5px;
 }
 
 .password {
+  padding-left: 5px;
+}
+
+.errorRegister {
+  display: none;
+  color: tomato;
+  width: 100%;
+  justify-content: center;
+
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

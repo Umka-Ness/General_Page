@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
 
 import { collection, getDocs, getFirestore } from "firebase/firestore";
@@ -8,9 +8,10 @@ import { NavigationBtn } from "../Navigation/NavigationBtn";
 
 export const Login = (id) => {
   const [value, setValue] = useState(false);
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [isGood, setIsGood] = useState(false);
+  const refError = useRef(null);
 
   const firebaseConfig = {
     apiKey: "AIzaSyB1mWqevmipidxWW264EnXV__YFdSkx93M",
@@ -25,15 +26,23 @@ export const Login = (id) => {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  const fetchData = async () => {
+  const fetchData = async (e) => {
+    const errorRefCurrent = refError.current;
+    e.preventDefault();
+    if (login === "" || password === "") {
+      errorRefCurrent.style.display = "inherit";
+      setTimeout(() => {
+        errorRefCurrent.style.display = "none";
+      }, 5000);
+    }
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       const userArray = querySnapshot.docs;
       for (let i = 0; i < userArray.length; i++) {
         const userData = userArray[i].data();
-        const userEmail = userData.email;
+        const userLogin = userData.login;
         const userPassword = userData.password;
-        if (email === userEmail && password === userPassword) {
+        if (login === userLogin && password === userPassword) {
           setIsGood(true);
           console.log("Success");
           break; // Прерываем цикл после нахождения первого совпадения
@@ -54,14 +63,17 @@ export const Login = (id) => {
       return (
         <div className={css.authContainer}>
           <div className={css.auth}>
+            <p ref={refError} className={css.errorRegister}>
+              incorrect username or password
+            </p>
             <input
               type="email"
               name="email"
               id="email"
               placeholder="Email"
               className={css.email}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={login.trim()}
+              onChange={(e) => setLogin(e.target.value)}
             />
             <input
               type="password"
@@ -69,7 +81,7 @@ export const Login = (id) => {
               id="password"
               placeholder="Password"
               className={css.password}
-              value={password}
+              value={password.trim()}
               onChange={(e) => setPassword(e.target.value)}
             />
             <button onClick={fetchData}>Login in</button>
