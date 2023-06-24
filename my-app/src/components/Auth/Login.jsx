@@ -34,6 +34,7 @@ export const Login = (id) => {
         photoURL: user.photoURL,
         // date: new Date(),
       });
+      setIsGood(true);
     } catch (e) {
       console.error("Error adding document: ", e);
     } finally {

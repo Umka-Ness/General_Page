@@ -73,6 +73,11 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
     }, 2000);
   };
   const handleButtonClick = (e) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Добавляем плавную анимацию прокрутки
+    });
+
     const { id } = e.target;
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
@@ -126,7 +131,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         refActiveCurrent,
         refBtnCurrent,
         xTranslate,
-        yTranslate,
+        yTranslate - 15,
         9,
         "absolute",
         "2s",
@@ -134,7 +139,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         "90vh",
         "0px",
         "0px",
-        "920px"
+        "520px"
       );
     } else if (!isActive && window.innerWidth <= 324) {
       setIsActive(true);
