@@ -1,10 +1,38 @@
 import { Register } from "./components/Auth/Register";
-import { NavigationBtn } from "./components/Navigation/NavigationBtn";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
+
+import { createContext } from "react";
+
+// Инициализация Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyB1mWqevmipidxWW264EnXV__YFdSkx93M",
+  authDomain: "umka-77a72.firebaseapp.com",
+  databaseURL: "https://umka-77a72-default-rtdb.firebaseio.com",
+  projectId: "umka-77a72",
+  storageBucket: "umka-77a72.appspot.com",
+  messagingSenderId: "270019919476",
+  appId: "1:270019919476:web:28ff114af689a2143bdb21", // Initialize Firebaseconst app = initializeApp(firebaseConfig
+  // и другие настройки
+});
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+export const Context = createContext(null);
 
 function App() {
   return (
     <div className="App ">
-      <Register />
+      <Context.Provider
+        value={{
+          firebase,
+          auth,
+          firestore,
+        }}
+      >
+        <Register />
+      </Context.Provider>
     </div>
   );
 }

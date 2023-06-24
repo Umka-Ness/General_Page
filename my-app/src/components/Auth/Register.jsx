@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import css from "../../main.module.css";
 import { initializeApp } from "firebase/app";
 import "firebase/compat/database"; // Импорт модуля базы данных
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
-import axios from "axios";
+
 import { Login } from "./Login";
 
 export const Register = () => {
@@ -21,8 +21,6 @@ export const Register = () => {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  const x = 5;
-  console.log(x);
 
   const [value, setValue] = useState(false);
   const [id, setId] = useState("");

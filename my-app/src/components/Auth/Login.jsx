@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import css from "../../main.module.css";
-
+import firebase from "firebase/compat/app";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { Register } from "./Register";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
+import { Context } from "../../App";
 
 export const Login = (id) => {
   const [value, setValue] = useState(false);
@@ -12,6 +13,15 @@ export const Login = (id) => {
   const [password, setPassword] = useState("");
   const [isGood, setIsGood] = useState(false);
   const refError = useRef(null);
+
+  const { auth } = useContext(Context);
+
+  const registerGmail = async (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const { user } = await auth.signInWithPopup(provider);
+    console.log(user);
+  };
 
   const firebaseConfig = {
     apiKey: "AIzaSyB1mWqevmipidxWW264EnXV__YFdSkx93M",
@@ -47,6 +57,10 @@ export const Login = (id) => {
           console.log("Success");
           break; // Прерываем цикл после нахождения первого совпадения
         } else {
+          errorRefCurrent.style.display = "inherit";
+          setTimeout(() => {
+            errorRefCurrent.style.display = "none";
+          }, 5000);
           console.log("nee");
         }
       }
@@ -88,6 +102,7 @@ export const Login = (id) => {
             <p style={{ color: "#fff", textAlign: "center" }}>or</p>
 
             <button onClick={() => setValue(true)}>Create account </button>
+            <button onClick={registerGmail}>Gmail</button>
           </div>
         </div>
       );
