@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import css from "../../main.module.css";
 import firebase from "firebase/compat/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { Register } from "./Register";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
@@ -21,6 +21,23 @@ export const Login = (id) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const { user } = await auth.signInWithPopup(provider);
     console.log(user);
+
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        name: user.displayName,
+        login: login,
+        password: password,
+
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+        photoURL: user.photoURL,
+        // date: new Date(),
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    } finally {
+    }
   };
 
   const firebaseConfig = {
@@ -36,6 +53,7 @@ export const Login = (id) => {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
     e.preventDefault();
