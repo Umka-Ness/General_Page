@@ -26,6 +26,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
 
   const el = document.getElementsByTagName("body")[0];
   el.style.overflowX = "hidden";
+
   const containerRef = useRef(null);
   const refActive = useRef();
   const refBtn = useRef();
@@ -45,7 +46,8 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
     height,
     borderTopLeftRadius,
     borderTopRightRadius,
-    top
+    top,
+    overflowY
   ) => {
     container.style.top = top;
     container.style.transition = "top 0.5s";
@@ -59,6 +61,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
     refActiveCurrent.style.width = width;
     refActiveCurrent.style.height = height;
     refBtnCurrent.style.fontSize = "24px";
+    el.style.overflowY = overflowY;
 
     container.style.borderTopLeftRadius = borderTopLeftRadius;
     container.style.borderTopRightRadius = borderTopRightRadius;
@@ -101,7 +104,8 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         "500px",
         "0px",
         "0px",
-        "420px"
+        "420px",
+        "hidden"
       );
     } else if (!isActive && window.innerWidth >= 520) {
       setIsActive(true);
@@ -117,10 +121,35 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         "absolute",
         "2s",
         "100vw",
-        "620px",
+        "650px",
         "0px",
         "0px",
-        "520px"
+        "520px",
+        "hidden"
+      );
+    } else if (
+      !isActive &&
+      window.innerWidth >= 325 &&
+      window.innerHeight >= 700
+    ) {
+      setIsActive(true);
+      giveStyles(
+        x,
+        y,
+        container,
+        refActiveCurrent,
+        refBtnCurrent,
+        xTranslate,
+        yTranslate - 15,
+        9,
+        "absolute",
+        "2s",
+        "100vw",
+        "90vh",
+        "0px",
+        "0px",
+        "720px",
+        "auto"
       );
     } else if (!isActive && window.innerWidth >= 325) {
       setIsActive(true);
@@ -139,7 +168,8 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         "90vh",
         "0px",
         "0px",
-        "520px"
+        "520px",
+        "auto"
       );
     } else if (!isActive && window.innerWidth <= 324) {
       setIsActive(true);
@@ -150,7 +180,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         refActiveCurrent,
         refBtnCurrent,
         xTranslate,
-        yTranslate - 18.5,
+        yTranslate - 38.5,
         9,
         "absolute",
         "2s",
@@ -158,7 +188,8 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         "100vh",
         "0px",
         "0px",
-        "920px"
+        "550px",
+        "auto"
       );
     } else {
       container.style.top = "120px";
