@@ -2,8 +2,8 @@ import { Register } from "./components/Auth/Register";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
-
 import { createContext } from "react";
+import { initializeApp } from "firebase/app";
 
 // Инициализация Firebase
 firebase.initializeApp({
@@ -13,8 +13,7 @@ firebase.initializeApp({
   projectId: "umka-77a72",
   storageBucket: "umka-77a72.appspot.com",
   messagingSenderId: "270019919476",
-  appId: "1:270019919476:web:28ff114af689a2143bdb21", // Initialize Firebaseconst app = initializeApp(firebaseConfig
-  // и другие настройки
+  appId: "1:270019919476:web:28ff114af689a2143bdb21",
 });
 
 const auth = firebase.auth();
@@ -23,7 +22,7 @@ export const Context = createContext(null);
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <Context.Provider
         value={{
           firebase,
