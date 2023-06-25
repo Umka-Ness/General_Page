@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/General_Page/static/css/main.c6e48915.css",
-    "main.js": "/General_Page/static/js/main.0891d330.js",
+    "main.js": "/General_Page/static/js/main.4013945d.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/zhivopis-illustracia-art-voda-oblako-500x.jpg": "/General_Page/static/media/zhivopis-illustracia-art-voda-oblako-500x.a40562fe7dbc90a63210.jpg",
@@ -21,10 +21,10 @@
     "static/media/bgButtonIdk.svg": "/General_Page/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/General_Page/index.html",
     "main.c6e48915.css.map": "/General_Page/static/css/main.c6e48915.css.map",
-    "main.0891d330.js.map": "/General_Page/static/js/main.0891d330.js.map"
+    "main.4013945d.js.map": "/General_Page/static/js/main.4013945d.js.map"
   },
   "entrypoints": [
     "static/css/main.c6e48915.css",
-    "static/js/main.0891d330.js"
+    "static/js/main.4013945d.js"
   ]
 }
