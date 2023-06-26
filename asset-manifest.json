@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/General_Page/static/css/main.a6c2093b.css",
-    "main.js": "/General_Page/static/js/main.b99bc487.js",
+    "main.css": "/General_Page/static/css/main.9a83c77f.css",
+    "main.js": "/General_Page/static/js/main.a4dedc3a.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/podvodnie-peizazhi-1.jpg": "/General_Page/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
@@ -21,11 +21,11 @@
     "static/media/bgButtonStars.svg": "/General_Page/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/General_Page/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/General_Page/index.html",
-    "main.a6c2093b.css.map": "/General_Page/static/css/main.a6c2093b.css.map",
-    "main.b99bc487.js.map": "/General_Page/static/js/main.b99bc487.js.map"
+    "main.9a83c77f.css.map": "/General_Page/static/css/main.9a83c77f.css.map",
+    "main.a4dedc3a.js.map": "/General_Page/static/js/main.a4dedc3a.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6c2093b.css",
-    "static/js/main.b99bc487.js"
+    "static/css/main.9a83c77f.css",
+    "static/js/main.a4dedc3a.js"
   ]
 }
