@@ -5,6 +5,7 @@ import "firebase/compat/database"; // Импорт модуля базы дан�
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import firebaseConfig from "../../firebase";
 import { Login } from "./Login";
+import bgImg from "./img/podvodnie-peizazhi-1.jpg";
 
 export const Register = () => {
   const app = initializeApp(firebaseConfig);
@@ -46,34 +47,45 @@ export const Register = () => {
       return <Login id={id} />;
     } else {
       return (
-        <div className={css.authContainer}>
-          <div className={css.auth}>
-            <p ref={refError} className={css.errorRegister}>
-              incorrect username or password
-            </p>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Login"
-              className={css.login}
-              value={login.trim()}
-              onChange={(e) => setLogin(e.target.value)}
-            />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              className={css.password}
-              value={password.trim()}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={postData}>Create account</button>
-            <p style={{ color: "#fff", textAlign: "center" }}>or</p>
-            <button onClick={() => setValue(true)}>Login</button>
+        <>
+          <div
+            className={css.bgContainer}
+            style={{ backgroundImage: `url(${bgImg})` }}
+          ></div>
+          <div className={css.authContainer}>
+            <div className={css.auth}>
+              <p className={css.namePage}>Register</p>
+              <p ref={refError} className={css.errorRegister}>
+                incorrect username or password
+              </p>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Login or email"
+                className={css.login}
+                value={login.trim()}
+                onChange={(e) => setLogin(e.target.value)}
+              />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                className={css.password}
+                value={password.trim()}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button onClick={postData} className={css.createBtn}>
+                Create account
+              </button>
+              <p style={{ color: "#000", textAlign: "center" }}>or</p>
+              <button onClick={() => setValue(true)} className={css.loginBtn}>
+                Login
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       );
     }
   };
