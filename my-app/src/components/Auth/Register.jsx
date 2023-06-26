@@ -33,6 +33,7 @@ export const Register = () => {
           password: password,
           date: new Date(),
         });
+
         console.log("Document written with ID: ", docRef.id);
         setId(docRef.id);
         setValue(true);

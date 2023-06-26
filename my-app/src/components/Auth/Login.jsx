@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
 import firebase from "firebase/compat/app";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
@@ -8,7 +8,30 @@ import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { Context } from "../../App";
 import firebaseConfig from "../../firebase";
 import bgImg from "./img/podvodnie-peizazhi-1.jpg";
+import {
+  getAuth,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 
+const sessionTime = () => {
+  const auth = getAuth();
+
+  setPersistence(auth, browserLocalPersistence)
+    .then((data) => {
+      console.log(data);
+      // Тип сохранения состояния аутентификации успешно установлен
+      // Здесь можно продолжить выполнение операций аутентификации
+    })
+    .catch((error) => {
+      console.log(`sessionTime fun: ${error} `);
+      // Обработка ошибок при установке типа сохранения состояния аутентификации
+    });
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+sessionTime();
 export const Login = (id) => {
   const [value, setValue] = useState(false);
   const [login, setLogin] = useState("");
@@ -17,6 +40,24 @@ export const Login = (id) => {
   const refError = useRef(null);
 
   const { auth } = useContext(Context);
+
+  useEffect(() => {
+    // Проверка авторизации пользователя при загрузке компонента
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsGood(true);
+        console.log(user);
+      } else {
+        setIsGood(false);
+        console.log(user);
+      }
+    });
+
+    return () => {
+      <NavigationBtn />;
+      unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
+    };
+  }, []);
 
   const registerGmail = async (e) => {
     e.preventDefault();
@@ -38,15 +79,17 @@ export const Login = (id) => {
         photoURL: user.photoURL,
         // date: new Date(),
       });
+      // const KEY = "ACC_KEY";
+      // localStorage.setItem(
+      //   KEY,
+      //   JSON.stringify(user.multiFactor.user.stsTokenManager.accessToken)
+      // );
       setIsGood(true);
     } catch (e) {
       console.error("Error adding document or signInWithPopup is closed: ", e);
     } finally {
     }
   };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
 
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
@@ -66,6 +109,7 @@ export const Login = (id) => {
         const userPassword = userData.password;
         if (login === userLogin && password === userPassword) {
           setIsGood(true);
+
           console.log("Success");
           break; // Прерываем цикл после нахождения первого совпадения
         } else {

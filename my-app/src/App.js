@@ -4,6 +4,7 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import { createContext } from "react";
 import { initializeApp } from "firebase/app";
+import { Login } from "./components/Auth/Login";
 
 // Инициализация Firebase
 firebase.initializeApp({
@@ -30,7 +31,8 @@ function App() {
           firestore,
         }}
       >
-        <Register />
+        {/* <Register /> */}
+        <Login />
       </Context.Provider>
     </div>
   );
