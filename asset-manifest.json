@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/General_Page/static/css/main.c6e48915.css",
-    "main.js": "/General_Page/static/js/main.4013945d.js",
+    "main.css": "/General_Page/static/css/main.a6c2093b.css",
+    "main.js": "/General_Page/static/js/main.b99bc487.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
+    "static/media/podvodnie-peizazhi-1.jpg": "/General_Page/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
     "static/media/zhivopis-illustracia-art-voda-oblako-500x.jpg": "/General_Page/static/media/zhivopis-illustracia-art-voda-oblako-500x.a40562fe7dbc90a63210.jpg",
     "static/media/top-view-of-the-countryside.jpg": "/General_Page/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
     "static/media/Go.svg": "/General_Page/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
@@ -20,11 +21,11 @@
     "static/media/bgButtonStars.svg": "/General_Page/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/General_Page/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/General_Page/index.html",
-    "main.c6e48915.css.map": "/General_Page/static/css/main.c6e48915.css.map",
-    "main.4013945d.js.map": "/General_Page/static/js/main.4013945d.js.map"
+    "main.a6c2093b.css.map": "/General_Page/static/css/main.a6c2093b.css.map",
+    "main.b99bc487.js.map": "/General_Page/static/js/main.b99bc487.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6e48915.css",
-    "static/js/main.4013945d.js"
+    "static/css/main.a6c2093b.css",
+    "static/js/main.b99bc487.js"
   ]
 }
