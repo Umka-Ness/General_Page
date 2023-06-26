@@ -4,7 +4,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   filter: blur(15px);
-
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   z-index: 1;
@@ -40,18 +41,59 @@
   border: 1px solid #000;
   border-radius: 15px;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
+  letter-spacing: 0.5px;
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }
 
 .password {
   padding: 10px;
   border: 1px solid #000;
+  letter-spacing: 0.5px;
 
   border-radius: 15px;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }
 .namePage {
   text-align: center;
   font-size: 28px;
+  letter-spacing: 1px;
 }
 .errorRegister {
   display: none;
@@ -70,6 +112,30 @@
   border: 1px solid #000;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
   background: #fff;
+  height: 25px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-0.15em);
+  }
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }
 
 .createBtn {
@@ -77,12 +143,60 @@
   border: 1px solid #000;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
   background: #fff;
+  height: 25px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-0.15em);
+  }
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }
 
 .gmailBtn {
   border-radius: 15px;
   border: 1px solid #000;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
+  height: 25px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-0.15em);
+  }
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }
 
 .loginInBtn {
@@ -90,4 +204,28 @@
   border: 1px solid #000;
   box-shadow: 30px 15px 15px rgba(0, 0, 0, 0.478);
   background: #fff;
+  height: 25px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-0.15em);
+  }
+  &:hover::before {
+    width: 100%;
+    top: 40px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    background: #fff;
+    left: 50%;
+    top: 30px;
+
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
 }

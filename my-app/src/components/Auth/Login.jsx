@@ -138,7 +138,7 @@ export const Login = (id) => {
           ></div>
           <div className={css.authContainer}>
             <div className={css.auth}>
-              <p className={css.namePage}>Register</p>
+              <p className={css.namePage}>Login in</p>
 
               <p ref={refError} className={css.errorRegister}>
                 incorrect username or password
@@ -161,6 +161,7 @@ export const Login = (id) => {
                 value={password.trim()}
                 onChange={(e) => setPassword(e.target.value)}
               />
+
               <button onClick={fetchData} className={css.loginInBtn}>
                 Login in
               </button>
