@@ -5,6 +5,7 @@ import { Register } from "../Auth/Register";
 import firebase from "firebase/compat/app";
 import { Context } from "../../App";
 import { Login } from "../Auth/Login";
+import { Lecture } from "../Lecture/Lecture";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -26,28 +27,32 @@ export const NavigationBtn = () => {
       console.log("Ошибка при выходе из системы:", error);
     }
   };
-
-  return (
-    <>
-      {selectedId === "1" ? (
-        <PageOne />
-      ) : (
-        <div
-          onClick={handleOnClick}
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            width: "100vw",
-            height: "100vh",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <BtnForNavigation />
-          {/* <Register /> */}
-        </div>
-      )}
-      <button onClick={handleLogout}>Setting</button>
-    </>
-  );
+  const renderContent = () => {
+    if (selectedId === "1") {
+      return <PageOne />;
+    } else if (selectedId === "2") {
+      return <Lecture />;
+    } else {
+      return (
+        <>
+          <div
+            onClick={handleOnClick}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              width: "100vw",
+              height: "100vh",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <BtnForNavigation />
+            {/* <Register /> */}
+          </div>
+          <button onClick={handleLogout}>Setting</button>
+        </>
+      );
+    }
+  };
+  return renderContent();
 };

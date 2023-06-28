@@ -89,6 +89,11 @@
     transition: all 0.3s;
     opacity: 0.7;
   }
+  &::-ms-reveal {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 3px currentColor;
+  }
 }
 .namePage {
   text-align: center;
@@ -117,6 +122,7 @@
 
   &:hover {
     transform: translateY(-0.15em);
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   &:hover::before {
     width: 100%;
@@ -147,6 +153,7 @@
   transition: transform 0.3s ease;
   &:hover {
     transform: translateY(-0.15em);
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   &:hover::before {
     width: 100%;
@@ -177,6 +184,7 @@
   transition: transform 0.3s ease;
   &:hover {
     transform: translateY(-0.15em);
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   &:hover::before {
     width: 100%;
@@ -208,6 +216,7 @@
   transition: transform 0.3s ease;
   &:hover {
     transform: translateY(-0.15em);
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   &:hover::before {
     width: 100%;
@@ -229,3 +238,5 @@
     opacity: 0.7;
   }
 }
+
+//

@@ -19,7 +19,6 @@ const sessionTime = () => {
 
   setPersistence(auth, browserLocalPersistence)
     .then((data) => {
-      console.log(data);
       // Тип сохранения состояния аутентификации успешно установлен
       // Здесь можно продолжить выполнение операций аутентификации
     })
@@ -49,7 +48,6 @@ export const Login = (id) => {
         console.log(user);
       } else {
         setIsGood(false);
-        console.log(user);
       }
     });
 

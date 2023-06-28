@@ -60,7 +60,7 @@ export const Register = () => {
                 incorrect username or password
               </p>
               <input
-                type="email"
+                type="text"
                 name="email"
                 id="email"
                 placeholder="Login or email"
