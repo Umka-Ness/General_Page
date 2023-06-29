@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
-import { Register } from "../Auth/Register";
-import firebase from "firebase/compat/app";
 import { Context } from "../../App";
 import { Login } from "../Auth/Login";
 import { Lecture } from "../Lecture/Lecture";
@@ -37,6 +35,8 @@ export const NavigationBtn = () => {
       return <PageOne />;
     } else if (selectedId === "2") {
       return <Lecture />;
+    } else if (selectedId === "5") {
+      return <Setting />;
     } else {
       return (
         <>
@@ -55,7 +55,6 @@ export const NavigationBtn = () => {
             {/* <Register /> */}
           </div>
           {/* <button onClick={handleLogout}>Setting</button> */}
-          <Setting />
         </>
       );
     }

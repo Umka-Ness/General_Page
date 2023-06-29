@@ -17,6 +17,7 @@ import { PageOne } from "../Game-page/pageOne";
 import { StepByStep } from "../StepByStep/StepByStep";
 import { StepByStepGame } from "../StepByStep/StepByStepGame";
 import { Lecture } from "../Lecture/Lecture";
+import { Setting } from "../SettingAcc/Setting";
 
 const sessionTime = () => {
   const auth = getAuth();
@@ -171,6 +172,8 @@ export const Login = (id) => {
       return <StepByStep />;
     } else if (localStorage.getItem("numberPage") === "Lecture") {
       return <Lecture />;
+    } else if (localStorage.getItem("numberPage") === "Setting") {
+      return <Setting />;
     } else {
       return (
         <>

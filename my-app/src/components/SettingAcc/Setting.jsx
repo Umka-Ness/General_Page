@@ -1,16 +1,44 @@
-import { reload } from "firebase/auth";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import css from "../../main.module.css";
+import { SignOut } from "./SignOut";
+import { NavigationBtn } from "../Navigation/NavigationBtn";
 
 export const Setting = () => {
-  const SignOut = () => {
-    localStorage.setItem("numberPage", "");
-    window.location.reload();
+  const [value, setValue] = useState("");
+  const [backBtn, setBackBtn] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("numberPage", "Setting");
+  }, []);
+
+  const handleOnClick = (e) => {
+    const id = e.target.id;
+    console.log(id);
+    setBackBtn(true);
   };
-  return (
-    <>
-      <div></div>
-      <button onClick={SignOut}>Sign out</button>
-      {/* Сделать тут настройки аккаунта с изменением пароля, логина и выход из акк */}
-    </>
-  );
+
+  const renderContent = () => {
+    if (backBtn === true) {
+      return <NavigationBtn />;
+    } else {
+      return (
+        <div className={css.settingContainer}>
+          <div>
+            <button
+              className={css.BackBtn}
+              onClick={handleOnClick}
+              id="back"
+              // style={{ position: "absolute", top: "0" }}
+            >
+              Back
+            </button>
+            <div className={css.signOut} onClick={(e) => setValue(e.target.id)}>
+              <SignOut id="signOut" />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+  return renderContent();
 };

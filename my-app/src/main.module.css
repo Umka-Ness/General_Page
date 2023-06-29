@@ -513,4 +513,20 @@ li {
 /* .burgerUl .burgerLi:nth-child(1) span {
     background: teal;
 }
- *//*# sourceMappingURL=main.module.css.map */
+ */
+.settingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+}
+
+.signOut {
+  border: 1px solid rgb(174, 0, 255);
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(255, 228, 196, 0.396);
+  text-align: center;
+  cursor: pointer;
+}/*# sourceMappingURL=main.module.css.map */
