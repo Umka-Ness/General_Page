@@ -6,6 +6,7 @@ import firebase from "firebase/compat/app";
 import { Context } from "../../App";
 import { Login } from "../Auth/Login";
 import { Lecture } from "../Lecture/Lecture";
+import { Setting } from "../SettingAcc/Setting";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -53,7 +54,8 @@ export const NavigationBtn = () => {
             <BtnForNavigation />
             {/* <Register /> */}
           </div>
-          <button onClick={handleLogout}>Setting</button>
+          {/* <button onClick={handleLogout}>Setting</button> */}
+          <Setting />
         </>
       );
     }
