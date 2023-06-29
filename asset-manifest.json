@@ -1,9 +1,19 @@
 {
   "files": {
-    "main.css": "/General_Page/static/css/main.9a83c77f.css",
-    "main.js": "/General_Page/static/js/main.a4dedc3a.js",
+    "main.css": "/General_Page/static/css/main.f83815e9.css",
+    "main.js": "/General_Page/static/js/main.2a65a90b.js",
     "static/media/fon.png": "/General_Page/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/General_Page/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_10.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_10.cccf6994fa40fc75b8ae.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_8.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_8.f9a8ff4a7b1492382a1a.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_2.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_2.1dea8ae23935d029230f.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_6.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_6.e35dc60f29be51293c48.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_5.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_5.c4a91b60c4f23d85e71b.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_3.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_3.8fb1a0223c7af2342a49.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_11.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_11.95a8c44cfefed543ce4b.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_4.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_4.eb9dc7abb842ac7033d3.jpg",
+    "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.jpg": "/General_Page/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.9c081684151fe6c63275.jpg",
     "static/media/podvodnie-peizazhi-1.jpg": "/General_Page/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
     "static/media/zhivopis-illustracia-art-voda-oblako-500x.jpg": "/General_Page/static/media/zhivopis-illustracia-art-voda-oblako-500x.a40562fe7dbc90a63210.jpg",
     "static/media/top-view-of-the-countryside.jpg": "/General_Page/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
@@ -21,11 +31,11 @@
     "static/media/bgButtonStars.svg": "/General_Page/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/General_Page/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/General_Page/index.html",
-    "main.9a83c77f.css.map": "/General_Page/static/css/main.9a83c77f.css.map",
-    "main.a4dedc3a.js.map": "/General_Page/static/js/main.a4dedc3a.js.map"
+    "main.f83815e9.css.map": "/General_Page/static/css/main.f83815e9.css.map",
+    "main.2a65a90b.js.map": "/General_Page/static/js/main.2a65a90b.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a83c77f.css",
-    "static/js/main.a4dedc3a.js"
+    "static/css/main.f83815e9.css",
+    "static/js/main.2a65a90b.js"
   ]
 }
