@@ -123,16 +123,32 @@ export const StepByStep = () => {
             </button>
             <ul className={css.container}>
               <li>
-                <div style={{ marginLeft: "50px" }} id={1} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "50px", maxWidth: "100%" }}
+                  id={1}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="Go" dataSvg={svgGo} />
                 </div>
-                <div style={{ marginLeft: "-10px" }} id={2} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-10px", maxWidth: "100%" }}
+                  id={2}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="2" dataSvg={svgBagOneStar} />
                 </div>
-                <div style={{ marginLeft: "70px" }} id={3} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "70px", maxWidth: "100%" }}
+                  id={3}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="3" dataSvg={svgBagTwoStars} />
                 </div>
-                <div style={{ marginLeft: "-5px" }} id={4} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-5px", maxWidth: "100%" }}
+                  id={4}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="4" dataSvg={svgKeyOneStars} />
                 </div>
               </li>
@@ -141,6 +157,7 @@ export const StepByStep = () => {
                   style={{
                     marginLeft: "-120px",
                     marginTop: "85px",
+                    maxWidth: "100%",
                   }}
                   id={5}
                   onClick={runGame}
@@ -151,36 +168,65 @@ export const StepByStep = () => {
                   style={{
                     marginLeft: "-100px",
                     marginBottom: "60px",
+                    maxWidth: "100%",
                   }}
                   id={6}
                   onClick={runGame}
                 >
                   <StepByStepButton name="6" dataSvg={svgKeyThreeStars} />
                 </div>
-                <div style={{ marginLeft: "-150px" }} id={7} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-150px", maxWidth: "100%" }}
+                  id={7}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="7" dataSvg={svgQuestionOneStar} />
                 </div>
               </li>
               <li>
-                <div style={{ marginLeft: "-140px" }} id={8} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-140px", maxWidth: "100%" }}
+                  id={8}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="8" dataSvg={svgKeyTwoStars} />
                 </div>
-                <div style={{ marginLeft: "-100px" }} id={9} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-100px", maxWidth: "100%" }}
+                  id={9}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="9" dataSvg={svgBagOneStar} />
                 </div>
-                <div style={{ marginLeft: "-130px" }} id={10} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-130px", maxWidth: "100%" }}
+                  id={10}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="10" dataSvg={svgBagThreeStars} />
                 </div>
               </li>
 
               <li>
-                <div style={{ marginLeft: "-100px" }} id={11} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-100px", maxWidth: "100%" }}
+                  id={11}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="11" dataSvg={svgQuestionThreeStars} />
                 </div>
-                <div style={{ marginLeft: "10px" }} id={12} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "10px", maxWidth: "100%" }}
+                  id={12}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="12" dataSvg={svgBagOneStar} />
                 </div>
-                <div style={{ marginLeft: "-10px" }} id={13} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-10px", maxWidth: "100%" }}
+                  id={13}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="13" dataSvg={svgQuestionTwoStars} />
                 </div>
                 <div style={{ marginLeft: "-115px" }} id={14} onClick={runGame}>
@@ -188,13 +234,21 @@ export const StepByStep = () => {
                 </div>
               </li>
               <li>
-                <div style={{ marginLeft: "-50px" }} id={15} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-50px", maxWidth: "100%" }}
+                  id={15}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="15" dataSvg={svgKeyOneStars} />
                 </div>
                 <div>
                   <StepByStepButton name="16" dataSvg={svgQuestionTwoStars} />
                 </div>
-                <div style={{ marginLeft: "-100px" }} id={16} onClick={runGame}>
+                <div
+                  style={{ marginLeft: "-100px", maxWidth: "100%" }}
+                  id={16}
+                  onClick={runGame}
+                >
                   <StepByStepButton name="17" dataSvg={svgKeyThreeStars} />
                 </div>
               </li>
