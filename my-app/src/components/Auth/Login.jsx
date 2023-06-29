@@ -62,7 +62,7 @@ export const Login = (id) => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     try {
-      const { user } = await auth.signInWithPopup(provider);
+      const { user } = await auth.signInWithRedirect(provider);
       console.log(user);
       const docRef = await addDoc(collection(db, "users"), {
         name: user.displayName,
