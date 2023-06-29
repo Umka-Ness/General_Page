@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
 import { Register } from "../Auth/Register";
@@ -9,6 +9,10 @@ import { Lecture } from "../Lecture/Lecture";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("numberPage", "NavigationBtn");
+  }, []);
 
   const handleOnClick = (e) => {
     const id = e.target.id;

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { BurgerBtn } from "./BurgerBtn";
 
 export const Lecture = () => {
   const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("numberPage", "Lecture");
+  }, []);
 
   const handleOnClick = (e) => {
     const id = e.target.id;

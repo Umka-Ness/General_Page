@@ -13,6 +13,10 @@ import {
   setPersistence,
   browserLocalPersistence,
 } from "firebase/auth";
+import { PageOne } from "../Game-page/pageOne";
+import { StepByStep } from "../StepByStep/StepByStep";
+import { StepByStepGame } from "../StepByStep/StepByStepGame";
+import { Lecture } from "../Lecture/Lecture";
 
 const sessionTime = () => {
   const auth = getAuth();
@@ -154,8 +158,19 @@ export const Login = (id) => {
   const renderContent = () => {
     if (value) {
       return <Register />;
-    } else if (isGood) {
+    } else if (
+      isGood ||
+      localStorage.getItem("numberPage") === "NavigationBtn"
+    ) {
       return <NavigationBtn />;
+    } else if (localStorage.getItem("numberPage") === "pageOne") {
+      return <PageOne />;
+    } else if (localStorage.getItem("numberPage") === "StepByStep") {
+      return <StepByStep />;
+    } else if (localStorage.getItem("numberPage") === "StepByStepGame") {
+      return <StepByStep />;
+    } else if (localStorage.getItem("numberPage") === "Lecture") {
+      return <Lecture />;
     } else {
       return (
         <>
@@ -200,7 +215,7 @@ export const Login = (id) => {
               <button
                 onClick={registerGmail}
                 className={css.gmailBtn}
-                disabled="true"
+                disabled={true}
               >
                 Gmail
               </button>

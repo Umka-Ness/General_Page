@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
-import bgImage from "./images/zhivopis-illustracia-art-voda-oblako-500x.jpg";
 
 const positions = {
   1: { y: 27.5, x: 8, xTranslate: -8, yTranslate: -20 },

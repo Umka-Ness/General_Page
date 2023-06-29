@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
 import gameInfo from "./gameInfo.json";
 import css from "../../main.module.css";
@@ -10,6 +10,10 @@ export const PageOne = () => {
   el.style.overflow = "auto";
   const [selectedId, setSelectedId] = useState(null);
   const [DraggableDiv, setDraggableDiv] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("numberPage", "pageOne");
+  }, []);
 
   const handleOnClick = (e) => {
     const id = e.target.id;

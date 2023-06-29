@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 // import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStepButton } from "./StepByStepButton";
@@ -41,6 +41,10 @@ export const StepByStep = () => {
   const [backBtn, setBackBtn] = useState(false);
   const [run, setRun] = useState(false);
   const [dataId, setDataId] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("numberPage", "StepByStep");
+  }, []);
 
   const handleOnClick = (e) => {
     const id = e.target.id;
