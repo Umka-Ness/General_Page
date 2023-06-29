@@ -64,47 +64,60 @@ export const Login = (id) => {
     try {
       const { user } = await auth.signInWithRedirect(provider);
       console.log(user);
-      const docRef = await addDoc(collection(db, "users"), {
-        name: user.displayName,
-        login: login ? login : user.displayName,
-        password: password
-          ? password
-          : user.multiFactor.user.stsTokenManager.accessToken,
 
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        accessToken: user.multiFactor.user.stsTokenManager.accessToken,
-        photoURL: user.photoURL,
-        // date: new Date(),
-      });
-      // const KEY = "ACC_KEY";
-      // localStorage.setItem(
-      //   KEY,
-      //   JSON.stringify(user.multiFactor.user.stsTokenManager.accessToken)
-      // );
       setIsGood(true);
     } catch (e) {
       console.error("Error adding document or signInWithPopup is closed: ", e);
-      const { user } = await auth.signInWithPopup(provider);
-      console.log(user);
-      const docRef = await addDoc(collection(db, "users"), {
-        name: user.displayName,
-        login: login ? login : user.displayName,
-        password: password
-          ? password
-          : user.multiFactor.user.stsTokenManager.accessToken,
-
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        accessToken: user.multiFactor.user.stsTokenManager.accessToken,
-        photoURL: user.photoURL,
-        // date: new Date(),
-      });
       alert("Nooo");
     } finally {
     }
   };
 
+  useEffect(() => {
+    // Проверка авторизации пользователя при загрузке компонента
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsGood(true);
+        console.log(user);
+      } else {
+        setIsGood(false);
+      }
+    });
+
+    // Обработка результата перенаправления после входа в Google аккаунт
+    const handleRedirectResult = async () => {
+      try {
+        const { user } = await auth.getRedirectResult();
+        if (user) {
+          // Здесь можете выполнить необходимые действия после успешного входа через Google аккаунт
+
+          const docRef = await addDoc(collection(db, "users"), {
+            name: user.displayName,
+            login: login ? login : user.displayName,
+            password: password
+              ? password
+              : user.multiFactor.user.stsTokenManager.accessToken,
+
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+            photoURL: user.photoURL,
+            // date: new Date(),
+          });
+          console.log(user);
+        }
+      } catch (error) {
+        console.error("Error getting redirect result: ", error);
+      }
+    };
+
+    handleRedirectResult(); // Вызов обработчика результатов перенаправления
+
+    return () => {
+      <NavigationBtn />;
+      unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
+    };
+  }, []);
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
     e.preventDefault();
