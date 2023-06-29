@@ -62,7 +62,9 @@ export const Login = (id) => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     try {
-      const { user } = await auth.signInWithRedirect(provider);
+      const keySDK =
+        "270019919476-eemhg054uf90spn4f9olk5bt9iqc41ej.apps.googleusercontent.com";
+      const { user } = await auth.signInWithRedirect(keySDK, provider);
       console.log(user);
 
       setIsGood(true);
