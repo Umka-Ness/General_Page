@@ -67,7 +67,7 @@ export const Login = (id) => {
 
       setIsGood(true);
     } catch (e) {
-      await auth.signInWithRedirect(getAuth(), provider);
+      await auth.signInWithRedirect(provider);
       console.error("Error adding document or signInWithPopup is closed: ", e);
       alert("Nooo");
     } finally {
