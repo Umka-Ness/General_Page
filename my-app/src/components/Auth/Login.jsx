@@ -62,10 +62,12 @@ export const Login = (id) => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     try {
-      await auth.signInWithRedirect(auth, provider);
+      const { user } = await auth.signInWithRedirect(provider);
+      console.log(user);
 
       setIsGood(true);
     } catch (e) {
+      await auth.signInWithRedirect(getAuth(), provider);
       console.error("Error adding document or signInWithPopup is closed: ", e);
       alert("Nooo");
     } finally {
