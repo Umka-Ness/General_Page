@@ -197,7 +197,11 @@ export const Login = (id) => {
               <button onClick={() => setValue(true)} className={css.createBtn}>
                 Create account
               </button>
-              <button onClick={registerGmail} className={css.gmailBtn}>
+              <button
+                onClick={registerGmail}
+                className={css.gmailBtn}
+                disabled="true"
+              >
                 Gmail
               </button>
             </div>
