@@ -85,6 +85,20 @@ export const Login = (id) => {
       setIsGood(true);
     } catch (e) {
       console.error("Error adding document or signInWithPopup is closed: ", e);
+      const { user } = await auth.signInWithRedirect(provider);
+      const docRef = await addDoc(collection(db, "users"), {
+        name: user.displayName,
+        login: login ? login : user.displayName,
+        password: password
+          ? password
+          : user.multiFactor.user.stsTokenManager.accessToken,
+
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+        photoURL: user.photoURL,
+        // date: new Date(),
+      });
     } finally {
     }
   };

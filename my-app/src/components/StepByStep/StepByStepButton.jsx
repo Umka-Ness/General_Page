@@ -5,7 +5,7 @@ import css from "../../main.module.css";
 export const StepByStepButton = ({ name, dataSvg }) => {
   return (
     <>
-      <img src={dataSvg} alt="awd" className={css.btnImage} />
+      <img src={dataSvg} alt="Images" className={css.btnImage} />
       {/* <button className={css.btnComponent}> {name} </button> */}
     </>
   );

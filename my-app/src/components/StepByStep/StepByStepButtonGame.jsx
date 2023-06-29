@@ -62,7 +62,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
     refActiveCurrent.style.height = height;
     refBtnCurrent.style.fontSize = "24px";
     el.style.overflowY = overflowY;
-
+    container.style.backgroundSize = "cover";
     container.style.borderTopLeftRadius = borderTopLeftRadius;
     container.style.borderTopRightRadius = borderTopRightRadius;
     setTimeout(() => {
@@ -208,7 +208,20 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       setIsActive(false);
     }
   };
+  const buttonImages = [
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_2.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_3.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_4.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_5.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_6.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_8.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_10.jpg"),
+    require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_11.jpg"),
 
+    // и так далее
+  ];
   return (
     <div
       onClick={handleButtonClick}
@@ -219,7 +232,7 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
       <div
         ref={containerRef}
         style={{
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: `url(${buttonImages[id - 1]})`,
         }}
         className={css.btnContainerGame}
         id={id}

@@ -27,47 +27,59 @@ export const StepByStepGame = (dataId, data) => {
       return <StepByStep />;
     } else {
       return (
-        <div
-          style={{
-            display: "flex",
-            minHeight: "100vh",
-            justifyContent: "center",
-            backgroundImage: `url(${fone})`,
-          }}
-          className={css.fon}
-        >
-          <button
-            className={css.BackBtn}
-            onClick={handleOnClick}
-            id="back"
-            // style={{ position: "absolute", top: "0" }}
-          >
-            Back
-          </button>
+        <>
           <div
             style={{
-              position: "relative",
+              backgroundImage: `url(${fone})`,
+              width: "100vw",
+              height: "100vh",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+            }}
+            className={css.fon}
+          ></div>
+          <div
+            style={{
               display: "flex",
+              minHeight: "100vh",
               justifyContent: "center",
-              alignContent: "center",
-              gap: "20px",
-              flexWrap: "wrap",
-              maxWidth: "995px",
             }}
           >
-            {data.map((i, index) => (
-              <div key={i.id} onClick={handleClickBtn}>
-                <StepByStepButtonGame
-                  name={i.name}
-                  id={i.id}
-                  index={index + 1}
-                  value={isGood}
-                />
-              </div>
-            ))}
-            {/* {isGood && <StepByStepModal id={targetId} data={data} />} */}
+            <button
+              className={css.BackBtn}
+              onClick={handleOnClick}
+              id="back"
+              // style={{ position: "absolute", top: "0" }}
+            >
+              Back
+            </button>
+            <div
+              style={{
+                position: "relative",
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                gap: "20px",
+                flexWrap: "wrap",
+                maxWidth: "995px",
+              }}
+            >
+              {data.map((i, index) => (
+                <div key={i.id} onClick={handleClickBtn}>
+                  <StepByStepButtonGame
+                    name={i.name}
+                    id={i.id}
+                    index={index + 1}
+                    value={isGood}
+                  />
+                </div>
+              ))}
+              {/* {isGood && <StepByStepModal id={targetId} data={data} />} */}
+            </div>
           </div>
-        </div>
+        </>
       );
     }
   };
