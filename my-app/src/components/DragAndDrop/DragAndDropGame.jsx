@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import css from "../../main.module.css";
-import { PageOne } from "../Game-page/pageOne";
-import { useDrag, useDrop } from "react-dnd";
+import { DragAndDrop } from "./DragAndDrop";
 
-export const DragAndDropGame = () => {
+export const DragAndDropGame = ({ textData }) => {
   const [selectedId, setSelectedId] = useState(null);
   const [cardList, setCardList] = useState([
-    { id: 1, order: 0, text: "a" },
-    { id: 2, order: 1, text: "d" },
-    { id: 3, order: 2, text: "n" },
-    { id: 4, order: 3, text: "m" },
+    { id: 1, order: 0, text: textData.wordsOne },
+    { id: 2, order: 1, text: textData.wordsTwo },
+    { id: 3, order: 2, text: textData.wordsThree },
+    { id: 4, order: 3, text: textData.wordsFour },
   ]);
   const [currentCard, setCurrentCard] = useState(null);
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
@@ -40,7 +37,7 @@ export const DragAndDropGame = () => {
     setCurrentCard(card);
   };
   const dragLeaveHandler = (e) => {
-    e.target.style.background = "inherit";
+    e.target.style.background = "white";
   };
   const dragEndHandler = (e) => {};
   const dragOverHandler = (e) => {
@@ -95,23 +92,14 @@ export const DragAndDropGame = () => {
 
   const renderContent = () => {
     if (selectedId === "back") {
-      return <PageOne />;
+      return <DragAndDrop />;
     } else {
       return (
         <>
           <button className={css.BackBtn} onClick={handleOnClick} id="back">
             Back
           </button>
-          <div
-            style={{
-              width: "100vw",
-              height: "100vh",
-              display: "flex",
-              justifyContent: "space-around",
-
-              alignItems: "center",
-            }}
-          >
+          <div className={css.containteCard}>
             {cardList.sort(sortCards).map((card) => (
               <div
                 onDragStart={(e) => dragStartHandler(e, card)}
@@ -120,24 +108,21 @@ export const DragAndDropGame = () => {
                 onDragOver={(e) => dragOverHandler(e)}
                 onDrop={(e) => dragDropHandler(e, card)}
                 draggable={true}
-                style={{
-                  width: "150px",
-                  height: "300px",
-                  border: "3px solid black",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+                className={css.card}
               >
                 {card.text}
               </div>
             ))}
-            <button onClick={CheckRightWords}>Gooooo</button>
+            <div className={css.startBtnContainer}>
+              <button onClick={CheckRightWords} className={css.startBtn}>
+                Gooooo
+              </button>
+            </div>
           </div>
         </>
       );
     }
   };
 
-  return <DndProvider backend={HTML5Backend}>{renderContent()}</DndProvider>;
+  return renderContent();
 };

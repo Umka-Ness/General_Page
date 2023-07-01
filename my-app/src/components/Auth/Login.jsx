@@ -18,6 +18,7 @@ import { StepByStep } from "../StepByStep/StepByStep";
 import { StepByStepGame } from "../StepByStep/StepByStepGame";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
+import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 
 const sessionTime = () => {
   const auth = getAuth();
@@ -174,6 +175,8 @@ export const Login = (id) => {
       return <Lecture />;
     } else if (localStorage.getItem("numberPage") === "Setting") {
       return <Setting />;
+    } else if (localStorage.getItem("numberPage") === "DragAndDrop") {
+      return <DragAndDrop />;
     } else {
       return (
         <>

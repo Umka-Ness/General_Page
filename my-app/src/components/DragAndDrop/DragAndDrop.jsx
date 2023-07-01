@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragAndDropGame } from "./DragAndDropGame";
 import css from "../../main.module.css";
 import { PageOne } from "../Game-page/pageOne";
@@ -7,14 +7,24 @@ export const DragAndDrop = () => {
   const [currentId, setCurrentId] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
+  useEffect(() => {
+    localStorage.setItem("numberPage", "DragAndDrop");
+  }, []);
   const handleOnClick = (e) => {
     const id = e.target.id;
     console.log(id);
     setSelectedId(id);
   };
+
+  const forstText = {
+    wordsOne: "a",
+    wordsTwo: "d",
+    wordsThree: "m",
+    wordsFour: "n",
+  };
   const renderContent = () => {
     if (currentId === "1") {
-      return <DragAndDropGame />;
+      return <DragAndDropGame textData={forstText} />;
     } else if (selectedId === "back") {
       return <PageOne />;
     } else {
