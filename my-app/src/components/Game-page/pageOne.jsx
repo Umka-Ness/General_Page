@@ -4,6 +4,8 @@ import gameInfo from "./gameInfo.json";
 import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
+import { DragAndDropGame } from "../DragAndDrop/DragAndDropGame";
+import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 
 export const PageOne = () => {
   const el = document.getElementsByTagName("body")[0];
@@ -32,6 +34,8 @@ export const PageOne = () => {
       return <NavigationBtn />;
     } else if (DraggableDiv === "Logo") {
       return <StepByStep />;
+    } else if (DraggableDiv === "DragAndDrop") {
+      return <DragAndDrop />;
     } else {
       return (
         <div>
@@ -65,9 +69,21 @@ export const PageOne = () => {
             >
               <p className={css.name}>1 StepByStep</p>
               <div onClick={GoMoveBox}>
-                <Button />
+                <Button alt="Logo" />
               </div>
               <p className={css.blockCard}>lala</p>
+            </div>
+            <div
+              style={{
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <p className={css.name}>2 Drag and Drop</p>
+              <div onClick={GoMoveBox}>
+                <Button alt="DragAndDrop" />
+              </div>
+              <p className={css.blockCard}>Drag and Drop</p>
             </div>
 
             {gameInfo.map((i, index) => (
@@ -81,7 +97,7 @@ export const PageOne = () => {
                 <div style={{ display: "flex", gap: "5px" }}>
                   <div>
                     <p className={css.name}>
-                      {index + 2 + " "}
+                      {index + 3 + " "}
                       {i.name}
                     </p>
                     <Button url={i.url} onClick={GoMoveBox} />
