@@ -560,4 +560,13 @@ li {
 
 .startBtn {
   padding: 30px 60px;
+}
+
+.containerForLevelButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 15px;
 }/*# sourceMappingURL=main.module.css.map */

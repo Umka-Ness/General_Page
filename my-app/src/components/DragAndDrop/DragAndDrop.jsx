@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { DragAndDropGame } from "./DragAndDropGame";
 import css from "../../main.module.css";
 import { PageOne } from "../Game-page/pageOne";
+import { DragAndDropLevels } from "./DragAndDropLevels";
 
 export const DragAndDrop = () => {
-  const [currentId, setCurrentId] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
@@ -16,17 +16,11 @@ export const DragAndDrop = () => {
     setSelectedId(id);
   };
 
-  const forstText = {
-    wordsOne: "a",
-    wordsTwo: "d",
-    wordsThree: "m",
-    wordsFour: "n",
-  };
   const renderContent = () => {
-    if (currentId === "1") {
-      return <DragAndDropGame textData={forstText} />;
-    } else if (selectedId === "back") {
+    if (selectedId === "back") {
       return <PageOne />;
+    } else if (selectedId === "1") {
+      return <DragAndDropLevels />;
     } else {
     }
     return (
@@ -34,33 +28,15 @@ export const DragAndDrop = () => {
         <button className={css.BackBtn} onClick={handleOnClick} id="back">
           Back
         </button>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100vw",
-            height: "100vh",
-            gap: "20px",
-          }}
-        >
-          <button id="1" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 1
+        <div className={css.containerForLevelButton}>
+          <button id="1" onClick={(e) => setSelectedId(e.target.id)}>
+            Low Lavel
           </button>
-          <button id="2" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 2
+          <button id="2" onClick={(e) => setSelectedId(e.target.id)}>
+            Medium Level
           </button>
-          <button id="3" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 3
-          </button>
-          <button id="4" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 4
-          </button>
-          <button id="5" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 5
-          </button>
-          <button id="6" onClick={(e) => setCurrentId(e.target.id)}>
-            Game number 6
+          <button id="3" onClick={(e) => setSelectedId(e.target.id)}>
+            High Level
           </button>
         </div>
       </>
