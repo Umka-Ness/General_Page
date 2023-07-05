@@ -1,9 +1,7 @@
-import { Register } from "./components/Auth/Register";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import { createContext } from "react";
-import { initializeApp } from "firebase/app";
 import { Login } from "./components/Auth/Login";
 
 // Инициализация Firebase

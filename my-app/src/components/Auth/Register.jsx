@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
 import { initializeApp } from "firebase/app";
 import "firebase/compat/database"; // Импорт модуля базы данных
-import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import firebaseConfig from "../../firebase";
 import { Login } from "./Login";
 import bgImg from "./img/podvodnie-peizazhi-1.jpg";

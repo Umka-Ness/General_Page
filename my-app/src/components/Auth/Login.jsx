@@ -15,7 +15,6 @@ import {
 } from "firebase/auth";
 import { PageOne } from "../Game-page/pageOne";
 import { StepByStep } from "../StepByStep/StepByStep";
-import { StepByStepGame } from "../StepByStep/StepByStepGame";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";

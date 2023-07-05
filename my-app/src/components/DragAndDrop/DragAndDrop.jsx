@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { DragAndDropGame } from "./DragAndDropGame";
 import css from "../../main.module.css";
 import { PageOne } from "../Game-page/pageOne";
 import { DragAndDropLevels } from "./DragAndDropLevels";

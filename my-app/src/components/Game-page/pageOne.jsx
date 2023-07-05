@@ -4,7 +4,6 @@ import gameInfo from "./gameInfo.json";
 import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
-import { DragAndDropGame } from "../DragAndDrop/DragAndDropGame";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 
 export const PageOne = () => {

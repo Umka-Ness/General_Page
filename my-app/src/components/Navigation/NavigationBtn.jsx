@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
-import { Context } from "../../App";
-import { Login } from "../Auth/Login";
+// import { Context } from "../../App";
+// import { Login } from "../Auth/Login";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 
@@ -19,17 +19,17 @@ export const NavigationBtn = () => {
     setSelectedId(id);
   };
 
-  const { auth } = useContext(Context);
+  // const { auth } = useContext(Context);
 
-  const handleLogout = async () => {
-    try {
-      await auth.signOut();
-      return <Login />;
-      // Дополнительные действия после выхода пользователя
-    } catch (error) {
-      console.log("Ошибка при выходе из системы:", error);
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     await auth.signOut();
+  //     return <Login />;
+  //     // Дополнительные действия после выхода пользователя
+  //   } catch (error) {
+  //     console.log("Ошибка при выходе из системы:", error);
+  //   }
+  // };
   const renderContent = () => {
     if (selectedId === "1") {
       return <PageOne />;

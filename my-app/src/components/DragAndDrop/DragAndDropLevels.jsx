@@ -7,8 +7,6 @@ export const DragAndDropLevels = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [currentId, setCurrentId] = useState("");
 
-  const [value, setValue] = useState("");
-
   useEffect(() => {
     localStorage.setItem("numberPage", "DragAndDropLevels");
   }, []);
