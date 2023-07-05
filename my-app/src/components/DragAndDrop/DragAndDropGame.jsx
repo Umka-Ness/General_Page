@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 
-export const DragAndDropGame = ({ textData, goodTextData }) => {
+export const DragAndDropGame = ({ textData }) => {
   const [selectedId, setSelectedId] = useState(null);
   const [cardList, setCardList] = useState([
     { id: 1, order: 0, text: textData.wordsOne },
@@ -10,9 +10,6 @@ export const DragAndDropGame = ({ textData, goodTextData }) => {
     { id: 3, order: 2, text: textData.wordsThree },
     { id: 4, order: 3, text: textData.wordsFour },
   ]);
-  useEffect(() => {
-    console.log(goodTextData);
-  }, []);
   const [currentCard, setCurrentCard] = useState(null);
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
   const [secondLeater, setSecondLeater] = useState({ order: "", text: "" });

@@ -24,7 +24,6 @@ export const DragAndDropLevels = () => {
     wordsThree: "m",
     wordsFour: "n",
   };
-  const forstTextArr = ["d", "a", "m", "n"];
   const secondText = {
     wordsOne: "k",
     wordsTwo: "p",
@@ -38,9 +37,7 @@ export const DragAndDropLevels = () => {
     } else if (currentId === "1") {
       return <DragAndDropGame textData={forstText} />;
     } else if (currentId === "2") {
-      return (
-        <DragAndDropGame textData={secondText} goodTextData={forstTextArr} />
-      );
+      return <DragAndDropGame textData={secondText} />;
     } else {
       return (
         <>
