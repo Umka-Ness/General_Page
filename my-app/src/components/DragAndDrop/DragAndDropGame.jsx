@@ -58,9 +58,7 @@ export const DragAndDropGame = ({ textData }) => {
       return item;
     });
 
-    const updatedWordsCard = updatedCardList
-      .sort((a, b) => a.order - b.order)
-      .map((item) => item.text);
+    updatedCardList.sort((a, b) => a.order - b.order).map((item) => item.text);
 
     setCardList(updatedCardList);
     // setWordsCard(updatedWordsCard);

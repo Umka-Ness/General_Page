@@ -61,7 +61,7 @@ export const Login = (id) => {
       <NavigationBtn />;
       unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
     };
-  }, []);
+  }, [auth]);
 
   const registerGmail = async (e) => {
     e.preventDefault();
@@ -97,7 +97,7 @@ export const Login = (id) => {
         if (user) {
           // Здесь можете выполнить необходимые действия после успешного входа через Google аккаунт
 
-          const docRef = await addDoc(collection(db, "users"), {
+          await addDoc(collection(db, "users"), {
             name: user.displayName,
             login: login ? login : user.displayName,
             password: password
@@ -123,7 +123,7 @@ export const Login = (id) => {
       <NavigationBtn />;
       unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
     };
-  }, []);
+  }, [auth, login, password]);
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
     e.preventDefault();
