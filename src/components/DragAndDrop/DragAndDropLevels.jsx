@@ -22,20 +22,24 @@ export const DragAndDropLevels = () => {
     wordsThree: "m",
     wordsFour: "n",
   };
+  const goodFirstText = ["d", "a", "m", "n"];
   const secondText = {
     wordsOne: "k",
     wordsTwo: "p",
     wordsThree: "i",
     wordsFour: "n",
   };
+  const goodSecondText = ["p", "i", "n", "k"];
 
   const renderContent = () => {
     if (selectedId === "back") {
       return <DragAndDrop />;
     } else if (currentId === "1") {
-      return <DragAndDropGame textData={forstText} />;
+      return <DragAndDropGame textData={forstText} goodText={goodFirstText} />;
     } else if (currentId === "2") {
-      return <DragAndDropGame textData={secondText} />;
+      return (
+        <DragAndDropGame textData={secondText} goodText={goodSecondText} />
+      );
     } else {
       return (
         <>
