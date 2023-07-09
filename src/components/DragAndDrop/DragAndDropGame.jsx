@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
+import lowData from "./DragAndDropData/LowData/lowData.json";
 
 export const DragAndDropGame = ({ textData, goodText }) => {
   const [selectedId, setSelectedId] = useState("");
@@ -9,6 +10,13 @@ export const DragAndDropGame = ({ textData, goodText }) => {
     { id: 2, order: 1, text: textData.wordsTwo },
     { id: 3, order: 2, text: textData.wordsThree },
     { id: 4, order: 3, text: textData.wordsFour },
+    { id: 5, order: 4, text: textData.wordsFive ? textData.wordsFive : "" },
+    { id: 6, order: 5, text: textData.wordSix ? textData.wordSix : "" },
+    { id: 7, order: 6, text: textData.wordSeven ? textData.wordSeven : "" },
+    { id: 8, order: 7, text: "" },
+    { id: 9, order: 8, text: "" },
+    { id: 10, order: 9, text: "" },
+    { id: 11, order: 10, text: "" },
   ]);
   const [currentCard, setCurrentCard] = useState(null);
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
@@ -97,19 +105,26 @@ export const DragAndDropGame = ({ textData, goodText }) => {
             Back
           </button>
           <div className={css.containteCard}>
-            {cardList.sort(sortCards).map((card) => (
-              <div
-                onDragStart={(e) => dragStartHandler(e, card)}
-                onDragLeave={(e) => dragLeaveHandler(e)}
-                onDragEnd={(e) => dragEndHandler(e)}
-                onDragOver={(e) => dragOverHandler(e)}
-                onDrop={(e) => dragDropHandler(e, card)}
-                draggable={true}
-                className={css.card}
-              >
-                {card.text}
-              </div>
-            ))}
+            {cardList.sort(sortCards).map((card) => {
+              if (card.text === "") {
+                console.log(card);
+                return null;
+              } else {
+                return (
+                  <div
+                    onDragStart={(e) => dragStartHandler(e, card)}
+                    onDragLeave={(e) => dragLeaveHandler(e)}
+                    onDragEnd={(e) => dragEndHandler(e)}
+                    onDragOver={(e) => dragOverHandler(e)}
+                    onDrop={(e) => dragDropHandler(e, card)}
+                    draggable={true}
+                    className={css.card}
+                  >
+                    {card.text}
+                  </div>
+                );
+              }
+            })}
             <div className={css.startBtnContainer}>
               <button onClick={CheckRightWords} className={css.startBtn}>
                 Gooooo

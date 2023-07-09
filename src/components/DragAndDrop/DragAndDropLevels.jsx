@@ -30,6 +30,22 @@ export const DragAndDropLevels = () => {
     wordsFour: "n",
   };
   const goodSecondText = ["p", "i", "n", "k"];
+  const threeText = {
+    wordsOne: "m",
+    wordsTwo: "e",
+    wordsThree: "h",
+    wordsFour: "o",
+  };
+  const goodThreeText = ["h", "o", "m", "e"];
+  const fourText = {
+    wordsOne: "m",
+    wordsTwo: "e",
+    wordsThree: "h",
+    wordsFour: "o",
+    wordsFive: "i",
+    wordSix: "s",
+  };
+  const goodFourText = ["h", "o", "m", "i", "e", "s"];
 
   const renderContent = () => {
     if (selectedId === "back") {
@@ -40,6 +56,10 @@ export const DragAndDropLevels = () => {
       return (
         <DragAndDropGame textData={secondText} goodText={goodSecondText} />
       );
+    } else if (currentId === "3") {
+      return <DragAndDropGame textData={threeText} goodText={goodThreeText} />;
+    } else if (currentId === "4") {
+      return <DragAndDropGame textData={fourText} goodText={goodFourText} />;
     } else {
       return (
         <>
