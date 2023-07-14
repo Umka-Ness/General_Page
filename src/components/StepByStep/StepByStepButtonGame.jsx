@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
+import { AnswerBtn } from "./AnswerBtn";
 
 const positions = {
   1: { y: 27.5, x: 8, xTranslate: -8, yTranslate: -20 },
@@ -20,7 +21,16 @@ const positions = {
 //   .then((data) => console.log(data))
 //   .catch((err) => console.log(err));
 
-export const StepByStepButtonGame = ({ name, index, id, value }) => {
+export const StepByStepButtonGame = ({
+  name,
+  index,
+  id,
+  value,
+  text,
+  textOne,
+  textTwo,
+  textThree,
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   const el = document.getElementsByTagName("body")[0];
@@ -259,6 +269,12 @@ export const StepByStepButtonGame = ({ name, index, id, value }) => {
         >
           {name}
         </div>
+        <AnswerBtn
+          text={text}
+          textOne={textOne}
+          textTwo={textTwo}
+          textThree={textThree}
+        />
       </button>
     </div>
   );

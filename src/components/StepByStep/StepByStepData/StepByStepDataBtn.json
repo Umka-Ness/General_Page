@@ -1,18 +1,82 @@
 [
-  { "id": 1, "name": "Kraków to polskie __________________" },
-  { "id": 2, "name": "Ela ma __________________" },
-  { "id": 3, "name": "Andrzej jest z zawodu ____________________" },
-  { "id": 4, "name": "Idziemy na ________, pójdziesz z nami?" },
-  { "id": 5, "name": "Kuba to bardzo __________ chłopak." },
-  { "id": 6, "name": "_______ się zajmujesz?" },
-  { "id": 7, "name": "Nie lubię piłki nożnej, wolę grać w ________" },
+  {
+    "id": 1,
+    "name": "Kraków to polskie __________________",
+    "text": "wadw",
+    "textOne": "textone",
+    "textTwo": "awdawd",
+    "textThree": "876543"
+  },
+  {
+    "id": 2,
+    "name": "Ela ma __________________",
+    "text": "2",
+    "textOne": "textonetwo",
+    "textTwo": "awdawd",
+    "textThree": "876543wadawdawda"
+  },
+  {
+    "id": 3,
+    "name": "Andrzej jest z zawodu ____________________",
+    "text": "3",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "8765431231231"
+  },
+  {
+    "id": 4,
+    "name": "Idziemy na ________, pójdziesz z nami?",
+    "text": "wagfddw",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543"
+  },
+  {
+    "id": 5,
+    "name": "Kuba to bardzo __________ chłopak.",
+    "text": "awdawd",
+    "textOne": "22",
+    "textTwo": "1",
+    "textThree": "2"
+  },
+  {
+    "id": 6,
+    "name": "_______ się zajmujesz?",
+    "text": "wadw",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543"
+  },
+  {
+    "id": 7,
+    "name": "Nie lubię piłki nożnej, wolę grać w ________",
+    "text": "ikujhg",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543"
+  },
   {
     "id": 8,
-    "name": "Dzisiaj temperatura jest bardzo wysoka, jest ___________"
+    "name": "Dzisiaj temperatura jest bardzo wysoka, jest ___________",
+    "text": "1234",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543"
   },
-  { "id": 9, "name": "Dwa lata temu _________ szkołę." },
+  {
+    "id": 9,
+    "name": "Dwa lata temu _________ szkołę.",
+    "text": "mnb v",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543"
+  },
   {
     "id": 10,
-    "name": "W czwartek studenci będą _________ egzamin z języka polskiego."
+    "name": "W czwartek studenci będą _________ egzamin z języka polskiego.",
+    "text": " wd wad w w",
+    "textOne": ";;;;;;;",
+    "textTwo": "awdawd",
+    "textThree": "876543lox"
   }
 ]

@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import css from "../../main.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
 import fone from "./images/fon.png";
+import { AnswerBtn } from "./AnswerBtn";
+import dataBtnAnswer from "./StepByStepData/dataBtnAntsfer/dataBtnAnswer.json";
+
 export const StepByStepGame = (dataId, data) => {
+  const refAnswer = useRef(null);
+
   const el = document.getElementsByTagName("body")[0];
   el.style.overflow = "inherit";
   data = dataId.data;
@@ -18,9 +23,15 @@ export const StepByStepGame = (dataId, data) => {
 
   const handleClickBtn = (e) => {
     setIsGood(true);
+    const refAnswerCurrent = refAnswer.current;
+    refAnswerCurrent.style.display = "block";
+    console.log(refAnswerCurrent);
+
     // window.resizeBy(-500, -500);
     // window.moveTo(184, 229);
   };
+
+  const showAnswer = (e) => {};
 
   const renderGame = (data) => {
     if (backBtn) {
@@ -72,8 +83,17 @@ export const StepByStepGame = (dataId, data) => {
                     name={i.name}
                     id={i.id}
                     index={index + 1}
+                    text={i.text}
+                    textOne={i.textOne}
+                    textTwo={i.textTwo}
+                    textThree={i.textThree}
                     value={isGood}
                   />
+                  <div
+                    onClick={showAnswer}
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                    ref={refAnswer}
+                  ></div>
                 </div>
               ))}
               {/* {isGood && <StepByStepModal id={targetId} data={data} />} */}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
-import lowData from "./DragAndDropData/LowData/lowData.json";
 
 export const DragAndDropGame = ({ textData, goodText }) => {
   const [selectedId, setSelectedId] = useState("");

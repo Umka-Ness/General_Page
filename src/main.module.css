@@ -483,6 +483,7 @@ li {
   align-items: center;
   color: #fff;
   font-size: 30px !important;
+  cursor: pointer;
 }
 
 .burgerUl .burgerLi:hover span:nth-child(5) {
