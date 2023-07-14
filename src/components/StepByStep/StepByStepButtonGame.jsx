@@ -39,6 +39,7 @@ export const StepByStepButtonGame = ({
   const containerRef = useRef(null);
   const refActive = useRef();
   const refBtn = useRef();
+  const answers = useRef();
 
   const giveStyles = (
     x,
@@ -89,12 +90,14 @@ export const StepByStepButtonGame = ({
       top: 0,
       behavior: "smooth", // Добавляем плавную анимацию прокрутки
     });
+    const answersCurrent = answers.current;
 
     const { id } = e.target;
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
     const refBtnCurrent = refBtn.current;
     const { y, x, xTranslate, yTranslate } = positions[id];
+    answersCurrent.style.display = "inherit";
 
     if (!isActive && window.innerWidth >= 1000) {
       setIsActive(true);
@@ -197,7 +200,7 @@ export const StepByStepButtonGame = ({
         "100vh",
         "0px",
         "0px",
-        "550px",
+        "650px",
         "auto"
       );
     } else {
@@ -210,6 +213,7 @@ export const StepByStepButtonGame = ({
       refActiveCurrent.style.transform = "scale(1)";
       refActiveCurrent.style.zIndex = "1";
       refBtnCurrent.style.fontSize = "13px";
+      answersCurrent.style.display = "none";
 
       setTimeout(() => {
         refActiveCurrent.style.position = "inherit";
@@ -246,9 +250,7 @@ export const StepByStepButtonGame = ({
         className={css.btnContainerGame}
         id={id}
         value={value}
-      >
-        {index}
-      </div>
+      ></div>
       <button
         style={{
           width: "100%",
@@ -269,12 +271,18 @@ export const StepByStepButtonGame = ({
         >
           {name}
         </div>
-        <AnswerBtn
-          text={text}
-          textOne={textOne}
-          textTwo={textTwo}
-          textThree={textThree}
-        />
+        <div
+          style={{ display: "none", position: "relative", top: "80px" }}
+          ref={answers}
+          className={css.answers}
+        >
+          <AnswerBtn
+            text={text}
+            textOne={textOne}
+            textTwo={textTwo}
+            textThree={textThree}
+          />
+        </div>
       </button>
     </div>
   );

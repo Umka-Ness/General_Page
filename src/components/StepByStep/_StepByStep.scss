@@ -146,3 +146,13 @@ li {
     max-width: 60px;
   }
 }
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: calc(100% / 2);
+  margin: 0;
+}
