@@ -19,6 +19,13 @@ export const StepByStepGame = (dataId, data) => {
 
   const handleClickBtn = (e) => {
     setIsGood(true);
+    try {
+      if (e.target.textContent === e.target.attributes.data.value) {
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+    } catch (error) {}
 
     // window.resizeBy(-500, -500);
     // window.moveTo(184, 229);
@@ -79,6 +86,7 @@ export const StepByStepGame = (dataId, data) => {
                     textTwo={i.textTwo}
                     textThree={i.textThree}
                     value={isGood}
+                    goodAnswer={i.goodAnswer}
                   />
                 </div>
               ))}

@@ -4,40 +4,45 @@
     "name": "Kraków to polskie __________________",
     "text": "wadw",
     "textOne": "textone",
-    "textTwo": "awdawd",
-    "textThree": "876543"
+    "textTwo": "miasto",
+    "textThree": "876543",
+    "goodAnswer": "miasto"
   },
   {
     "id": 2,
     "name": "Ela ma __________________",
     "text": "2",
     "textOne": "textonetwo",
-    "textTwo": "awdawd",
-    "textThree": "876543wadawdawda"
+    "textTwo": "nic",
+    "textThree": "876543wadawdawda",
+    "goodAnswer": "nic"
   },
   {
     "id": 3,
     "name": "Andrzej jest z zawodu ____________________",
     "text": "3",
     "textOne": ";;;;;;;",
-    "textTwo": "awdawd",
-    "textThree": "8765431231231"
+    "textTwo": "tak",
+    "textThree": "8765431231231",
+    "goodAnswer": "tak"
   },
   {
     "id": 4,
     "name": "Idziemy na ________, pójdziesz z nami?",
     "text": "wagfddw",
-    "textOne": ";;;;;;;",
+    "textOne": "spacer",
     "textTwo": "awdawd",
-    "textThree": "876543"
+    "textThree": "876543",
+    "goodAnswer": "spacer"
   },
   {
     "id": 5,
     "name": "Kuba to bardzo __________ chłopak.",
-    "text": "awdawd",
+    "text": "miłe",
     "textOne": "22",
     "textTwo": "1",
-    "textThree": "2"
+    "textThree": "2",
+    "goodAnswer": "miłe"
   },
   {
     "id": 6,
@@ -45,38 +50,43 @@
     "text": "wadw",
     "textOne": ";;;;;;;",
     "textTwo": "awdawd",
-    "textThree": "876543"
+    "textThree": "pan",
+    "goodAnswer": "pan"
   },
   {
     "id": 7,
     "name": "Nie lubię piłki nożnej, wolę grać w ________",
     "text": "ikujhg",
     "textOne": ";;;;;;;",
-    "textTwo": "awdawd",
-    "textThree": "876543"
+    "textTwo": "Ukrainu",
+    "textThree": "876543",
+    "goodAnswer": "Ukrainu"
   },
   {
     "id": 8,
     "name": "Dzisiaj temperatura jest bardzo wysoka, jest ___________",
     "text": "1234",
-    "textOne": ";;;;;;;",
+    "textOne": "mała",
     "textTwo": "awdawd",
-    "textThree": "876543"
+    "textThree": "876543",
+    "goodAnswer": "mała"
   },
   {
     "id": 9,
     "name": "Dwa lata temu _________ szkołę.",
     "text": "mnb v",
-    "textOne": ";;;;;;;",
+    "textOne": "pan",
     "textTwo": "awdawd",
-    "textThree": "876543"
+    "textThree": "876543",
+    "goodAnswer": "pan"
   },
   {
     "id": 10,
     "name": "W czwartek studenci będą _________ egzamin z języka polskiego.",
     "text": " wd wad w w",
     "textOne": ";;;;;;;",
-    "textTwo": "awdawd",
-    "textThree": "876543lox"
+    "textTwo": "xz",
+    "textThree": "876543lox",
+    "goodAnswer": "xz"
   }
 ]

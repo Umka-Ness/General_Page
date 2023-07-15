@@ -30,6 +30,7 @@ export const StepByStepButtonGame = ({
   textOne,
   textTwo,
   textThree,
+  goodAnswer,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -96,131 +97,136 @@ export const StepByStepButtonGame = ({
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
     const refBtnCurrent = refBtn.current;
-    const { y, x, xTranslate, yTranslate } = positions[id];
-    answersCurrent.style.display = "inherit";
+    try {
+      const { y, x, xTranslate, yTranslate } = positions[id];
+      answersCurrent.style.display = "inherit";
 
-    if (!isActive && window.innerWidth >= 1000) {
-      setIsActive(true);
-      giveStyles(
-        x,
-        y,
-        container,
-        refActiveCurrent,
-        refBtnCurrent,
-        xTranslate,
-        yTranslate,
-        9,
-        "absolute",
-        "2s",
-        "950px",
-        "500px",
-        "0px",
-        "0px",
-        "420px",
-        "hidden"
-      );
-    } else if (!isActive && window.innerWidth >= 520) {
-      setIsActive(true);
-      giveStyles(
-        x,
-        y,
-        container,
-        refActiveCurrent,
-        refBtnCurrent,
-        xTranslate,
-        yTranslate,
-        9,
-        "absolute",
-        "2s",
-        "100vw",
-        "650px",
-        "0px",
-        "0px",
-        "520px",
-        "hidden"
-      );
-    } else if (
-      !isActive &&
-      window.innerWidth >= 325 &&
-      window.innerHeight >= 700
-    ) {
-      setIsActive(true);
-      giveStyles(
-        x,
-        y,
-        container,
-        refActiveCurrent,
-        refBtnCurrent,
-        xTranslate,
-        yTranslate - 15,
-        9,
-        "absolute",
-        "2s",
-        "100vw",
-        "90vh",
-        "0px",
-        "0px",
-        "720px",
-        "auto"
-      );
-    } else if (!isActive && window.innerWidth >= 325) {
-      setIsActive(true);
-      giveStyles(
-        x,
-        y,
-        container,
-        refActiveCurrent,
-        refBtnCurrent,
-        xTranslate,
-        yTranslate - 15,
-        9,
-        "absolute",
-        "2s",
-        "100vw",
-        "90vh",
-        "0px",
-        "0px",
-        "520px",
-        "auto"
-      );
-    } else if (!isActive && window.innerWidth <= 324) {
-      setIsActive(true);
-      giveStyles(
-        x,
-        y,
-        container,
-        refActiveCurrent,
-        refBtnCurrent,
-        xTranslate,
-        yTranslate - 38.5,
-        9,
-        "absolute",
-        "2s",
-        "100vw",
-        "100vh",
-        "0px",
-        "0px",
-        "650px",
-        "auto"
-      );
-    } else {
-      container.style.top = "120px";
-      refActiveCurrent.style.position = "absolute";
-      refActiveCurrent.style.minWidth = "0";
-      refActiveCurrent.style.minHeight = "0";
-      refActiveCurrent.style.width = "150px";
-      refActiveCurrent.style.height = "150px";
-      refActiveCurrent.style.transform = "scale(1)";
-      refActiveCurrent.style.zIndex = "1";
-      refBtnCurrent.style.fontSize = "13px";
-      answersCurrent.style.display = "none";
+      if (!isActive && window.innerWidth >= 1000) {
+        setIsActive(true);
+        giveStyles(
+          x,
+          y,
+          container,
+          refActiveCurrent,
+          refBtnCurrent,
+          xTranslate,
+          yTranslate,
+          9,
+          "absolute",
+          "2s",
+          "950px",
+          "500px",
+          "0px",
+          "0px",
+          "420px",
+          "hidden"
+        );
+      } else if (!isActive && window.innerWidth >= 520) {
+        setIsActive(true);
+        giveStyles(
+          x,
+          y,
+          container,
+          refActiveCurrent,
+          refBtnCurrent,
+          xTranslate,
+          yTranslate,
+          9,
+          "absolute",
+          "2s",
+          "100vw",
+          "650px",
+          "0px",
+          "0px",
+          "520px",
+          "hidden"
+        );
+      } else if (
+        !isActive &&
+        window.innerWidth >= 325 &&
+        window.innerHeight >= 700
+      ) {
+        setIsActive(true);
+        giveStyles(
+          x,
+          y,
+          container,
+          refActiveCurrent,
+          refBtnCurrent,
+          xTranslate,
+          yTranslate - 15,
+          9,
+          "absolute",
+          "2s",
+          "100vw",
+          "90vh",
+          "0px",
+          "0px",
+          "720px",
+          "auto"
+        );
+      } else if (!isActive && window.innerWidth >= 325) {
+        setIsActive(true);
+        giveStyles(
+          x,
+          y,
+          container,
+          refActiveCurrent,
+          refBtnCurrent,
+          xTranslate,
+          yTranslate - 15,
+          9,
+          "absolute",
+          "2s",
+          "100vw",
+          "90vh",
+          "0px",
+          "0px",
+          "520px",
+          "auto"
+        );
+      } else if (!isActive && window.innerWidth <= 324) {
+        setIsActive(true);
+        giveStyles(
+          x,
+          y,
+          container,
+          refActiveCurrent,
+          refBtnCurrent,
+          xTranslate,
+          yTranslate - 38.5,
+          9,
+          "absolute",
+          "2s",
+          "100vw",
+          "100vh",
+          "0px",
+          "0px",
+          "650px",
+          "auto"
+        );
+      } else {
+        container.style.top = "120px";
+        refActiveCurrent.style.position = "absolute";
+        refActiveCurrent.style.minWidth = "0";
+        refActiveCurrent.style.minHeight = "0";
+        refActiveCurrent.style.width = "150px";
+        refActiveCurrent.style.height = "150px";
+        refActiveCurrent.style.transform = "scale(1)";
+        refActiveCurrent.style.zIndex = "1";
+        refBtnCurrent.style.fontSize = "13px";
+        answersCurrent.style.display = "none";
 
-      setTimeout(() => {
-        refActiveCurrent.style.position = "inherit";
-      }, 1300);
-      setIsActive(false);
+        setTimeout(() => {
+          refActiveCurrent.style.position = "inherit";
+        }, 1300);
+        setIsActive(false);
+      }
+    } catch (error) {
+      // console.log(error, e.target.textContent);
     }
   };
+
   const buttonImages = [
     require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_2.jpg"),
     require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_3.jpg"),
@@ -281,6 +287,7 @@ export const StepByStepButtonGame = ({
             textOne={textOne}
             textTwo={textTwo}
             textThree={textThree}
+            goodAnswer={goodAnswer}
           />
         </div>
       </button>
