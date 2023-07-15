@@ -5,8 +5,8 @@ import { StepByStepButtonGame } from "./StepByStepButtonGame";
 import fone from "./images/fon.png";
 
 export const StepByStepGame = (dataId, data) => {
-  const el = document.getElementsByTagName("body")[0];
-  el.style.overflow = "inherit";
+  // const el = document.getElementsByTagName("body")[0];
+  // el.style.overflow = "inherit";
   data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
@@ -21,6 +21,7 @@ export const StepByStepGame = (dataId, data) => {
     setIsGood(true);
     try {
       if (e.target.textContent === e.target.attributes.data.value) {
+        e.target.style.backgroundColor = "green";
         console.log("true");
       } else {
         console.log("false");
