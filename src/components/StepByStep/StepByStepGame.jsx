@@ -19,12 +19,13 @@ export const StepByStepGame = (dataId, data) => {
 
   const handleClickBtn = (e) => {
     setIsGood(true);
+    // console.log(e.target.attributes.dataValue.value);
     try {
-      if (e.target.textContent === e.target.attributes.data.value) {
-        e.target.style.backgroundColor = "green";
-        console.log("true");
+      if (e.target.attributes.dataValue.value === "answerBtn") {
+        //e.target.textContent === e.target.attributes.data.value
+        e.target.style.backgroundColor = "purple";
+        e.target.style.color = "white";
       } else {
-        console.log("false");
       }
     } catch (error) {}
 
@@ -88,6 +89,7 @@ export const StepByStepGame = (dataId, data) => {
                     textThree={i.textThree}
                     value={isGood}
                     goodAnswer={i.goodAnswer}
+                    answerBtn="answerBtn"
                   />
                 </div>
               ))}

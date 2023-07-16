@@ -92,7 +92,6 @@ export const StepByStepButtonGame = ({
       behavior: "smooth", // Добавляем плавную анимацию прокрутки
     });
     const answersCurrent = answers.current;
-
     const { id } = e.target;
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
@@ -241,6 +240,7 @@ export const StepByStepButtonGame = ({
 
     // и так далее
   ];
+
   return (
     <div
       onClick={handleButtonClick}
@@ -283,6 +283,7 @@ export const StepByStepButtonGame = ({
           className={css.answers}
         >
           <AnswerBtn
+            id={id}
             text={text}
             textOne={textOne}
             textTwo={textTwo}
