@@ -1,17 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import css from "../../main.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
 import fone from "./images/fon.png";
 
 export const StepByStepGame = (dataId, data) => {
-  // const el = document.getElementsByTagName("body")[0];
-  // el.style.overflow = "inherit";
   data = dataId.data;
   console.log(dataId);
   const [backBtn, setBackBtn] = useState(false);
   const [isGood, setIsGood] = useState(false);
-  // const [client, setClient] = useState({ x: "0", y: "0" });
+  const [error, setError] = useState(0);
+
+  useEffect(() => {
+    if (error === 10) {
+      //сделать рендер компонента модального окна для подведения ошибок и верных ответов
+    }
+  }, [error]);
 
   const handleOnClick = (e) => {
     setBackBtn(true);
@@ -19,18 +23,15 @@ export const StepByStepGame = (dataId, data) => {
 
   const handleClickBtn = (e) => {
     setIsGood(true);
-    // console.log(e.target.attributes.dataValue.value);
     try {
-      if (e.target.attributes.dataValue.value === "answerBtn") {
-        //e.target.textContent === e.target.attributes.data.value
+      if (e.target.attributes.datavalue.value === "answerBtn") {
+        setError(error + 1);
         e.target.style.backgroundColor = "purple";
         e.target.style.color = "white";
+        console.log(e.target.textContent);
       } else {
       }
     } catch (error) {}
-
-    // window.resizeBy(-500, -500);
-    // window.moveTo(184, 229);
   };
 
   const renderGame = (data) => {
@@ -58,12 +59,7 @@ export const StepByStepGame = (dataId, data) => {
               justifyContent: "center",
             }}
           >
-            <button
-              className={css.BackBtn}
-              onClick={handleOnClick}
-              id="back"
-              // style={{ position: "absolute", top: "0" }}
-            >
+            <button className={css.BackBtn} onClick={handleOnClick} id="back">
               Back
             </button>
             <div
@@ -93,7 +89,6 @@ export const StepByStepGame = (dataId, data) => {
                   />
                 </div>
               ))}
-              {/* {isGood && <StepByStepModal id={targetId} data={data} />} */}
             </div>
           </div>
         </>

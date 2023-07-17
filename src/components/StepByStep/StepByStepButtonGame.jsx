@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
 import { AnswerBtn } from "./AnswerBtn";
 
@@ -23,7 +23,6 @@ const positions = {
 
 export const StepByStepButtonGame = ({
   name,
-  index,
   id,
   value,
   text,
@@ -34,14 +33,19 @@ export const StepByStepButtonGame = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const el = document.getElementsByTagName("body")[0];
-  el.style.overflowX = "hidden";
-
   const containerRef = useRef(null);
   const refActive = useRef();
   const refBtn = useRef();
   const answers = useRef();
 
+  const el = document.getElementsByTagName("body")[0];
+  el.style.overflowX = "hidden";
+  const stepByStepFindErrorAnswer = () => {
+    for (const i of [goodAnswer]) {
+      console.log(i);
+    }
+  };
+  stepByStepFindErrorAnswer();
   const giveStyles = (
     x,
     y,
@@ -221,9 +225,7 @@ export const StepByStepButtonGame = ({
         }, 1300);
         setIsActive(false);
       }
-    } catch (error) {
-      // console.log(error, e.target.textContent);
-    }
+    } catch (error) {}
   };
 
   const buttonImages = [
@@ -237,8 +239,6 @@ export const StepByStepButtonGame = ({
     require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg"),
     require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_10.jpg"),
     require("./images/Isometric_Fantasy_forest_miniatures_in_cartoon_style_11.jpg"),
-
-    // и так далее
   ];
 
   return (
@@ -268,15 +268,7 @@ export const StepByStepButtonGame = ({
         ref={refBtn}
         id={id}
       >
-        <div
-          // style={{
-          //   fontSize:
-          //     containerRef.current?.style.top === "420px" ? "28px" : "inherit",
-          // }}
-          id={id}
-        >
-          {name}
-        </div>
+        <div id={id}>{name}</div>
         <div
           style={{ display: "none", position: "relative", top: "80px" }}
           ref={answers}

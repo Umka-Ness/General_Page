@@ -12,6 +12,7 @@ export const AnswerBtn = ({
   const isDisabled = () => {
     setValueBtn(true);
   };
+
   return (
     <div style={{ display: "flex" }} id={id}>
       <div className={css.answers}>
@@ -23,10 +24,9 @@ export const AnswerBtn = ({
             padding: "5px",
             cursor: "pointer",
           }}
-          //   id={id}
           data={text === goodAnswer ? goodAnswer : ""}
           disabled={valueBtn}
-          dataValue="answerBtn"
+          datavalue="answerBtn"
           onClick={isDisabled}
         >
           {text}
@@ -39,10 +39,9 @@ export const AnswerBtn = ({
             padding: "5px",
             cursor: "pointer",
           }}
-          //   id={id}
           data={textOne === goodAnswer ? goodAnswer : ""}
           disabled={valueBtn}
-          dataValue="answerBtn"
+          datavalue="answerBtn"
           onClick={isDisabled}
         >
           {textOne}
@@ -57,10 +56,9 @@ export const AnswerBtn = ({
             padding: "5px",
             cursor: "pointer",
           }}
-          //   id={id}
           data={textTwo === goodAnswer ? goodAnswer : ""}
           disabled={valueBtn}
-          dataValue="answerBtn"
+          datavalue="answerBtn"
           onClick={isDisabled}
         >
           {textTwo}
@@ -73,10 +71,9 @@ export const AnswerBtn = ({
             padding: "5px",
             cursor: "pointer",
           }}
-          //   id={id}
           data={textThree === goodAnswer ? goodAnswer : ""}
           disabled={valueBtn}
-          dataValue="answerBtn"
+          datavalue="answerBtn"
           onClick={isDisabled}
         >
           {textThree}
