@@ -38,7 +38,8 @@ export const StepByStepGame = (dataId, data) => {
   };
 
   const closeModal = (e) => {
-    if (e.target.textContent === "x") {
+    console.log(e);
+    if (e.target.textContent === "x" || e.target.id === "close") {
       refModal.current.style.display = "none";
     }
   };

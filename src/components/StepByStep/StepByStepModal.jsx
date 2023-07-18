@@ -2,10 +2,10 @@ import React from "react";
 import css from "../../main.module.css";
 
 export const StepByStepModal = () => {
-  const closeModal = (e) => {};
   return (
     <div>
       <div
+        id="close"
         style={{
           display: "flex",
           width: "100vw",
@@ -21,9 +21,7 @@ export const StepByStepModal = () => {
             <div>Text</div>
           </div>
           <div>
-            <button className={css.closeBtn} onClick={closeModal}>
-              x
-            </button>
+            <button className={css.closeBtn}>x</button>
           </div>
         </div>
       </div>
