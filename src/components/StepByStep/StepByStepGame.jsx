@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import css from "../../main.module.css";
 import { StepByStep } from "./StepByStep";
 import { StepByStepButtonGame } from "./StepByStepButtonGame";
 import fone from "./images/fon.png";
+import { StepByStepModal } from "./StepByStepModal";
 
 export const StepByStepGame = (dataId, data) => {
   data = dataId.data;
@@ -10,9 +11,11 @@ export const StepByStepGame = (dataId, data) => {
   const [backBtn, setBackBtn] = useState(false);
   const [isGood, setIsGood] = useState(false);
   const [error, setError] = useState(0);
+  const refModal = useRef();
 
   useEffect(() => {
-    if (error === 10) {
+    if (error === 2) {
+      refModal.current.style.display = "inherit";
       //сделать рендер компонента модального окна для подведения ошибок и верных ответов
     }
   }, [error]);
@@ -32,6 +35,12 @@ export const StepByStepGame = (dataId, data) => {
       } else {
       }
     } catch (error) {}
+  };
+
+  const closeModal = (e) => {
+    if (e.target.textContent === "x") {
+      refModal.current.style.display = "none";
+    }
   };
 
   const renderGame = (data) => {
@@ -89,6 +98,13 @@ export const StepByStepGame = (dataId, data) => {
                   />
                 </div>
               ))}
+            </div>
+            <div
+              className={css.stepbystepModale}
+              ref={refModal}
+              onClick={closeModal}
+            >
+              <StepByStepModal />
             </div>
           </div>
         </>
