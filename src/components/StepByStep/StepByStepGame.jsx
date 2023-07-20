@@ -15,7 +15,11 @@ export const StepByStepGame = (dataId, data) => {
 
   useEffect(() => {
     if (error === 2) {
+      setTimeout(() => {
+        refModal.current.style.transform = "translate(-50%, -50%) scale(1)";
+      }, 300);
       refModal.current.style.display = "inherit";
+
       //сделать рендер компонента модального окна для подведения ошибок и верных ответов
     }
   }, [error]);
@@ -28,19 +32,25 @@ export const StepByStepGame = (dataId, data) => {
     setIsGood(true);
     try {
       if (e.target.attributes.datavalue.value === "answerBtn") {
-        setError(error + 1);
         e.target.style.backgroundColor = "purple";
         e.target.style.color = "white";
         console.log(e.target.textContent);
+        console.log(e.target.goodAnswer);
+
+        if (e.target.goodAnswer !== e.target.textContent) {
+          setError(error + 1);
+        }
       } else {
       }
     } catch (error) {}
   };
 
   const closeModal = (e) => {
-    console.log(e);
     if (e.target.textContent === "x" || e.target.id === "close") {
-      refModal.current.style.display = "none";
+      setTimeout(() => {
+        refModal.current.style.display = "none";
+      }, 300);
+      refModal.current.style.transform = "translate(-50%, -50%) scale(0)";
     }
   };
 
@@ -105,7 +115,7 @@ export const StepByStepGame = (dataId, data) => {
               ref={refModal}
               onClick={closeModal}
             >
-              <StepByStepModal />
+              <StepByStepModal error={error} />
             </div>
           </div>
         </>

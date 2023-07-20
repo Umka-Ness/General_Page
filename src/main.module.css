@@ -134,11 +134,13 @@ li {
 }
 
 .stepbystepModale {
-  z-index: 1;
+  display: none;
+  z-index: 16;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 500ms linear;
   padding: 20px;
   border: 1px solid #000;
   background: rgba(0, 0, 0, 0.8784313725);

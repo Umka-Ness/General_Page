@@ -1,7 +1,7 @@
 import React from "react";
 import css from "../../main.module.css";
 
-export const StepByStepModal = () => {
+export const StepByStepModal = ({ error }) => {
   return (
     <div>
       <div
@@ -19,6 +19,7 @@ export const StepByStepModal = () => {
           <div>
             <div>Modal</div>
             <div>Text</div>
+            <div>{error}</div>
           </div>
           <div>
             <button className={css.closeBtn}>x</button>
