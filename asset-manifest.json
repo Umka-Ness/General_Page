@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.35425a7c.css",
-    "main.js": "/static/js/main.b3e47700.js",
+    "main.js": "/static/js/main.6c498ed3.js",
     "static/media/fon.png": "/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
@@ -31,10 +31,10 @@
     "static/media/bgButtonIdk.svg": "/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/index.html",
     "main.35425a7c.css.map": "/static/css/main.35425a7c.css.map",
-    "main.b3e47700.js.map": "/static/js/main.b3e47700.js.map"
+    "main.6c498ed3.js.map": "/static/js/main.6c498ed3.js.map"
   },
   "entrypoints": [
     "static/css/main.35425a7c.css",
-    "static/js/main.b3e47700.js"
+    "static/js/main.6c498ed3.js"
   ]
 }
