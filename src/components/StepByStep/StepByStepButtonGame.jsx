@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
 import { AnswerBtn } from "./AnswerBtn";
 
 const positions = {
-  1: { y: 27.5, x: 8, xTranslate: -8, yTranslate: -20 },
-  2: { y: 27.5, x: 24, xTranslate: -24, yTranslate: -20 },
-  3: { y: 27.5, x: 44, xTranslate: -44, yTranslate: -20 },
-  4: { y: 27.5, x: 60, xTranslate: -60, yTranslate: -20 },
-  5: { y: 27.5, x: 76, xTranslate: -76, yTranslate: -20 },
+  1: { y: 27.5, x: 8, xTranslate: -8, yTranslate: -28.6 },
+  2: { y: 27.5, x: 24, xTranslate: -24, yTranslate: -28.6 },
+  3: { y: 27.5, x: 44, xTranslate: -44, yTranslate: -28.6 },
+  4: { y: 27.5, x: 60, xTranslate: -60, yTranslate: -28.6 },
+  5: { y: 27.5, x: 76, xTranslate: -76, yTranslate: -28.6 },
   6: { y: 51.5, x: 12, xTranslate: -12, yTranslate: -53 },
   7: { y: 51.5, x: 28, xTranslate: -28, yTranslate: -53 },
   8: { y: 51.5, x: 44, xTranslate: -44, yTranslate: -53 },
@@ -88,7 +88,7 @@ export const StepByStepButtonGame = ({
         refActiveCurrent.style.minWidth = width;
         refActiveCurrent.style.minHeight = height;
       }
-    }, 2000);
+    }, 200);
   };
   const handleButtonClick = (e) => {
     window.scrollTo({
@@ -157,12 +157,12 @@ export const StepByStepButtonGame = ({
           refActiveCurrent,
           refBtnCurrent,
           xTranslate,
-          yTranslate - 15,
+          yTranslate + 1,
           9,
           "absolute",
           "2s",
           "100vw",
-          "90vh",
+          "100vh",
           "0px",
           "0px",
           "720px",
@@ -219,11 +219,12 @@ export const StepByStepButtonGame = ({
         refActiveCurrent.style.zIndex = "1";
         refBtnCurrent.style.fontSize = "13px";
         answersCurrent.style.display = "none";
-
-        setTimeout(() => {
-          refActiveCurrent.style.position = "inherit";
-        }, 1300);
         setIsActive(false);
+
+        const timeout = setTimeout(() => {
+          refActiveCurrent.style.position = "inherit";
+          clearTimeout(timeout);
+        }, 1300);
       }
     } catch (error) {}
   };

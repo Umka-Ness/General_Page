@@ -37,7 +37,7 @@ import BgImg from "./images/top-view-of-the-countryside.jpg";
 
 export const StepByStep = () => {
   const el = document.getElementsByTagName("body")[0];
-  el.style.overflow = "hidden";
+  el.style.overflowX = "hidden";
   const [backBtn, setBackBtn] = useState(false);
   const [run, setRun] = useState(false);
   const [dataId, setDataId] = useState("");
