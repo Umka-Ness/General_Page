@@ -615,5 +615,37 @@ li {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  gap: 15px;
+  gap: 25px;
+}
+
+.levelSelectionBtn {
+  padding: 40px;
+  border-radius: 25px;
+  border: 3px double green;
+  color: black;
+  box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.452);
+  -webkit-transition: 1s ease;
+  cursor: pointer;
+}
+.levelSelectionBtn:hover {
+  transform: translate(0px, -10px);
+  transition: 1s;
+  border: 3px double rgba(85, 9, 237, 0.863);
+  box-shadow: 10px 15px 20px 0px rgba(85, 9, 237, 0.452);
+}
+
+.onlyLvlBtn {
+  padding: 10px;
+  border-radius: 15px;
+  border: 3px double green;
+  color: black;
+  box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.452);
+  -webkit-transition: 1s ease;
+  cursor: pointer;
+}
+.onlyLvlBtn:hover {
+  transform: translate(0px, -10px);
+  transition: 1s;
+  border: 3px double rgba(85, 9, 237, 0.863);
+  box-shadow: 10px 15px 20px 0px rgba(85, 9, 237, 0.452);
 }/*# sourceMappingURL=main.module.css.map */

@@ -28,13 +28,25 @@ export const DragAndDrop = () => {
           Back
         </button>
         <div className={css.containerForLevelButton}>
-          <button id="1" onClick={(e) => setSelectedId(e.target.id)}>
+          <button
+            id="1"
+            onClick={(e) => setSelectedId(e.target.id)}
+            className={css.levelSelectionBtn}
+          >
             Low Lavel
           </button>
-          <button id="2" onClick={(e) => setSelectedId(e.target.id)}>
+          <button
+            id="2"
+            onClick={(e) => setSelectedId(e.target.id)}
+            className={css.levelSelectionBtn}
+          >
             Medium Level
           </button>
-          <button id="3" onClick={(e) => setSelectedId(e.target.id)}>
+          <button
+            id="3"
+            onClick={(e) => setSelectedId(e.target.id)}
+            className={css.levelSelectionBtn}
+          >
             High Level
           </button>
         </div>

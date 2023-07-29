@@ -67,7 +67,7 @@ export const PageOne = () => {
               }}
             >
               <p className={css.name}>1 StepByStep</p>
-              <div onClick={GoMoveBox}>
+              <div onClick={GoMoveBox} style={{ cursor: "pointer" }}>
                 <Button alt="Logo" />
               </div>
               <p className={css.blockCard}>lala</p>
@@ -79,7 +79,7 @@ export const PageOne = () => {
               }}
             >
               <p className={css.name}>2 Drag and Drop</p>
-              <div onClick={GoMoveBox}>
+              <div onClick={GoMoveBox} style={{ cursor: "pointer" }}>
                 <Button alt="DragAndDrop" />
               </div>
               <p className={css.blockCard}>Drag and Drop</p>

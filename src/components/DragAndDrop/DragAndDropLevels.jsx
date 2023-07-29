@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DragAndDrop } from "./DragAndDrop";
 import css from "../../main.module.css";
 import { DragAndDropGame } from "./DragAndDropGame";
-
+import backImg from "./img/tetrad.jpg";
 export const DragAndDropLevels = () => {
   const [selectedId, setSelectedId] = useState("");
   const [currentId, setCurrentId] = useState("");
@@ -63,37 +63,90 @@ export const DragAndDropLevels = () => {
     } else {
       return (
         <>
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              zIndex: "0",
+              width: "100vw",
+              height: "100vh",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundImage: `url(${backImg})`,
+            }}
+          ></div>
           <button className={css.BackBtn} onClick={handleOnClick} id="back">
             Back
           </button>
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100vw",
-              height: "100vh",
-              gap: "20px",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              zIndex: "2",
             }}
           >
-            <button id="1" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 1
-            </button>
-            <button id="2" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 2
-            </button>
-            <button id="3" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 3
-            </button>
-            <button id="4" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 4
-            </button>
-            <button id="5" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 5
-            </button>
-            <button id="6" onClick={(e) => setCurrentId(e.target.id)}>
-              Game number 6
-            </button>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "center",
+                justifyContent: "center",
+                alignContent: "flex-start",
+                alignItems: "center",
+                width: "100vw",
+                height: "100vh",
+                gap: "20px",
+
+                marginTop: "150px",
+              }}
+            >
+              <button
+                id="1"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 1
+              </button>
+              <button
+                id="2"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 2
+              </button>
+              <button
+                id="3"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 3
+              </button>
+              <button
+                id="4"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 4
+              </button>
+              <button
+                id="5"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 5
+              </button>
+              <button
+                id="6"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 6
+              </button>
+            </div>
           </div>
         </>
       );
