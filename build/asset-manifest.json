@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.35425a7c.css",
-    "main.js": "/static/js/main.6c498ed3.js",
+    "main.css": "/static/css/main.6507843a.css",
+    "main.js": "/static/js/main.4cfe633d.js",
     "static/media/fon.png": "/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
@@ -15,6 +15,7 @@
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_4.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_4.eb9dc7abb842ac7033d3.jpg",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.9c081684151fe6c63275.jpg",
     "static/media/podvodnie-peizazhi-1.jpg": "/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
+    "static/media/tetrad.jpg": "/static/media/tetrad.6f0178c430d04bf3f54f.jpg",
     "static/media/top-view-of-the-countryside.jpg": "/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
     "static/media/Go.svg": "/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
     "static/media/question-3-stars.svg": "/static/media/question-3-stars.a2afbcd0bba765b5bbfffec6acf2d1b6.svg",
@@ -30,11 +31,11 @@
     "static/media/bgButtonStars.svg": "/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/index.html",
-    "main.35425a7c.css.map": "/static/css/main.35425a7c.css.map",
-    "main.6c498ed3.js.map": "/static/js/main.6c498ed3.js.map"
+    "main.6507843a.css.map": "/static/css/main.6507843a.css.map",
+    "main.4cfe633d.js.map": "/static/js/main.4cfe633d.js.map"
   },
   "entrypoints": [
-    "static/css/main.35425a7c.css",
-    "static/js/main.6c498ed3.js"
+    "static/css/main.6507843a.css",
+    "static/js/main.4cfe633d.js"
   ]
 }

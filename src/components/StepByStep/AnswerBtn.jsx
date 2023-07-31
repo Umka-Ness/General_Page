@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "../../main.module.css";
 export const AnswerBtn = ({
   id,
@@ -7,18 +7,32 @@ export const AnswerBtn = ({
   textTwo,
   textThree,
   goodAnswer,
+  tapInTheBtn,
 }) => {
   const [valueBtn, setValueBtn] = useState(false);
+  const leftRef = useRef();
+  const rightRef = useRef();
+
+  if (tapInTheBtn) {
+    setTimeout(() => {
+      if (leftRef.current && rightRef.current) {
+        leftRef.current.style.transform = "translate(-30px, 0px)";
+        rightRef.current.style.transform = "translate(30px, 0px)";
+      }
+    }, 1900);
+  } else {
+    return null;
+  }
   const isDisabled = () => {
     setValueBtn(true);
   };
 
   return (
     <div style={{ display: "flex" }} id={id}>
-      <div className={css.answers}>
+      <div className={css.answers} ref={leftRef}>
         <button
           style={{
-            width: "200px",
+            minWidth: "150px",
             borderRadius: "15px",
             border: "1px solid black",
             padding: "5px",
@@ -33,7 +47,7 @@ export const AnswerBtn = ({
         </button>
         <button
           style={{
-            width: "200px",
+            minWidth: "150px",
             borderRadius: "15px",
             border: "1px solid black",
             padding: "5px",
@@ -47,10 +61,10 @@ export const AnswerBtn = ({
           {textOne}
         </button>
       </div>
-      <div className={css.answers}>
+      <div className={css.answers} ref={rightRef}>
         <button
           style={{
-            width: "200px",
+            minWidth: "150px",
             borderRadius: "15px",
             border: "1px solid black",
             padding: "5px",
@@ -65,7 +79,7 @@ export const AnswerBtn = ({
         </button>
         <button
           style={{
-            width: "200px",
+            minWidth: "150px",
             borderRadius: "15px",
             border: "1px solid black",
             padding: "5px",

@@ -98,10 +98,8 @@ export const DragAndDropLevels = () => {
                 alignContent: "flex-start",
                 alignItems: "center",
                 width: "100vw",
-                height: "100vh",
+                height: "70vh",
                 gap: "20px",
-
-                marginTop: "150px",
               }}
             >
               <button

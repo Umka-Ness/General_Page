@@ -91,11 +91,18 @@ export const StepByStepButtonGame = ({
     }, 200);
   };
   const handleButtonClick = (e) => {
+    const answersCurrent = answers.current;
+    answersCurrent.style.opacity = "0";
+
+    setTimeout(() => {
+      answersCurrent.style.opacity = "1";
+    }, 2000);
+
     window.scrollTo({
       top: 0,
       behavior: "smooth", // Добавляем плавную анимацию прокрутки
     });
-    const answersCurrent = answers.current;
+
     const { id } = e.target;
     const container = containerRef.current;
     const refActiveCurrent = refActive.current;
@@ -150,44 +157,99 @@ export const StepByStepButtonGame = ({
         window.innerHeight >= 700
       ) {
         setIsActive(true);
-        giveStyles(
-          x,
-          y,
-          container,
-          refActiveCurrent,
-          refBtnCurrent,
-          xTranslate,
-          yTranslate + 1,
-          9,
-          "absolute",
-          "2s",
-          "100vw",
-          "100vh",
-          "0px",
-          "0px",
-          "720px",
-          "auto"
-        );
+        if (
+          e.target.id === "10" ||
+          e.target.id === "9" ||
+          e.target.id === "8" ||
+          e.target.id === "7" ||
+          e.target.id === "6"
+        ) {
+          giveStyles(
+            x,
+            y,
+            container,
+            refActiveCurrent,
+            refBtnCurrent,
+            xTranslate,
+            yTranslate + 0.7,
+            9,
+            "absolute",
+            "2s",
+            "100vw",
+            "100vh",
+            "0px",
+            "0px",
+            "720px",
+            "auto"
+          );
+        } else {
+          giveStyles(
+            x,
+            y,
+            container,
+            refActiveCurrent,
+            refBtnCurrent,
+            xTranslate,
+            yTranslate - 0.5,
+            9,
+            "absolute",
+            "2s",
+            "100vw",
+            "100vh",
+            "0px",
+            "0px",
+            "720px",
+            "auto"
+          );
+        }
       } else if (!isActive && window.innerWidth >= 325) {
         setIsActive(true);
-        giveStyles(
-          x,
-          y,
-          container,
-          refActiveCurrent,
-          refBtnCurrent,
-          xTranslate,
-          yTranslate - 15,
-          9,
-          "absolute",
-          "2s",
-          "100vw",
-          "90vh",
-          "0px",
-          "0px",
-          "520px",
-          "auto"
-        );
+        console.log(e.target.id);
+        if (
+          e.target.id === "10" ||
+          e.target.id === "9" ||
+          e.target.id === "8" ||
+          e.target.id === "7" ||
+          e.target.id === "6"
+        ) {
+          giveStyles(
+            x,
+            y,
+            container,
+            refActiveCurrent,
+            refBtnCurrent,
+            xTranslate,
+            yTranslate - 15,
+            9,
+            "absolute",
+            "2s",
+            "100vw",
+            "100vh",
+            "0px",
+            "0px",
+            "520px",
+            "auto"
+          );
+        } else {
+          giveStyles(
+            x,
+            y,
+            container,
+            refActiveCurrent,
+            refBtnCurrent,
+            xTranslate,
+            yTranslate - 9.5,
+            9,
+            "absolute",
+            "2s",
+            "100vw",
+            "100vh",
+            "0px",
+            "0px",
+            "520px",
+            "auto"
+          );
+        }
       } else if (!isActive && window.innerWidth <= 324) {
         setIsActive(true);
         giveStyles(
@@ -282,6 +344,7 @@ export const StepByStepButtonGame = ({
             textTwo={textTwo}
             textThree={textThree}
             goodAnswer={goodAnswer}
+            tapInTheBtn={isActive}
           />
         </div>
       </button>

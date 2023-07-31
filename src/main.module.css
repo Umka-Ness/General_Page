@@ -169,10 +169,26 @@ li {
   height: 20px;
 }
 
+.containerForBtn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 995px;
+  margin-top: 20px;
+}
+@media screen and (min-width: 1000) {
+  .containerForBtn {
+    align-content: flex-start;
+    margin-top: 0;
+  }
+}
+
 .NavigationBtn {
   position: relative;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 10px;
   min-width: 130px;
   min-height: 150px;
   color: #000;

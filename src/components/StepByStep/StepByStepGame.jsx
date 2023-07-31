@@ -82,17 +82,7 @@ export const StepByStepGame = (dataId, data) => {
             <button className={css.BackBtn} onClick={handleOnClick} id="back">
               Back
             </button>
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                alignContent: "center",
-                gap: "20px",
-                flexWrap: "wrap",
-                maxWidth: "995px",
-              }}
-            >
+            <div className={css.containerForBtn}>
               {data.map((i, index) => (
                 <div key={i.id} onClick={handleClickBtn}>
                   <StepByStepButtonGame
