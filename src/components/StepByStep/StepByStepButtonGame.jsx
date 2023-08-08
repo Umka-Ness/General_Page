@@ -92,11 +92,14 @@ export const StepByStepButtonGame = ({
   };
   const handleButtonClick = (e) => {
     const answersCurrent = answers.current;
-    answersCurrent.style.opacity = "0";
-
-    setTimeout(() => {
-      answersCurrent.style.opacity = "1";
-    }, 2000);
+    if (e.target.attributes.datavalue?.value === "answerBtn") {
+      return;
+    } else {
+      answersCurrent.style.opacity = "0";
+      setTimeout(() => {
+        answersCurrent.style.opacity = "1";
+      }, 2000);
+    }
 
     window.scrollTo({
       top: 0,
