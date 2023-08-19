@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
 // import cssPageOne from "../Game-page/GamePage.module.css";
 import { StepByStepButton } from "./StepByStepButton";
@@ -41,9 +41,12 @@ export const StepByStep = () => {
   const [backBtn, setBackBtn] = useState(false);
   const [run, setRun] = useState(false);
   const [dataId, setDataId] = useState("");
+  // const loader = document.querySelector(".loadModal");
+  const refLoader = useRef(null);
 
   useEffect(() => {
     localStorage.setItem("numberPage", "StepByStep");
+    loaderModal();
   }, []);
 
   const handleOnClick = (e) => {
@@ -51,6 +54,17 @@ export const StepByStep = () => {
     console.log(id);
     setBackBtn(true);
   };
+
+  function loaderModal() {
+    const loader = refLoader.current;
+    console.log(loader);
+
+    setTimeout(() => {
+      console.log(loader);
+
+      loader.style.display = "none";
+    }, 3000);
+  }
 
   const runGame = (e) => {
     setDataId(e.currentTarget.id);
@@ -101,6 +115,27 @@ export const StepByStep = () => {
       return (
         <>
           {/* <img src={skyBg} alt="asas" className={cssPageOne.bgSvg} /> */}
+          <div className={css.loadModal} ref={refLoader}>
+            <div className={css.loader}>
+              <span>L</span>
+              <span>O</span>
+              <span>A</span>
+              <span>D</span>
+              <span>I</span>
+              <span>N</span>
+              <span>G</span>
+
+              <div className={css.covers}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
           <div
             style={{
               height: "100vh",
