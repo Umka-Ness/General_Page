@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 
-export const DragAndDropGame = ({ textData, goodText }) => {
+export const DragAndDropGame = ({ textData, goodText, image }) => {
   const [selectedId, setSelectedId] = useState("");
   const [cardList, setCardList] = useState([
     { id: 1, order: 0, text: textData.wordsOne },
@@ -104,31 +104,65 @@ export const DragAndDropGame = ({ textData, goodText }) => {
           <button className={css.BackBtn} onClick={handleOnClick} id="back">
             Back
           </button>
+
           <div className={css.containteCard}>
-            {cardList.sort(sortCards).map((card) => {
-              if (card.text === "") {
-                console.log(card);
-                return null;
-              } else {
-                return (
-                  <div
-                    onDragStart={(e) => dragStartHandler(e, card)}
-                    onDragLeave={(e) => dragLeaveHandler(e)}
-                    onDragEnd={(e) => dragEndHandler(e)}
-                    onDragOver={(e) => dragOverHandler(e)}
-                    onDrop={(e) => dragDropHandler(e, card)}
-                    draggable={true}
-                    className={css.card}
-                  >
-                    {card.text}
-                  </div>
-                );
-              }
-            })}
-            <div className={css.startBtnContainer}>
-              <button onClick={CheckRightWords} className={css.startBtn}>
-                Gooooo
-              </button>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "inherit",
+              }}
+            >
+              <div>
+                <img
+                  src={image}
+                  alt="lalala"
+                  style={
+                    {
+                      // position: "absolute",
+                      // top: "30%",
+                      // left: "40vw",
+                      // width: "150px",
+                      // height: "150px",
+                    }
+                  }
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  width: "inherit",
+                  justifyContent: "center",
+                }}
+              >
+                {cardList.sort(sortCards).map((card) => {
+                  if (card.text === "") {
+                    console.log(card);
+                    return null;
+                  } else {
+                    return (
+                      <div
+                        onDragStart={(e) => dragStartHandler(e, card)}
+                        onDragLeave={(e) => dragLeaveHandler(e)}
+                        onDragEnd={(e) => dragEndHandler(e)}
+                        onDragOver={(e) => dragOverHandler(e)}
+                        onDrop={(e) => dragDropHandler(e, card)}
+                        draggable={true}
+                        className={css.card}
+                      >
+                        {card.text}
+                      </div>
+                    );
+                  }
+                })}
+
+                <div className={css.startBtnContainer}>
+                  <button onClick={CheckRightWords} className={css.startBtn}>
+                    Gooooo
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </>

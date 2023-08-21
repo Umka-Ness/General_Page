@@ -3,6 +3,8 @@ import { DragAndDrop } from "./DragAndDrop";
 import css from "../../main.module.css";
 import { DragAndDropGame } from "./DragAndDropGame";
 import backImg from "./img/tetrad.jpg";
+import image from "./img/bag.png";
+
 export const DragAndDropLevels = () => {
   const [selectedId, setSelectedId] = useState("");
   const [currentId, setCurrentId] = useState("");
@@ -184,7 +186,13 @@ export const DragAndDropLevels = () => {
     if (selectedId === "back") {
       return <DragAndDrop />;
     } else if (currentId === "1") {
-      return <DragAndDropGame textData={forstText} goodText={goodFirstText} />;
+      return (
+        <DragAndDropGame
+          textData={forstText}
+          goodText={goodFirstText}
+          image={image}
+        />
+      );
     } else if (currentId === "2") {
       return (
         <DragAndDropGame textData={secondText} goodText={goodSecondText} />
