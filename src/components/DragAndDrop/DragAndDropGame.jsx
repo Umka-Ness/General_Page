@@ -12,10 +12,11 @@ export const DragAndDropGame = ({ textData, goodText }) => {
     { id: 5, order: 4, text: textData.wordsFive ? textData.wordsFive : "" },
     { id: 6, order: 5, text: textData.wordSix ? textData.wordSix : "" },
     { id: 7, order: 6, text: textData.wordSeven ? textData.wordSeven : "" },
-    { id: 8, order: 7, text: "" },
-    { id: 9, order: 8, text: "" },
-    { id: 10, order: 9, text: "" },
-    { id: 11, order: 10, text: "" },
+    { id: 8, order: 7, text: textData.wordEight ? textData.wordEight : "" },
+    { id: 9, order: 8, text: textData.wordNine ? textData.wordNine : "" },
+    { id: 10, order: 9, text: textData.wordTen ? textData.wordTen : "" },
+    { id: 11, order: 10, text: textData.wordEleven ? textData.wordEleven : "" },
+    { id: 12, order: 11, text: textData.wordTwelve ? textData.wordTwelve : "" },
   ]);
   const [currentCard, setCurrentCard] = useState(null);
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });

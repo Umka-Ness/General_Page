@@ -17,35 +17,168 @@ export const DragAndDropLevels = () => {
     setSelectedId(id);
   };
   const forstText = {
-    wordsOne: "a",
-    wordsTwo: "d",
-    wordsThree: "m",
-    wordsFour: "n",
-  };
-  const goodFirstText = ["d", "a", "m", "n"];
-  const secondText = {
     wordsOne: "k",
-    wordsTwo: "p",
+    wordsTwo: "a",
+    wordsThree: "c",
+    wordsFour: "l",
+    wordsFive: "P",
+    wordSix: "e",
+  };
+  const goodFirstText = ["P", "l", "e", "c", "a", "k"];
+  const secondText = {
+    wordsOne: "u",
+    wordsTwo: "c",
+    wordsThree: "l",
+    wordsFour: "i",
+    wordsFive: "N",
+    wordSix: "e",
+    wordSeven: "y",
+    wordEight: "c",
+    wordNine: "z",
+    wordTen: "a",
+  };
+  const goodSecondText = ["N", "a", "u", "c", "z", "y", "c", "i", "e", "l"];
+  const threeText = {
+    wordsOne: "z",
+    wordsTwo: "c",
+    wordsThree: "N",
+    wordsFour: "i",
+    wordsFive: "l",
+    wordSix: "a",
+    wordSeven: "y",
+    wordEight: "c",
+    wordNine: "a",
+    wordTen: "u",
+    wordEleven: "e",
+    wordTwelve: "k",
+  };
+  const goodThreeText = [
+    "N",
+    "a",
+    "u",
+    "c",
+    "z",
+    "y",
+    "c",
+    "i",
+    "e",
+    "l",
+    "k",
+    "a",
+  ];
+  const fourText = {
+    wordsOne: "z",
+    wordsTwo: "e",
+    wordsThree: "c",
+    wordsFour: "ń",
+    wordsFive: "U",
+  };
+  const goodFourText = ["U", "c", "z", "e", "ń"];
+  const fiveText = {
+    wordsOne: "n",
+    wordsTwo: "e",
     wordsThree: "i",
+    wordsFour: "c",
+    wordsFive: "z",
+    wordSix: "U",
+    wordSeven: "n",
+    wordEight: "a",
+    wordNine: "c",
+  };
+  const goodFiveText = ["U", "c", "z", "e", "n", "n", "i", "c", "a"];
+  const sixText = {
+    wordsOne: "g",
+    wordsTwo: "D",
+    wordsThree: "s",
+    wordsFour: "u",
+    wordsFive: "ł",
+    wordSix: "o",
+    wordSeven: "p",
+    wordEight: "i",
+  };
+  const goodSixText = ["D", "ł", "u", "g", "o", "p", "i", "s"];
+  const sevenText = {
+    wordsOne: "e",
+    wordsTwo: "O",
+    wordsThree: "w",
+    wordsFour: "ł",
+    wordsFive: "k",
+    wordSix: "ó",
+  };
+  const goodSevenText = ["O", "ł", "ó", "w", "e", "k"];
+  const eightText = {
+    wordsOne: "s",
+    wordsTwo: "z",
+    wordsThree: "e",
+    wordsFour: "y",
+    wordsFive: "t",
+    wordSix: "Z",
+  };
+  const goodEightText = ["Z", "e", "s", "z", "y", "t"];
+  const nineText = {
+    wordsOne: "ż",
+    wordsTwo: "i",
+    wordsThree: "s",
+    wordsFour: "k",
+    wordsFive: "a",
+    wordSix: "K",
+    wordSeven: "ą",
+  };
+  const goodNineText = ["K", "s", "i", "ą", "ż", "k", "a"];
+  const tenText = {
+    wordsOne: "u",
+    wordsTwo: "p",
+    wordsThree: "e",
+    wordsFour: "o",
+    wordsFive: "t",
+    wordSix: "m",
+    wordSeven: "r",
+    wordEight: "K",
+  };
+  const goodTenText = ["K", "o", "m", "p", "u", "t", "e", "r"];
+  const elevenText = {
+    wordsOne: "a",
+    wordsTwo: "i",
+    wordsThree: "l",
+    wordsFour: "b",
+    wordsFive: "a",
+    wordSix: "T",
+    wordSeven: "c",
+  };
+  const goodElevenText = ["T", "a", "b", "l", "i", "c", "a"];
+  const twelveText = {
+    wordsOne: "ł",
+    wordsTwo: "e",
+    wordsThree: "o",
+    wordsFour: "s",
+    wordsFive: "r",
+    wordSix: "z",
+    wordSeven: "K",
+  };
+  const goodTwelveText = ["K", "r", "z", "e", "s", "ł", "o"];
+  const thirteenText = {
+    wordsOne: "k",
+    wordsTwo: "o",
+    wordsThree: "O",
     wordsFour: "n",
   };
-  const goodSecondText = ["p", "i", "n", "k"];
-  const threeText = {
-    wordsOne: "m",
-    wordsTwo: "e",
-    wordsThree: "h",
-    wordsFour: "o",
+  const goodThirteenText = ["O", "k", "n", "o"];
+  const fourteenText = {
+    wordsOne: "r",
+    wordsTwo: "w",
+    wordsThree: "i",
+    wordsFour: "D",
+    wordsFive: "z",
   };
-  const goodThreeText = ["h", "o", "m", "e"];
-  const fourText = {
-    wordsOne: "m",
-    wordsTwo: "e",
-    wordsThree: "h",
-    wordsFour: "o",
-    wordsFive: "i",
-    wordSix: "s",
+  const goodFourteenText = ["D", "r", "z", "w", "i"];
+  const fifteenText = {
+    wordsOne: "a",
+    wordsTwo: "w",
+    wordsThree: "k",
+    wordsFour: "a",
+    wordsFive: "Ł",
   };
-  const goodFourText = ["h", "o", "m", "i", "e", "s"];
+  const goodFifteenText = ["Ł", "a", "w", "k", "a"];
 
   const renderContent = () => {
     if (selectedId === "back") {
@@ -60,6 +193,38 @@ export const DragAndDropLevels = () => {
       return <DragAndDropGame textData={threeText} goodText={goodThreeText} />;
     } else if (currentId === "4") {
       return <DragAndDropGame textData={fourText} goodText={goodFourText} />;
+    } else if (currentId === "5") {
+      return <DragAndDropGame textData={fiveText} goodText={goodFiveText} />;
+    } else if (currentId === "6") {
+      return <DragAndDropGame textData={sixText} goodText={goodSixText} />;
+    } else if (currentId === "7") {
+      return <DragAndDropGame textData={sevenText} goodText={goodSevenText} />;
+    } else if (currentId === "8") {
+      return <DragAndDropGame textData={eightText} goodText={goodEightText} />;
+    } else if (currentId === "9") {
+      return <DragAndDropGame textData={nineText} goodText={goodNineText} />;
+    } else if (currentId === "10") {
+      return <DragAndDropGame textData={tenText} goodText={goodTenText} />;
+    } else if (currentId === "11") {
+      return (
+        <DragAndDropGame textData={elevenText} goodText={goodElevenText} />
+      );
+    } else if (currentId === "12") {
+      return (
+        <DragAndDropGame textData={twelveText} goodText={goodTwelveText} />
+      );
+    } else if (currentId === "13") {
+      return (
+        <DragAndDropGame textData={thirteenText} goodText={goodThirteenText} />
+      );
+    } else if (currentId === "14") {
+      return (
+        <DragAndDropGame textData={fourteenText} goodText={goodFourteenText} />
+      );
+    } else if (currentId === "15") {
+      return (
+        <DragAndDropGame textData={fifteenText} goodText={goodFifteenText} />
+      );
     } else {
       return (
         <>
@@ -143,6 +308,69 @@ export const DragAndDropLevels = () => {
                 className={css.onlyLvlBtn}
               >
                 Game number 6
+              </button>
+              <button
+                id="7"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 7
+              </button>
+              <button
+                id="8"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 8
+              </button>
+              <button
+                id="9"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 9
+              </button>
+              <button
+                id="10"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 10
+              </button>
+              <button
+                id="11"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 11
+              </button>
+              <button
+                id="12"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 12
+              </button>
+              <button
+                id="13"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 13
+              </button>
+              <button
+                id="14"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 14
+              </button>
+              <button
+                id="15"
+                onClick={(e) => setCurrentId(e.target.id)}
+                className={css.onlyLvlBtn}
+              >
+                Game number 15
               </button>
             </div>
           </div>
