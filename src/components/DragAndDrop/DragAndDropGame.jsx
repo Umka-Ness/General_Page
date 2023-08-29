@@ -212,15 +212,15 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                   <button onClick={CheckRightWords} className={css.startBtn}>
                     Gooooo
                   </button>
-                  <div>
-                    <button onClick={() => jobChange("back")} id="back">
-                      back
-                    </button>
-                    <div>{localStorage.getItem("currentValue")} / 15</div>
-                    <button onClick={() => jobChange("front")} id="front">
-                      front
-                    </button>
-                  </div>
+                </div>
+                <div className={css.currentPage}>
+                  <button onClick={() => jobChange("back")} id="back">
+                    back
+                  </button>
+                  <div>{localStorage.getItem("currentValue")} / 15</div>
+                  <button onClick={() => jobChange("front")} id="front">
+                    front
+                  </button>
                 </div>
               </div>
             </div>

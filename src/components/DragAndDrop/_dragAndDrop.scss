@@ -23,7 +23,7 @@
 .startBtnContainer {
   position: absolute;
   left: 50%;
-  top: 80%;
+  top: 82%;
   transform: translate(-50%);
 }
 .startBtn {
@@ -73,4 +73,14 @@
 
     box-shadow: 10px 15px 20px 0px rgba(85, 9, 237, 0.452);
   }
+}
+
+.currentPage {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70vw;
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  transform: translate(-50%);
 }
