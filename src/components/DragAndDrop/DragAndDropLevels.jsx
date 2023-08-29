@@ -185,7 +185,7 @@ export const DragAndDropLevels = () => {
   const renderContent = () => {
     if (selectedId === "back") {
       return <DragAndDrop />;
-    } else if (currentId === "1") {
+    } else if (localStorage.getItem("currentValue") === "1") {
       return (
         <DragAndDropGame
           textData={forstText}
@@ -193,43 +193,43 @@ export const DragAndDropLevels = () => {
           image={image}
         />
       );
-    } else if (currentId === "2") {
+    } else if (localStorage.getItem("currentValue") === "2") {
       return (
         <DragAndDropGame textData={secondText} goodText={goodSecondText} />
       );
-    } else if (currentId === "3") {
+    } else if (localStorage.getItem("currentValue") === "3") {
       return <DragAndDropGame textData={threeText} goodText={goodThreeText} />;
-    } else if (currentId === "4") {
+    } else if (localStorage.getItem("currentValue") === "4") {
       return <DragAndDropGame textData={fourText} goodText={goodFourText} />;
-    } else if (currentId === "5") {
+    } else if (localStorage.getItem("currentValue") === "5") {
       return <DragAndDropGame textData={fiveText} goodText={goodFiveText} />;
-    } else if (currentId === "6") {
+    } else if (localStorage.getItem("currentValue") === "6") {
       return <DragAndDropGame textData={sixText} goodText={goodSixText} />;
-    } else if (currentId === "7") {
+    } else if (localStorage.getItem("currentValue") === "7") {
       return <DragAndDropGame textData={sevenText} goodText={goodSevenText} />;
-    } else if (currentId === "8") {
+    } else if (localStorage.getItem("currentValue") === "8") {
       return <DragAndDropGame textData={eightText} goodText={goodEightText} />;
-    } else if (currentId === "9") {
+    } else if (localStorage.getItem("currentValue") === "9") {
       return <DragAndDropGame textData={nineText} goodText={goodNineText} />;
-    } else if (currentId === "10") {
+    } else if (localStorage.getItem("currentValue") === "10") {
       return <DragAndDropGame textData={tenText} goodText={goodTenText} />;
-    } else if (currentId === "11") {
+    } else if (localStorage.getItem("currentValue") === "11") {
       return (
         <DragAndDropGame textData={elevenText} goodText={goodElevenText} />
       );
-    } else if (currentId === "12") {
+    } else if (localStorage.getItem("currentValue") === "12") {
       return (
         <DragAndDropGame textData={twelveText} goodText={goodTwelveText} />
       );
-    } else if (currentId === "13") {
+    } else if (localStorage.getItem("currentValue") === "13") {
       return (
         <DragAndDropGame textData={thirteenText} goodText={goodThirteenText} />
       );
-    } else if (currentId === "14") {
+    } else if (localStorage.getItem("currentValue") === "14") {
       return (
         <DragAndDropGame textData={fourteenText} goodText={goodFourteenText} />
       );
-    } else if (currentId === "15") {
+    } else if (localStorage.getItem("currentValue") === "15") {
       return (
         <DragAndDropGame textData={fifteenText} goodText={goodFifteenText} />
       );
@@ -262,7 +262,7 @@ export const DragAndDropLevels = () => {
               zIndex: "2",
             }}
           >
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -380,7 +380,7 @@ export const DragAndDropLevels = () => {
               >
                 Game number 15
               </button>
-            </div>
+            </div> */}
           </div>
         </>
       );

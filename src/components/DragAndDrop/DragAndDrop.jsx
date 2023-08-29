@@ -8,6 +8,7 @@ export const DragAndDrop = () => {
 
   useEffect(() => {
     localStorage.setItem("numberPage", "DragAndDrop");
+    localStorage.setItem("currentValue", "1");
   }, []);
   const handleOnClick = (e) => {
     const id = e.target.id;

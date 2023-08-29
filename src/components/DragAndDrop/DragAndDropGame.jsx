@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
+import { DragAndDrop } from "./DragAndDrop";
 
 export const DragAndDropGame = ({ textData, goodText, image }) => {
   const [selectedId, setSelectedId] = useState("");
@@ -21,6 +22,8 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
   const [currentCard, setCurrentCard] = useState(null);
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
   const [secondLeater, setSecondLeater] = useState({ order: "", text: "" });
+  const [currentValue, setCurrentValue] = useState(0);
+
   const wordsCard = goodText;
 
   useEffect(() => {
@@ -95,8 +98,55 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
     }
   };
 
+  const jobChange = (action) => {
+    const localValue = JSON.parse(localStorage.getItem("currentValue")) || 1;
+    if (action === "front") {
+      if (localValue >= 15) {
+        return;
+      } else {
+        const updatedValue = localValue + 1;
+        localStorage.setItem("currentValue", JSON.stringify(updatedValue));
+        setCurrentValue(updatedValue);
+      }
+    } else if (action === "back" && localValue > 1) {
+      const updatedValue = localValue - 1;
+      localStorage.setItem("currentValue", JSON.stringify(updatedValue));
+      setCurrentValue(updatedValue);
+    }
+  };
+
   const renderContent = () => {
     if (selectedId === "back") {
+      return <DragAndDrop />;
+    } else if (currentValue === 1) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 2) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 3) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 4) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 5) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 6) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 7) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 8) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 9) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 10) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 11) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 12) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 13) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 14) {
+      return <DragAndDropLevels />;
+    } else if (currentValue === 15) {
       return <DragAndDropLevels />;
     } else {
       return (
@@ -111,7 +161,7 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                width: "inherit",
+                // width: "inherit",
               }}
             >
               <div>
@@ -120,6 +170,7 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                   alt="lalala"
                   style={
                     {
+                      // paddingBottom: "40px",
                       // position: "absolute",
                       // top: "30%",
                       // left: "40vw",
@@ -161,6 +212,15 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                   <button onClick={CheckRightWords} className={css.startBtn}>
                     Gooooo
                   </button>
+                  <div>
+                    <button onClick={() => jobChange("back")} id="back">
+                      back
+                    </button>
+                    <div>{localStorage.getItem("currentValue")} / 15</div>
+                    <button onClick={() => jobChange("front")} id="front">
+                      front
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
