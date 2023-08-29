@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { PageOne } from "../Game-page/pageOne";
 import { DragAndDropLevels } from "./DragAndDropLevels";
+import Screenshot_plecak from "./img/Screenshot_plecak.png";
 
 export const DragAndDrop = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -33,9 +34,13 @@ export const DragAndDrop = () => {
             id="1"
             onClick={(e) => setSelectedId(e.target.id)}
             className={css.levelSelectionBtn}
-          >
-            Low Lavel
-          </button>
+            style={{
+              backgroundImage: `url(${Screenshot_plecak})`,
+              backgroundSize: "cover",
+              width: "250px",
+              height: "250px",
+            }}
+          ></button>
           <button
             id="2"
             onClick={(e) => setSelectedId(e.target.id)}

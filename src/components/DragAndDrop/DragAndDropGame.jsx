@@ -3,7 +3,12 @@ import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import { DragAndDrop } from "./DragAndDrop";
 
-export const DragAndDropGame = ({ textData, goodText, image }) => {
+export const DragAndDropGame = ({
+  textData,
+  goodText,
+  image,
+  imageWidthImage,
+}) => {
   const [selectedId, setSelectedId] = useState("");
   const [cardList, setCardList] = useState([
     { id: 1, order: 0, text: textData.wordsOne },
@@ -114,6 +119,8 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
       setCurrentValue(updatedValue);
     }
   };
+  const defaultWidth = "227px";
+  const imageWidth = imageWidthImage || defaultWidth;
 
   const renderContent = () => {
     if (selectedId === "back") {
@@ -168,16 +175,15 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                 <img
                   src={image}
                   alt="lalala"
-                  style={
-                    {
-                      // paddingBottom: "40px",
-                      // position: "absolute",
-                      // top: "30%",
-                      // left: "40vw",
-                      // width: "150px",
-                      // height: "150px",
-                    }
-                  }
+                  style={{
+                    // paddingBottom: "40px",
+                    // position: "absolute",
+                    // top: "30%",
+                    // left: "40vw",
+                    width: imageWidth,
+                    height: "234px",
+                    border: "2px solid black",
+                  }}
                 />
               </div>
               <div
@@ -214,11 +220,19 @@ export const DragAndDropGame = ({ textData, goodText, image }) => {
                   </button>
                 </div>
                 <div className={css.currentPage}>
-                  <button onClick={() => jobChange("back")} id="back">
+                  <button
+                    onClick={() => jobChange("back")}
+                    id="back"
+                    style={{ width: "50px", height: "50px" }}
+                  >
                     back
                   </button>
                   <div>{localStorage.getItem("currentValue")} / 15</div>
-                  <button onClick={() => jobChange("front")} id="front">
+                  <button
+                    onClick={() => jobChange("front")}
+                    id="front"
+                    style={{ width: "50px", height: "50px" }}
+                  >
                     front
                   </button>
                 </div>

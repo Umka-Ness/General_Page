@@ -4,20 +4,34 @@ import css from "../../main.module.css";
 import { DragAndDropGame } from "./DragAndDropGame";
 import backImg from "./img/tetrad.jpg";
 import image from "./img/bag.png";
+import teacherPng from "./img/teacher.png";
+import teacherGirl from "./img/teacherGirl.png";
+import learningBoy from "./img/learningBoy.png";
+import learningGirl from "./img/learningGirl.png";
+import dlugopis from "./img/dlugopis.png";
+import oluwek from "./img/oluwek.png";
+import zeszyt from "./img/zeszyt.png";
+import ksączka from "./img/ksączka.png";
+import komputer from "./img/komputer.png";
+import lekcia from "./img/lekcia.png";
+import chair from "./img/chair.png";
+import okno from "./img/okno.png";
+import drzwi from "./img/drzwi.png";
+import lawka from "./img/lawka.png";
 
 export const DragAndDropLevels = () => {
   const [selectedId, setSelectedId] = useState("");
-  const [currentId, setCurrentId] = useState("");
+  // const [currentId, setCurrentId] = useState("");
 
   useEffect(() => {
     localStorage.setItem("numberPage", "DragAndDropLevels");
   }, []);
 
-  const handleOnClick = (e) => {
-    const id = e.target.id;
-    console.log(id);
-    setSelectedId(id);
-  };
+  // const handleOnClick = (e) => {
+  //   const id = e.target.id;
+  //   console.log(id);
+  //   setSelectedId(id);
+  // };
   const forstText = {
     wordsOne: "k",
     wordsTwo: "a",
@@ -195,48 +209,121 @@ export const DragAndDropLevels = () => {
       );
     } else if (localStorage.getItem("currentValue") === "2") {
       return (
-        <DragAndDropGame textData={secondText} goodText={goodSecondText} />
+        <DragAndDropGame
+          textData={secondText}
+          goodText={goodSecondText}
+          image={teacherPng}
+        />
       );
     } else if (localStorage.getItem("currentValue") === "3") {
-      return <DragAndDropGame textData={threeText} goodText={goodThreeText} />;
+      return (
+        <DragAndDropGame
+          textData={threeText}
+          goodText={goodThreeText}
+          image={teacherGirl}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "4") {
-      return <DragAndDropGame textData={fourText} goodText={goodFourText} />;
+      return (
+        <DragAndDropGame
+          textData={fourText}
+          goodText={goodFourText}
+          image={learningBoy}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "5") {
-      return <DragAndDropGame textData={fiveText} goodText={goodFiveText} />;
+      return (
+        <DragAndDropGame
+          textData={fiveText}
+          goodText={goodFiveText}
+          image={learningGirl}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "6") {
-      return <DragAndDropGame textData={sixText} goodText={goodSixText} />;
+      return (
+        <DragAndDropGame
+          textData={sixText}
+          goodText={goodSixText}
+          image={dlugopis}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "7") {
-      return <DragAndDropGame textData={sevenText} goodText={goodSevenText} />;
+      return (
+        <DragAndDropGame
+          textData={sevenText}
+          goodText={goodSevenText}
+          image={oluwek}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "8") {
-      return <DragAndDropGame textData={eightText} goodText={goodEightText} />;
+      return (
+        <DragAndDropGame
+          textData={eightText}
+          goodText={goodEightText}
+          image={zeszyt}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "9") {
-      return <DragAndDropGame textData={nineText} goodText={goodNineText} />;
+      return (
+        <DragAndDropGame
+          textData={nineText}
+          goodText={goodNineText}
+          image={ksączka}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "10") {
-      return <DragAndDropGame textData={tenText} goodText={goodTenText} />;
+      return (
+        <DragAndDropGame
+          textData={tenText}
+          goodText={goodTenText}
+          image={komputer}
+        />
+      );
     } else if (localStorage.getItem("currentValue") === "11") {
       return (
-        <DragAndDropGame textData={elevenText} goodText={goodElevenText} />
+        <DragAndDropGame
+          textData={elevenText}
+          goodText={goodElevenText}
+          image={lekcia}
+        />
       );
     } else if (localStorage.getItem("currentValue") === "12") {
       return (
-        <DragAndDropGame textData={twelveText} goodText={goodTwelveText} />
+        <DragAndDropGame
+          textData={twelveText}
+          goodText={goodTwelveText}
+          image={chair}
+        />
       );
     } else if (localStorage.getItem("currentValue") === "13") {
       return (
-        <DragAndDropGame textData={thirteenText} goodText={goodThirteenText} />
+        <DragAndDropGame
+          textData={thirteenText}
+          goodText={goodThirteenText}
+          image={okno}
+        />
       );
     } else if (localStorage.getItem("currentValue") === "14") {
       return (
-        <DragAndDropGame textData={fourteenText} goodText={goodFourteenText} />
+        <DragAndDropGame
+          textData={fourteenText}
+          goodText={goodFourteenText}
+          image={drzwi}
+          imageWidthImage="118"
+        />
       );
     } else if (localStorage.getItem("currentValue") === "15") {
       return (
-        <DragAndDropGame textData={fifteenText} goodText={goodFifteenText} />
+        <DragAndDropGame
+          textData={fifteenText}
+          goodText={goodFifteenText}
+          image={lawka}
+        />
       );
     } else {
       return (
         <>
-          <div
+          {/* <div
             style={{
               position: "absolute",
               top: "50%",
@@ -261,8 +348,8 @@ export const DragAndDropLevels = () => {
               transform: "translate(-50%,-50%)",
               zIndex: "2",
             }}
-          >
-            {/* <div
+          > */}
+          {/* <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -381,7 +468,7 @@ export const DragAndDropLevels = () => {
                 Game number 15
               </button>
             </div> */}
-          </div>
+          {/* </div> */}
         </>
       );
     }
