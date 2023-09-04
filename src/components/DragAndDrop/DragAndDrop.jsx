@@ -37,7 +37,7 @@ export const DragAndDrop = () => {
             style={{
               backgroundImage: `url(${Screenshot_plecak})`,
               backgroundSize: "cover",
-              width: "250px",
+              width: "350px",
               height: "250px",
             }}
           ></button>

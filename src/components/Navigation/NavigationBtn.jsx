@@ -5,6 +5,7 @@ import { BtnForNavigation } from "./BtnForNavigation";
 // import { Login } from "../Auth/Login";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
+import css from "../../main.module.css";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -44,17 +45,52 @@ export const NavigationBtn = () => {
             onClick={handleOnClick}
             style={{
               display: "flex",
-              flexWrap: "wrap",
               width: "100vw",
               height: "100vh",
               alignItems: "center",
-              justifyContent: "space-evenly",
             }}
           >
-            <BtnForNavigation />
-            {/* <Register /> */}
+            <div style={{ display: "flex" }}>
+              <div
+                style={{
+                  width: "100vw",
+                  textAlign: "center",
+                  position: "absolute",
+                  top: "0",
+                  height: "50px",
+                  borderBottom: "2px solid black",
+                }}
+              >
+                awsdwdawd
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: "45px",
+                  borderRight: "2px solid black",
+                  paddingRight: "5px",
+                  // borderTop: "2px solid black",
+                  // paddingTop: "5px",
+                  // paddingBottom: "5px",
+                  // borderBottom: "2px solid black",
+                }}
+                className={css.LeftMenu}
+              >
+                <BtnForNavigation />
+              </div>
+            </div>
+            <div
+              style={{
+                padding: "0px 0px 0px 40px",
+                width: "100%",
+                textAlign: "center",
+                height: "80%",
+              }}
+              className={css.containerForLeftMenu}
+            >
+              12312312312
+            </div>
           </div>
-          {/* <button onClick={handleLogout}>Setting</button> */}
         </>
       );
     }

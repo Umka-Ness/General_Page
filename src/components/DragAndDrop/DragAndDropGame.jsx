@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import { DragAndDrop } from "./DragAndDrop";
+import wood_bg from "./img/wood_bg.png";
 
 export const DragAndDropGame = ({
   textData,
@@ -162,7 +163,10 @@ export const DragAndDropGame = ({
             Back
           </button>
 
-          <div className={css.containteCard}>
+          <div
+            className={css.containteCard}
+            style={{ backgroundImage: `url(${wood_bg})` }}
+          >
             <div
               style={{
                 display: "flex",
