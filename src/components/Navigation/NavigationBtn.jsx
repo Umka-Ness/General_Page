@@ -53,15 +53,26 @@ export const NavigationBtn = () => {
             <div style={{ display: "flex" }}>
               <div
                 style={{
+                  display: "flex",
                   width: "100vw",
-                  textAlign: "center",
+                  alignItems: "center",
+                  justifyContent: "center",
                   position: "absolute",
                   top: "0",
                   height: "50px",
                   borderBottom: "2px solid black",
                 }}
               >
-                awsdwdawd
+                <div>
+                  <div
+                    style={{ position: "absolute", top: "15px", left: "15px" }}
+                  >
+                    <div style={{ display: "flex" }}>
+                      Langalaxy <p style={{ color: "blue" }}>™</p>
+                    </div>
+                  </div>
+                </div>
+                <div>awsdwdawd</div>
               </div>
               <div
                 style={{
