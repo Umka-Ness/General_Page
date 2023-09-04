@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.25e0209b.css",
-    "main.js": "/static/js/main.073db1c2.js",
+    "main.css": "/static/css/main.975838ee.css",
+    "main.js": "/static/js/main.ec1eee04.js",
     "static/media/fon.png": "/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
@@ -16,7 +16,6 @@
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_7.9c081684151fe6c63275.jpg",
     "static/media/podvodnie-peizazhi-1.jpg": "/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
     "static/media/tetrad.jpg": "/static/media/tetrad.6f0178c430d04bf3f54f.jpg",
-    "static/media/bag.png": "/static/media/bag.7916f63794f480bfbd7d.png",
     "static/media/top-view-of-the-countryside.jpg": "/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
     "static/media/Go.svg": "/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
     "static/media/question-3-stars.svg": "/static/media/question-3-stars.a2afbcd0bba765b5bbfffec6acf2d1b6.svg",
@@ -28,15 +27,25 @@
     "static/media/bag-3-stars.svg": "/static/media/bag-3-stars.416ae4603859a27a57675ec72bb27605.svg",
     "static/media/bag-2-stars.svg": "/static/media/bag-2-stars.676ad479661644aeca9bcd6e66562e10.svg",
     "static/media/bag-1-star.svg": "/static/media/bag-1-star.9c3ec4cb14af5d5225e23fd95e651090.svg",
+    "static/media/wood_bg.png": "/static/media/wood_bg.f5772623e79163aa9783.png",
+    "static/media/oluwek.png": "/static/media/oluwek.ff82d522c1b6c6abfb62.png",
+    "static/media/Screenshot_plecak.png": "/static/media/Screenshot_plecak.68b61811143ed2ba5efb.png",
+    "static/media/teacherGirl.png": "/static/media/teacherGirl.40ce0b45344602c22545.png",
+    "static/media/teacher.png": "/static/media/teacher.bc6c45fe325f6dcdf560.png",
+    "static/media/learningGirl.png": "/static/media/learningGirl.4fb74ac1b0b543e85338.png",
+    "static/media/okno.png": "/static/media/okno.f7bf0cf0ea9f0bd68918.png",
+    "static/media/komputer.png": "/static/media/komputer.b5f1276302a2ea09feaf.png",
+    "static/media/bag.png": "/static/media/bag.7b06553a9aebc9d1bb73.png",
+    "static/media/learningBoy.png": "/static/media/learningBoy.4211a11b05203686f3e3.png",
     "static/media/bgButtonPurple.svg": "/static/media/bgButtonPurple.027a3b4331a04c68b2c98979d0f802d6.svg",
     "static/media/bgButtonStars.svg": "/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/index.html",
-    "main.25e0209b.css.map": "/static/css/main.25e0209b.css.map",
-    "main.073db1c2.js.map": "/static/js/main.073db1c2.js.map"
+    "main.975838ee.css.map": "/static/css/main.975838ee.css.map",
+    "main.ec1eee04.js.map": "/static/js/main.ec1eee04.js.map"
   },
   "entrypoints": [
-    "static/css/main.25e0209b.css",
-    "static/js/main.073db1c2.js"
+    "static/css/main.975838ee.css",
+    "static/js/main.ec1eee04.js"
   ]
 }
