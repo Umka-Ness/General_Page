@@ -210,6 +210,8 @@ export const DragAndDropGame = ({
                         onDragOver={(e) => dragOverHandler(e)}
                         onDrop={(e) => dragDropHandler(e, card)}
                         draggable={true}
+                        onTouchStart={(e) => dragStartHandler(e, card)}
+                        onTouchEnd={(e) => dragEndHandler(e)}
                         className={css.card}
                       >
                         {card.text}
