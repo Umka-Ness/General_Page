@@ -31,7 +31,7 @@ export const PageOne = () => {
   const renderContent = () => {
     if (selectedId === "back") {
       return <NavigationBtn />;
-    } else if (DraggableDiv === "Logo") {
+    } else if (DraggableDiv === "StepByStep") {
       return <StepByStep />;
     } else if (DraggableDiv === "DragAndDrop") {
       return <DragAndDrop />;
@@ -66,9 +66,13 @@ export const PageOne = () => {
                 height: "100%",
               }}
             >
-              <p className={css.name}>1 StepByStep</p>
-              <div onClick={GoMoveBox} style={{ cursor: "pointer" }}>
-                <Button alt="Logo" />
+              <p className={(css.name, "notranslate")}>1 StepByStep</p>
+              <div
+                onClick={GoMoveBox}
+                style={{ cursor: "pointer" }}
+                className="notranslate"
+              >
+                <Button alt="StepByStep" />
               </div>
               <p className={css.blockCard}>lala</p>
             </div>
@@ -78,8 +82,12 @@ export const PageOne = () => {
                 height: "100%",
               }}
             >
-              <p className={css.name}>2 Drag and Drop</p>
-              <div onClick={GoMoveBox} style={{ cursor: "pointer" }}>
+              <p className={(css.name, "notranslate")}>2 Drag and Drop</p>
+              <div
+                onClick={GoMoveBox}
+                style={{ cursor: "pointer" }}
+                className="notranslate"
+              >
                 <Button alt="DragAndDrop" />
               </div>
               <p className={css.blockCard}>Drag and Drop</p>
@@ -95,7 +103,7 @@ export const PageOne = () => {
               >
                 <div style={{ display: "flex", gap: "5px" }}>
                   <div>
-                    <p className={css.name}>
+                    <p className={(css.name, "notranslate")}>
                       {index + 3 + " "}
                       {i.name}
                     </p>
