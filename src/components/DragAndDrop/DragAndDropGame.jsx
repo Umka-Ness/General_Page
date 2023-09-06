@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import { DragAndDrop } from "./DragAndDrop";
@@ -29,7 +29,6 @@ export const DragAndDropGame = ({
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
   const [secondLeater, setSecondLeater] = useState({ order: "", text: "" });
   const [currentValue, setCurrentValue] = useState(0);
-
   const wordsCard = goodText;
 
   useEffect(() => {
@@ -212,7 +211,11 @@ export const DragAndDropGame = ({
                         draggable={true}
                         onTouchStart={(e) => dragStartHandler(e, card)}
                         onTouchEnd={(e) => dragEndHandler(e)}
+                        onTouchMove={(e) => dragLeaveHandler(e)}
+                        onTouchCancel={(e) => dragOverHandler(e)}
                         className={css.card}
+                        id={card.id}
+                        key={card.id}
                       >
                         {card.text}
                       </div>
