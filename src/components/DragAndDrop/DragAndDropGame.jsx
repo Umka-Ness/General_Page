@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import interact from "interactjs";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import { DragAndDrop } from "./DragAndDrop";
 import wood_bg from "./img/wood_bg.png";
+import dragula from "dragula";
 
 export const DragAndDropGame = ({
   textData,
@@ -29,6 +31,8 @@ export const DragAndDropGame = ({
   const [firstLeatter, setFirstLeatter] = useState({ order: "", text: "" });
   const [secondLeater, setSecondLeater] = useState({ order: "", text: "" });
   const [currentValue, setCurrentValue] = useState(0);
+  // const [draggedCard, setDraggedCard] = useState(null);
+
   const wordsCard = goodText;
 
   useEffect(() => {
@@ -64,6 +68,9 @@ export const DragAndDropGame = ({
     console.log("card", card);
 
     const updatedCardList = cardList.map((item) => {
+      console.log(item);
+      console.log(card);
+
       if (item.id === card.id) {
         return { ...item, order: currentCard.order };
       }
@@ -119,6 +126,87 @@ export const DragAndDropGame = ({
       setCurrentValue(updatedValue);
     }
   };
+  const dragulaFun = () => {
+    dragula([document.querySelector(".lalaonetwo")], {});
+  };
+  // dragulaFun();
+  // const DragSensor = (card) => {
+  //   interact(".cama").draggable({
+  //     // enable inertial throwing
+  //     inertia: true,
+  //     // keep the element within the area of it's parent
+  //     modifiers: [
+  //       interact.modifiers.restrictRect({
+  //         restriction: "parent",
+  //         endOnly: true,
+  //       }),
+  //     ],
+  //     // enable autoScroll
+  //     autoScroll: true,
+
+  //     listeners: {
+  //       // call this function on every dragmove event
+  //       move: dragMoveListener,
+
+  //       // call this function on every dragend event
+  //       end: dragDropHandler, // Добавляем обработчик для события dragend
+  //     },
+  //   });
+  //   interact(".cama").on("hold", function () {
+  //     setCurrentCard(card);
+  //   });
+
+  //   function dragMoveListener(event) {
+  //     var target = event.target;
+  //     // keep the dragged position in the data-x/data-y attributes
+  //     var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+  //     var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+
+  //     // translate the element
+  //     target.style.transform = "translate(" + x + "px, " + y + "px)";
+
+  //     // update the posiion attributes
+  //     target.setAttribute("data-x", x);
+  //     target.setAttribute("data-y", y);
+  //   }
+
+  //   // this function is used later in the resizing and gesture demos
+  //   window.dragMoveListener = dragMoveListener;
+  // };
+  // function dragEndListener(event) {
+  //   var target = event.target;
+  //   const dropTarget = event.relatedTarget;
+
+  //   if (dropTarget && dropTarget.classList.contains("cama")) {
+  //     // Меняем местами плитки
+  //     const parent = target.parentElement;
+  //     const index1 = Array.from(parent.children).indexOf(target);
+  //     const index2 = Array.from(parent.children).indexOf(dropTarget);
+
+  //     // Меняем местами элементы в массиве данных
+  //     const updatedCardList = [...cardList];
+  //     [updatedCardList[index1], updatedCardList[index2]] = [
+  //       updatedCardList[index2],
+  //       updatedCardList[index1],
+  //     ];
+  //     setCardList(updatedCardList);
+  //   }
+
+  //   // Возвращаем элемент на исходное место
+  //   target.style.transform = "";
+  //   target.setAttribute("data-x", 0);
+  //   target.setAttribute("data-y", 0);
+
+  //   // Перемещаем плитку на передний план (сделать текущей)
+  //   target.style.zIndex = "1";
+  //   const siblings = target.parentElement.children;
+  //   for (const sibling of siblings) {
+  //     if (sibling !== target) {
+  //       sibling.style.zIndex = "0";
+  //     }
+  //   }
+  // }
+
   const defaultWidth = "227px";
   const imageWidth = imageWidthImage || defaultWidth;
 
@@ -195,6 +283,8 @@ export const DragAndDropGame = ({
                   width: "inherit",
                   justifyContent: "center",
                 }}
+                className="lalaonetwo"
+                onLoad={dragulaFun()}
               >
                 {cardList.sort(sortCards).map((card) => {
                   if (card.text === "") {
@@ -209,13 +299,10 @@ export const DragAndDropGame = ({
                         onDragOver={(e) => dragOverHandler(e)}
                         onDrop={(e) => dragDropHandler(e, card)}
                         draggable={true}
-                        onTouchStart={(e) => dragStartHandler(e, card)}
-                        onTouchEnd={(e) => dragEndHandler(e)}
-                        onTouchMove={(e) => dragLeaveHandler(e)}
-                        onTouchCancel={(e) => dragOverHandler(e)}
                         className={css.card}
                         id={card.id}
                         key={card.id}
+                        // onLoad={DragSensor(card)}
                       >
                         {card.text}
                       </div>

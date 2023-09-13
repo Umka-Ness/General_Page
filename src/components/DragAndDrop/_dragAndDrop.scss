@@ -84,3 +84,9 @@
   top: 78%;
   transform: translate(-50%);
 }
+
+.gu-mirror {
+  position: fixed;
+  z-index: 9999;
+  background: green;
+}

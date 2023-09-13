@@ -1,0 +1,199 @@
+// src/Dice.scss
+
+.diceContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  justify-content: center;
+
+  .dice {
+    width: 150px;
+    height: 150px;
+    // perspective: 1000px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    animation: none;
+    // border: 2px solid black;
+  }
+
+  .rolling {
+    animation: roll 2s ease infinite;
+    transform: rotateX(140deg) rotateY(-205deg) rotateZ(0deg);
+    animation-iteration-count: 1;
+  }
+
+  .face {
+    min-width: 174px;
+    min-height: 173px;
+    position: absolute;
+    transform: translateZ(-177px);
+    left: -3px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+  }
+  .faceOne {
+    width: 174px;
+    height: 173px;
+    position: absolute;
+    // transform: translateX(-145px);
+    // transform: translateZ(90px);
+    left: 1px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+  }
+  .faceTwo {
+    width: 174px;
+    height: 173px;
+    position: absolute;
+    left: -117%; /* Смещение влево на 100% ширины элемента */
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+    transform-origin: right; /* Задаем точку, вокруг которой будет происходить вращение */
+    // transform: translateY(100px);
+    transform: rotateY(-89deg);
+    perspective: 500px;
+  }
+
+  .faceThree {
+    width: 174px;
+    height: 173px;
+    position: absolute;
+    left: 0; /* Смещение влево на 0% ширины элемента */
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+    transform-origin: right; /* Задаем точку, вокруг которой будет происходить вращение */
+    // transform: translateY(100px);
+    transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+    perspective: 500px;
+  }
+  .faceFour {
+    width: 174px;
+    height: 173px;
+    position: absolute;
+    left: 0; /* Смещение влево на 0% ширины элемента */
+    top: 0%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+    transform-origin: right; /* Задаем точку, вокруг которой будет происходить вращение */
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(179deg);
+    transform-origin: top; /* Задаем точку, вокруг которой будет происходить вращение */
+    perspective: 500px;
+  }
+
+  .faceFive {
+    width: 174px;
+    height: 173px;
+    position: absolute;
+    left: 0; /* Смещение влево на 0% ширины элемента */
+    top: 117%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    border: 2px solid black;
+    transform-origin: right; /* Задаем точку, вокруг которой будет происходить вращение */
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+    transform-origin: top; /* Задаем точку, вокруг которой будет происходить вращение */
+    perspective: 500px;
+  }
+  .dot {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .topLeft {
+    top: 15px;
+    left: 15px;
+  }
+
+  .topRight {
+    top: 15px;
+    right: 15px;
+  }
+
+  .middleLeft {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+  }
+
+  .middleRight {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+
+  .bottomLeft {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .bottomRight {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    &:hover:not(:disabled) {
+      background-color: #0056b3;
+    }
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  70% {
+    transform: rotateX(60deg) rotateY(160deg) rotateZ(360deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}

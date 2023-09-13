@@ -5,6 +5,7 @@ import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
+import { Dice } from "../Dice/Dise";
 
 export const PageOne = () => {
   const el = document.getElementsByTagName("body")[0];
@@ -35,6 +36,8 @@ export const PageOne = () => {
       return <StepByStep />;
     } else if (DraggableDiv === "DragAndDrop") {
       return <DragAndDrop />;
+    } else if (DraggableDiv === "Dice") {
+      return <Dice />;
     } else {
       return (
         <div>
@@ -91,6 +94,22 @@ export const PageOne = () => {
                 <Button alt="DragAndDrop" />
               </div>
               <p className={css.blockCard}>Drag and Drop</p>
+            </div>
+            <div
+              style={{
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <p className={(css.name, "notranslate")}>3 Dice</p>
+              <div
+                onClick={GoMoveBox}
+                style={{ cursor: "pointer" }}
+                className="notranslate"
+              >
+                <Button alt="Dice" />
+              </div>
+              <p className={css.blockCard}>Dice</p>
             </div>
 
             {gameInfo.map((i, index) => (

@@ -19,6 +19,7 @@ import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { DragAndDropLevels } from "../DragAndDrop/DragAndDropLevels";
+import { Dice } from "../Dice/Dise";
 
 const sessionTime = () => {
   const auth = getAuth();
@@ -179,6 +180,8 @@ export const Login = (id) => {
       return <DragAndDrop />;
     } else if (localStorage.getItem("numberPage") === "DragAndDropLevels") {
       return <DragAndDropLevels />;
+    } else if (localStorage.getItem("numberPage") === "Dice") {
+      return <Dice />;
     } else {
       return (
         <>
