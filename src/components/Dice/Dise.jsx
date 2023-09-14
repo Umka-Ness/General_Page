@@ -165,11 +165,12 @@ import css from "../../main.module.css";
 // };
 
 // // src/Dice.js
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 
 export const Dice = () => {
   const [selectedId, setSelectedId] = useState("");
+  const refRoll = useRef();
 
   const handleOnClick = (e) => {
     const id = e.target.id;
@@ -177,10 +178,27 @@ export const Dice = () => {
   };
   const [rolling, setRolling] = useState(false);
   const [result, setResult] = useState(1);
+  const [counter, setCounter] = useState(1);
 
   const handleRoll = () => {
+    const refRollCurrent = refRoll.current;
+    refRollCurrent.style.animationIterationCount = counter;
+    setCounter(counter + 1);
+    console.log(refRollCurrent.classList);
+    setTimeout(() => {
+      refRollCurrent.style.animation = "roll 2s ease infinite";
+    }, 2000);
+    refRollCurrent.style.animation = "";
+
+    // refRollCurrent.classList.add("rolling");
+    // console.log(refRollCurrent.classList);
+
+    console.log(refRollCurrent.style);
+    console.log(refRollCurrent.classList);
+
     if (!rolling) {
       setRolling(true);
+
       setTimeout(() => {
         const randomNumber = Math.floor(Math.random() * 6) + 1;
         setResult(randomNumber);
@@ -199,8 +217,9 @@ export const Dice = () => {
 
       <div className={css.diceContainer}>
         <div
-          className={`${css.dice} ${rolling} ? ${css.rolling} : ""`}
+          className={`${css.dice}  ${css.rolling} `}
           onClick={handleRoll}
+          ref={refRoll}
         >
           <div className={css.face}>
             {result === 1 && <div className={`${css.dot} ${css.center}`} />}
