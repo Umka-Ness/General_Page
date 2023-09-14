@@ -187,7 +187,7 @@ export const Dice = () => {
     console.log(refRollCurrent.classList);
     setTimeout(() => {
       refRollCurrent.style.animation = "roll 2s ease infinite";
-    }, 2000);
+    }, 3000);
     refRollCurrent.style.animation = "";
 
     // refRollCurrent.classList.add("rolling");
@@ -200,10 +200,10 @@ export const Dice = () => {
       setRolling(true);
 
       setTimeout(() => {
-        const randomNumber = Math.floor(Math.random() * 6) + 1;
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
         setResult(randomNumber);
         setRolling(false);
-      }, 2000); // 2 секунды
+      }, 3000); // 2 секунды
     }
   };
   if (selectedId === "back") {
@@ -222,11 +222,15 @@ export const Dice = () => {
           ref={refRoll}
         >
           <div className={css.face}>
-            {result === 1 && <div className={`${css.dot} ${css.center}`} />}
-            {result === 2 && (
+            {result === 1 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
+              </>
+            )}
+            {result === 2 && (
+              <>
+                <div className={`${css.dot} ${css.center}`} />
               </>
             )}
             {result === 3 && (
@@ -351,17 +355,20 @@ export const Dice = () => {
             )}
           </div>
           <div className={css.faceThree}>
-            {result === 1 && <div className={`${css.dot} ${css.center}`} />}
-            {result === 2 && (
+            {result === 1 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
+            {result === 2 && (
+              <>
+                <div className={`${css.dot} ${css.center}`} />
+              </>
+            )}
             {result === 3 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
-                <div className={`${css.dot} ${css.center}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
@@ -394,17 +401,23 @@ export const Dice = () => {
             )}
           </div>
           <div className={css.faceFour}>
-            {result === 1 && <div className={`${css.dot} ${css.center}`} />}
+            {result === 1 && (
+              <>
+                <div className={`${css.dot} ${css.topLeft}`} />
+                <div className={`${css.dot} ${css.center}`} />
+                <div className={`${css.dot} ${css.bottomRight}`} />
+              </>
+            )}
             {result === 2 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
+                <div className={`${css.dot} ${css.center}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
             {result === 3 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
-                <div className={`${css.dot} ${css.center}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
@@ -437,18 +450,23 @@ export const Dice = () => {
             )}
           </div>
           <div className={css.faceFive}>
-            {result === 1 && <div className={`${css.dot} ${css.center}`} />}
+            {result === 1 && (
+              <>
+                <div className={`${css.dot} ${css.topLeft}`} />
+                <div className={`${css.dot} ${css.center}`} />
+                <div className={`${css.dot} ${css.bottomRight}`} />
+              </>
+            )}
             {result === 2 && (
               <>
                 <div className={`${css.dot} ${css.topLeft}`} />
+                <div className={`${css.dot} ${css.center}`} />
                 <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
             {result === 3 && (
               <>
-                <div className={`${css.dot} ${css.topLeft}`} />
                 <div className={`${css.dot} ${css.center}`} />
-                <div className={`${css.dot} ${css.bottomRight}`} />
               </>
             )}
             {result === 4 && (

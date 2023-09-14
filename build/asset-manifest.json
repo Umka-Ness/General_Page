@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.975838ee.css",
-    "main.js": "/static/js/main.3cc3e265.js",
+    "main.css": "/static/css/main.05902e36.css",
+    "main.js": "/static/js/main.12e90f10.js",
     "static/media/fon.png": "/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
@@ -41,11 +41,11 @@
     "static/media/bgButtonStars.svg": "/static/media/bgButtonStars.b61c87c3fa0e483df0e1aa1298ea07ce.svg",
     "static/media/bgButtonIdk.svg": "/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/index.html",
-    "main.975838ee.css.map": "/static/css/main.975838ee.css.map",
-    "main.3cc3e265.js.map": "/static/js/main.3cc3e265.js.map"
+    "main.05902e36.css.map": "/static/css/main.05902e36.css.map",
+    "main.12e90f10.js.map": "/static/js/main.12e90f10.js.map"
   },
   "entrypoints": [
-    "static/css/main.975838ee.css",
-    "static/js/main.3cc3e265.js"
+    "static/css/main.05902e36.css",
+    "static/js/main.12e90f10.js"
   ]
 }

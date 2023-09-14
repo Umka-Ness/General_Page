@@ -21,7 +21,7 @@
   }
 
   .rolling {
-    animation: roll 2s ease infinite;
+    animation: roll 3s ease infinite;
     transform: rotateX(160deg) rotateY(-200deg) rotateZ(0deg);
     animation-iteration-count: 1;
   }
@@ -32,12 +32,14 @@
     position: absolute;
     transform: translateZ(-177px);
     left: -3px;
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
     border: 2px solid black;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
   .faceOne {
     width: 174px;
@@ -46,19 +48,21 @@
     // transform: translateX(-145px);
     // transform: translateZ(90px);
     left: 1px;
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
     border: 2px solid black;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
   .faceTwo {
     width: 174px;
     height: 173px;
     position: absolute;
     left: -117%; /* Смещение влево на 100% ширины элемента */
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -68,6 +72,8 @@
     // transform: translateY(100px);
     transform: rotateY(-89deg);
     perspective: 500px;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
 
   .faceThree {
@@ -75,7 +81,7 @@
     height: 173px;
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -85,6 +91,8 @@
     // transform: translateY(100px);
     transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
     perspective: 500px;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
   .faceFour {
     width: 174px;
@@ -92,7 +100,7 @@
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
     top: 0%;
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -102,6 +110,8 @@
     transform: rotateX(90deg) rotateY(0deg) rotateZ(179deg);
     transform-origin: top; /* Задаем точку, вокруг которой будет происходить вращение */
     perspective: 500px;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
 
   .faceFive {
@@ -110,7 +120,7 @@
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
     top: 117%;
-    background-color: white;
+    background-color: rgb(72, 239, 248);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -120,6 +130,8 @@
     transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
     transform-origin: top; /* Задаем точку, вокруг которой будет происходить вращение */
     perspective: 500px;
+    border-radius: 3%;
+    box-shadow: inset 0 5px 30px 1px rgba(0, 0, 0, 0.5);
   }
   .dot {
     width: 30px;
@@ -188,12 +200,24 @@
 
 @keyframes roll {
   0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg);
   }
   50% {
-    transform: rotateX(260deg) rotateY(260deg) rotateZ(0deg);
+    transform: rotateX(360deg);
+  }
+  80% {
+    transform: rotateX(0deg);
   }
   100% {
     transform: rotateX(160deg) rotateY(-200deg) rotateZ(0deg);
   }
+  //   10% {
+  //     transform: rotateX(180deg) rotateY(-180deg) rotateZ(90deg);
+  //   }
+  //   60% {
+  //     transform: rotateX(180deg) rotateY(160deg) rotateZ(0deg);
+  //   }
+  //   100% {
+  //     transform: rotateX(160deg) rotateY(-200deg) rotateZ(0deg);
+  //   }
 }
