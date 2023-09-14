@@ -4,10 +4,11 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  //   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  justify-content: center;
+  background-color: #0a0145;
+  //   margin-top: 50px;
+  justify-content: space-evenly;
 
   .dice {
     width: 150px;
@@ -32,7 +33,7 @@
     position: absolute;
     transform: translateZ(-177px);
     left: -3px;
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -48,7 +49,7 @@
     // transform: translateX(-145px);
     // transform: translateZ(90px);
     left: 1px;
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -62,7 +63,7 @@
     height: 173px;
     position: absolute;
     left: -117%; /* Смещение влево на 100% ширины элемента */
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -81,7 +82,7 @@
     height: 173px;
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -100,7 +101,7 @@
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
     top: 0%;
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -120,7 +121,7 @@
     position: absolute;
     left: 0; /* Смещение влево на 0% ширины элемента */
     top: 117%;
-    background-color: rgb(72, 239, 248);
+    background-color: rgb(233 0 22);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -136,9 +137,10 @@
   .dot {
     width: 30px;
     height: 30px;
-    background-color: black;
+    background-color: rgb(232, 220, 220);
     border-radius: 50%;
     position: absolute;
+    border: 2px solid black;
   }
 
   .center {

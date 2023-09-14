@@ -172,6 +172,12 @@ export const Dice = () => {
   const [selectedId, setSelectedId] = useState("");
   const refRoll = useRef();
 
+  useEffect(() => {
+    setTimeout(() => {
+      handleRoll();
+    }, 100);
+  }, []);
+
   const handleOnClick = (e) => {
     const id = e.target.id;
     setSelectedId(id);
@@ -206,12 +212,18 @@ export const Dice = () => {
       }, 3000); // 2 секунды
     }
   };
+
   if (selectedId === "back") {
     return <PageOne />;
   }
   return (
     <>
-      <button className={css.BackBtn} onClick={handleOnClick} id="back">
+      <button
+        className={css.BackBtn}
+        onClick={handleOnClick}
+        id="back"
+        style={{ borderColor: "rgba(248, 0, 0, 0.63)", color: "red" }}
+      >
         Back
       </button>
 
