@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.291c6213.css",
-    "main.js": "/static/js/main.d10b92e0.js",
+    "main.js": "/static/js/main.3576a21c.js",
     "static/media/fon.png": "/static/media/fon.f497b4796173ee7c8d93.png",
     "static/media/Screenshot_9.png": "/static/media/Screenshot_9.2b0a8741973f65cb6743.png",
     "static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.jpg": "/static/media/Isometric_Fantasy_forest_miniatures_in_cartoon_style_9.752c7a030cbe07eacb0c.jpg",
@@ -17,6 +17,7 @@
     "static/media/podvodnie-peizazhi-1.jpg": "/static/media/podvodnie-peizazhi-1.4e8308c03b75dedab97a.jpg",
     "static/media/tetrad.jpg": "/static/media/tetrad.6f0178c430d04bf3f54f.jpg",
     "static/media/top-view-of-the-countryside.jpg": "/static/media/top-view-of-the-countryside.ca9e841118cb4d67ee0f.jpg",
+    "static/media/drag-end-drop-img.png": "/static/media/drag-end-drop-img.64259d202c497f6becae.png",
     "static/media/Go.svg": "/static/media/Go.4343a377ccd01138ea872719176a7622.svg",
     "static/media/question-3-stars.svg": "/static/media/question-3-stars.a2afbcd0bba765b5bbfffec6acf2d1b6.svg",
     "static/media/question-2-stars.svg": "/static/media/question-2-stars.c10ff5cda96c5c3ec48d095f1e9ec0bd.svg",
@@ -42,10 +43,10 @@
     "static/media/bgButtonIdk.svg": "/static/media/bgButtonIdk.c7551e2ede4d0a6d5f65806514776fcd.svg",
     "index.html": "/index.html",
     "main.291c6213.css.map": "/static/css/main.291c6213.css.map",
-    "main.d10b92e0.js.map": "/static/js/main.d10b92e0.js.map"
+    "main.3576a21c.js.map": "/static/js/main.3576a21c.js.map"
   },
   "entrypoints": [
     "static/css/main.291c6213.css",
-    "static/js/main.d10b92e0.js"
+    "static/js/main.3576a21c.js"
   ]
 }
