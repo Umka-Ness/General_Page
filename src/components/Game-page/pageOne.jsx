@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import diceImg from "./img/Dice-img.png";
+import logo from "../Game-page/img/Screenshot_9.png";
+import dragEndDropImg from "../Game-page/img/drag-end-drop-img.png";
+
 import { Button } from "./Button";
 import gameInfo from "./gameInfo.json";
 import css from "../../main.module.css";
@@ -75,7 +79,7 @@ export const PageOne = () => {
                 style={{ cursor: "pointer" }}
                 className="notranslate"
               >
-                <Button alt="StepByStep" />
+                <Button alt="StepByStep" img={logo} />
               </div>
               <p className={css.blockCard}>lala</p>
             </div>
@@ -91,7 +95,7 @@ export const PageOne = () => {
                 style={{ cursor: "pointer" }}
                 className="notranslate"
               >
-                <Button alt="DragAndDrop" />
+                <Button alt="DragAndDrop" img={dragEndDropImg} />
               </div>
               <p className={css.blockCard}>Drag and Drop</p>
             </div>
@@ -107,7 +111,7 @@ export const PageOne = () => {
                 style={{ cursor: "pointer" }}
                 className="notranslate"
               >
-                <Button alt="Dice" />
+                <Button alt="Dice" img={diceImg} />
               </div>
               <p className={css.blockCard}>Dice</p>
             </div>
@@ -126,7 +130,7 @@ export const PageOne = () => {
                       {index + 3 + " "}
                       {i.name}
                     </p>
-                    <Button url={i.url} onClick={GoMoveBox} />
+                    <Button url={i.url} img={logo} onClick={GoMoveBox} />
                     <p className={css.blockCard}>{i.description}</p>
                   </div>
                 </div>

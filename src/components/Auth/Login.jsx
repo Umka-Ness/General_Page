@@ -126,9 +126,18 @@ export const Login = (id) => {
               photoURL: user.photoURL,
               // date: new Date(),
             });
-          }
 
-          console.log(user);
+            // Теперь аутентифицируйте пользователя после создания записи
+            const userCredentials = await auth.signInWithEmailAndPassword(
+              user.email,
+              password
+            );
+            const authenticatedUser = userCredentials.user;
+
+            console.log("User authenticated:", authenticatedUser);
+          } else {
+            console.log("User already exists in the database:", user);
+          }
 
           // Перенаправляем на нужную страницу после успешной авторизации
           // Ваш код для перенаправления здесь

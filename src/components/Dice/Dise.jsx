@@ -222,7 +222,7 @@ export const Dice = () => {
         className={css.BackBtn}
         onClick={handleOnClick}
         id="back"
-        style={{ borderColor: "rgba(248, 0, 0, 0.63)", color: "red" }}
+        style={{ borderColor: "rgba(248, 0, 0, 0.63)", color: "white" }}
       >
         Back
       </button>
