@@ -68,7 +68,9 @@ export const Login = (id) => {
     e.preventDefault();
 
     const provider = new firebase.auth.GoogleAuthProvider();
+
     provider.setCustomParameters({ prompt: "select_account" });
+
     try {
       const { user } = await auth.signInWithPopup(provider);
       console.log(user);
@@ -76,7 +78,7 @@ export const Login = (id) => {
       setIsGood(true);
     } catch (e) {
       console.error("Error adding document or signInWithPopup is closed: ", e);
-      alert("Nooo");
+      alert("Reload page");
     } finally {
     }
   };
