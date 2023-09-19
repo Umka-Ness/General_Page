@@ -89,7 +89,11 @@ export const Login = (id) => {
           email: user.email,
           phoneNumber: user.phoneNumber,
           accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+          refreshToken: user.refreshToken,
           photoURL: user.photoURL,
+          provider: user.providerData[0].providerId,
+          creationTime: user.metadata.creationTime,
+          // lastSignInTime: user.metadata.lastSignInTime,
           // date: new Date(),
         });
       }
