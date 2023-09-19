@@ -76,7 +76,7 @@ export const Login = (id) => {
     //   )
     // );
     try {
-      const { user } = await auth.signInWithRedirect(provider);
+      const { user } = await auth.signInWithPopap(provider);
       console.log(user);
 
       setIsGood(true);
@@ -130,7 +130,7 @@ export const Login = (id) => {
             // Теперь аутентифицируйте пользователя после создания записи
             const userCredentials = await auth.signInWithEmailAndPassword(
               user.email,
-              password
+              password ? password : null
             );
             const authenticatedUser = userCredentials.user;
 
