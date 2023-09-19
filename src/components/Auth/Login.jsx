@@ -67,16 +67,9 @@ export const Login = (id) => {
   const registerGmail = async (e) => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
-    // console.log(
-    //   querySnapshot.docs.map(
-    //     (i) =>
-    //       // return
-    //       i._document.data.value.mapValue.fields.login.stringValue
-    //     // i._document.data.value.mapValue.fields.password.stringValue
-    //   )
-    // );
+
     try {
-      const { user } = await auth.signInWithPopap(provider);
+      const { user } = await auth.signInWithPopup(provider);
       console.log(user);
 
       setIsGood(true);
@@ -105,14 +98,21 @@ export const Login = (id) => {
         if (user) {
           // Здесь можете выполнить необходимые действия после успешного входа через Google аккаунт
 
-          // Проверяем, существует ли пользователь с такой же почтой в базе данных
-          const querySnapshot = await getDocs(collection(db, "users"));
-          const userExists = querySnapshot.docs.some((doc) => {
-            const userData = doc.data();
-            return userData.email === user.email;
+          await addDoc(collection(db, "users"), {
+            name: user.displayName,
+            login: login ? login : user.displayName,
+            password: password
+              ? password
+              : user.multiFactor.user.stsTokenManager.accessToken,
+
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+            photoURL: user.photoURL,
+            // date: new Date(),
           });
 
-          if (!userExists) {
+          if (!user) {
             // Пользователя с такой почтой нет в базе данных, добавляем его
             await addDoc(collection(db, "users"), {
               name: user.displayName,
@@ -141,6 +141,8 @@ export const Login = (id) => {
 
           // Перенаправляем на нужную страницу после успешной авторизации
           // Ваш код для перенаправления здесь
+
+          console.log(user);
         }
       } catch (error) {
         console.error("Error getting redirect result: ", error);
@@ -165,7 +167,6 @@ export const Login = (id) => {
     }
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
-
       const userArray = querySnapshot.docs;
       for (let i = 0; i < userArray.length; i++) {
         const userData = userArray[i].data();
@@ -256,7 +257,7 @@ export const Login = (id) => {
               <button
                 onClick={registerGmail}
                 className={css.gmailBtn}
-                // disabled={true}
+                disabled={false}
               >
                 Gmail
               </button>
