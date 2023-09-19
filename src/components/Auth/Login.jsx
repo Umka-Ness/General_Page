@@ -47,27 +47,28 @@ export const Login = (id) => {
 
   const { auth } = useContext(Context);
 
-  useEffect(() => {
-    // Проверка авторизации пользователя при загрузке компонента
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setIsGood(true);
-        console.log(user);
-      } else {
-        setIsGood(false);
-      }
-    });
+  // useEffect(() => {
+  //   // Проверка авторизации пользователя при загрузке компонента
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setIsGood(true);
+  //       console.log(user);
+  //     } else {
+  //       setIsGood(false);
+  //     }
+  //   });
 
-    return () => {
-      <NavigationBtn />;
-      unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
-    };
-  }, [auth]);
+  //   return () => {
+  //     <NavigationBtn />;
+  //     unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
+  //   };
+  // }, [auth]);
 
   const registerGmail = async (e) => {
     e.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
 
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
     try {
       const { user } = await auth.signInWithPopup(provider);
       console.log(user);
@@ -83,8 +84,10 @@ export const Login = (id) => {
   useEffect(() => {
     // Проверка авторизации пользователя при загрузке компонента
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      // Получаем список всех cookies на странице
+
       if (user) {
-        setIsGood(true);
+        // setIsGood(true);
         console.log(user);
       } else {
         setIsGood(false);
@@ -95,6 +98,7 @@ export const Login = (id) => {
     const handleRedirectResult = async () => {
       try {
         const { user } = await auth.getRedirectResult();
+
         if (user) {
           // Здесь можете выполнить необходимые действия после успешного входа через Google аккаунт
 
