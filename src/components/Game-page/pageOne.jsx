@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import diceImg from "./img/Dice-img.png";
 import logo from "../Game-page/img/Screenshot_9.png";
 import dragEndDropImg from "../Game-page/img/drag-end-drop-img.png";
+// import sortingImg from "./img/Sorting-img.png";
 
 import { Button } from "./Button";
 import gameInfo from "./gameInfo.json";
@@ -81,7 +82,7 @@ export const PageOne = () => {
               >
                 <Button alt="StepByStep" img={logo} />
               </div>
-              <p className={css.blockCard}>lala</p>
+              <p className={css.blockCard}>StepByStep</p>
             </div>
             <div
               style={{
@@ -130,7 +131,11 @@ export const PageOne = () => {
                       {index + 3 + " "}
                       {i.name}
                     </p>
-                    <Button url={i.url} img={logo} onClick={GoMoveBox} />
+                    <Button
+                      url={i.url}
+                      img={i.img ? i.img : logo}
+                      onClick={GoMoveBox}
+                    />
                     <p className={css.blockCard}>{i.description}</p>
                   </div>
                 </div>

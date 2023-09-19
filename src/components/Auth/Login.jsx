@@ -68,11 +68,31 @@ export const Login = (id) => {
     e.preventDefault();
 
     const provider = new firebase.auth.GoogleAuthProvider();
+    const querySnapshot = await getDocs(collection(db, "users"));
 
     provider.setCustomParameters({ prompt: "select_account" });
 
     try {
       const { user } = await auth.signInWithPopup(provider);
+      const existingUser = querySnapshot.docs.find(
+        (doc) => doc.data().email === user.email
+      );
+
+      if (!existingUser) {
+        // Пользователя с таким email нет в базе данных, добавляем его
+        await addDoc(collection(db, "users"), {
+          name: user.displayName,
+          login: login ? login : user.displayName,
+          password: password
+            ? password
+            : user.multiFactor.user.stsTokenManager.accessToken,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+          photoURL: user.photoURL,
+          // date: new Date(),
+        });
+      }
       console.log(user);
 
       setIsGood(true);
