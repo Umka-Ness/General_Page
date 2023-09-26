@@ -157,7 +157,7 @@ export const StepByStep = () => {
               Back
             </button>
             <ul className={css.container}>
-              <li>
+              <li className={css.liContainer}>
                 <div style={{ maxWidth: "100%" }} id={1} onClick={runGame}>
                   <StepByStepButton name="Go" dataSvg={svgGo} />
                 </div>
@@ -171,7 +171,7 @@ export const StepByStep = () => {
                   <StepByStepButton name="4" dataSvg={svgKeyOneStars} />
                 </div>
               </li>
-              <li>
+              <li className={css.liContainer}>
                 <div
                   style={{
                     marginTop: "85px",
@@ -196,7 +196,7 @@ export const StepByStep = () => {
                   <StepByStepButton name="7" dataSvg={svgQuestionOneStar} />
                 </div>
               </li>
-              <li>
+              <li className={css.liContainer}>
                 <div style={{ maxWidth: "100%" }} id={8} onClick={runGame}>
                   <StepByStepButton name="8" dataSvg={svgKeyTwoStars} />
                 </div>
@@ -208,7 +208,7 @@ export const StepByStep = () => {
                 </div>
               </li>
 
-              <li>
+              <li className={css.liContainer}>
                 <div style={{ maxWidth: "100%" }} id={11} onClick={runGame}>
                   <StepByStepButton name="11" dataSvg={svgQuestionThreeStars} />
                 </div>
@@ -222,7 +222,7 @@ export const StepByStep = () => {
                   <StepByStepButton name="14" dataSvg={svgBagTwoStars} />
                 </div>
               </li>
-              <li>
+              <li className={css.liContainer}>
                 <div style={{ maxWidth: "100%" }} id={15} onClick={runGame}>
                   <StepByStepButton name="15" dataSvg={svgKeyOneStars} />
                 </div>

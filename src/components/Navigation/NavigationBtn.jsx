@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
 // import { Context } from "../../App";
@@ -6,10 +6,36 @@ import { BtnForNavigation } from "./BtnForNavigation";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 import css from "../../main.module.css";
+import firebase from "firebase/compat/app";
+
+import { avatarImageContext } from "../Auth/Login";
+import { Context } from "../../App";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
+  const [photo, setPhoto] = useState("");
+  // const { auth } = useContext(Context);
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // В этом месте пользователь успешно аутентифицирован
+        // console.log("Текущий пользователь:", user);
+        // console.log(auth.currentUser.photoURL);
+        const photoUrl = auth.currentUser.photoURL;
+        setPhoto(photoUrl);
+      } else {
+        // Пользователь вышел из системы или не аутентифицирован
+        // console.log("Пользователь не в системе.");
+        // console.log(auth.currentUser.photoURL);
+      }
+    });
+  }, []);
 
+  // const { imageAvatar } = useContext(avatarImageContext);
+
+  // console.log(imageAvatar);
   useEffect(() => {
     localStorage.setItem("numberPage", "NavigationBtn");
   }, []);
@@ -31,6 +57,7 @@ export const NavigationBtn = () => {
   //     console.log("Ошибка при выходе из системы:", error);
   //   }
   // };
+  // console.log(imageAvatar);
   const renderContent = () => {
     if (selectedId === "1") {
       return <PageOne />;
@@ -73,6 +100,15 @@ export const NavigationBtn = () => {
                   </div>
                 </div>
                 <div>awsdwdawd</div>
+                <div style={{ position: "relative" }}>
+                  <img src={photo} alt="img" className={css.avatarImg} />
+
+                  <ul className={css.toggleMenu}>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                  </ul>
+                </div>
               </div>
               <div
                 style={{

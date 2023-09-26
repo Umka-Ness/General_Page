@@ -20,6 +20,8 @@ import { Setting } from "../SettingAcc/Setting";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { DragAndDropLevels } from "../DragAndDrop/DragAndDropLevels";
 import { Dice } from "../Dice/Dise";
+import { createContext } from "react";
+export const avatarImageContext = createContext();
 
 const sessionTime = () => {
   const auth = getAuth();
@@ -44,8 +46,10 @@ export const Login = (id) => {
   const [password, setPassword] = useState("");
   const [isGood, setIsGood] = useState(false);
   const refError = useRef("");
+  const [imageAvatar, setImageAvatar] = useState();
 
   const { auth } = useContext(Context);
+  // let imageAvatar = "";
 
   // useEffect(() => {
   //   // Проверка авторизации пользователя при загрузке компонента
@@ -74,10 +78,12 @@ export const Login = (id) => {
 
     try {
       const { user } = await auth.signInWithPopup(provider);
+      const avatarUrl = user.photoURL;
+      setImageAvatar(avatarUrl);
+
       const existingUser = querySnapshot.docs.find(
         (doc) => doc.data().email === user.email
       );
-
       if (!existingUser) {
         // Пользователя с таким email нет в базе данных, добавляем его
         await addDoc(collection(db, "users"), {
@@ -97,6 +103,7 @@ export const Login = (id) => {
           // date: new Date(),
         });
       }
+
       console.log(user);
 
       setIsGood(true);
@@ -226,7 +233,14 @@ export const Login = (id) => {
       isGood ||
       localStorage.getItem("numberPage") === "NavigationBtn"
     ) {
-      return <NavigationBtn />;
+      return (
+        <>
+          <avatarImageContext.Provider value={{ imageAvatar, setImageAvatar }}>
+            {/* imageAvatar={imageAvatar} */}
+            <NavigationBtn />
+          </avatarImageContext.Provider>
+        </>
+      );
     } else if (localStorage.getItem("numberPage") === "pageOne") {
       return <PageOne />;
     } else if (localStorage.getItem("numberPage") === "StepByStep") {

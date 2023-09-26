@@ -4,7 +4,6 @@ import { SignOut } from "./SignOut";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 
 export const Setting = () => {
-  const [value, setValue] = useState("");
   const [backBtn, setBackBtn] = useState(false);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export const Setting = () => {
             >
               Back
             </button>
-            <div className={css.signOut} onClick={(e) => setValue(e.target.id)}>
+            <div>
               <SignOut id="signOut" />
             </div>
           </div>

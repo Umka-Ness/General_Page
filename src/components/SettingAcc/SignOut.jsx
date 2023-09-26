@@ -1,5 +1,6 @@
 import React from "react";
 import { getAuth, signOut } from "firebase/auth";
+import css from "../../main.module.css";
 
 export const SignOut = () => {
   const handleSignOut = () => {
@@ -38,8 +39,9 @@ export const SignOut = () => {
 
   return (
     <>
-      <div></div>
-      <div onClick={handleSignOut}>Sign out</div>
+      <button onClick={handleSignOut} className={css.signOut}>
+        Sign out
+      </button>
       {/* Сделать тут настройки аккаунта с изменением пароля, логина и выход из акк */}
     </>
   );
