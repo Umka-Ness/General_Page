@@ -1,41 +1,46 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
-// import { Context } from "../../App";
-// import { Login } from "../Auth/Login";
+
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 import css from "../../main.module.css";
-import firebase from "firebase/compat/app";
+import imageQuestionAvatar from "./image/unnamed.jpg";
 
-import { avatarImageContext } from "../Auth/Login";
-import { Context } from "../../App";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { SignOut } from "../SettingAcc/SignOut";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
   const [photo, setPhoto] = useState("");
-  // const { auth } = useContext(Context);
+  const [email, setEmail] = useState("");
+
+  const [name, setName] = useState("");
+
+  const refAvatar = useRef();
+
   const auth = getAuth();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // В этом месте пользователь успешно аутентифицирован
-        // console.log("Текущий пользователь:", user);
-        // console.log(auth.currentUser.photoURL);
+        console.log("Текущий пользователь:", user);
+        console.log(auth.currentUser.photoURL);
+
         const photoUrl = auth.currentUser.photoURL;
+        const userEmail = auth.currentUser.email;
+        const userName = auth.currentUser.displayName;
         setPhoto(photoUrl);
+        setEmail(userEmail);
+        setName(userName);
       } else {
         // Пользователь вышел из системы или не аутентифицирован
-        // console.log("Пользователь не в системе.");
+        console.log("Пользователь не в системе.");
         // console.log(auth.currentUser.photoURL);
       }
     });
   }, []);
 
-  // const { imageAvatar } = useContext(avatarImageContext);
-
-  // console.log(imageAvatar);
   useEffect(() => {
     localStorage.setItem("numberPage", "NavigationBtn");
   }, []);
@@ -45,19 +50,12 @@ export const NavigationBtn = () => {
     console.log(id);
     setSelectedId(id);
   };
+  const handleOnClickAvatar = () => {
+    const refAvatarCurrent = refAvatar.current;
 
-  // const { auth } = useContext(Context);
+    return refAvatarCurrent.classList.toggle(css.isHidden);
+  };
 
-  // const handleLogout = async () => {
-  //   try {
-  //     await auth.signOut();
-  //     return <Login />;
-  //     // Дополнительные действия после выхода пользователя
-  //   } catch (error) {
-  //     console.log("Ошибка при выходе из системы:", error);
-  //   }
-  // };
-  // console.log(imageAvatar);
   const renderContent = () => {
     if (selectedId === "1") {
       return <PageOne />;
@@ -75,15 +73,16 @@ export const NavigationBtn = () => {
               width: "100vw",
               height: "100vh",
               alignItems: "center",
+              background: "#fafafa",
             }}
           >
             <div style={{ display: "flex" }}>
               <div
                 style={{
                   display: "flex",
-                  width: "100vw",
+                  width: "100%",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                   position: "absolute",
                   top: "0",
                   height: "50px",
@@ -100,13 +99,53 @@ export const NavigationBtn = () => {
                   </div>
                 </div>
                 <div>awsdwdawd</div>
-                <div style={{ position: "relative" }}>
-                  <img src={photo} alt="img" className={css.avatarImg} />
-
-                  <ul className={css.toggleMenu}>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
+                <div
+                  style={{
+                    position: "relative",
+                    height: "45px",
+                  }}
+                >
+                  {photo ? (
+                    <img
+                      src={photo}
+                      alt="img"
+                      className={css.avatarImg}
+                      onClick={handleOnClickAvatar}
+                    />
+                  ) : (
+                    <img
+                      src={imageQuestionAvatar}
+                      alt="img"
+                      className={css.avatarImg}
+                      onClick={handleOnClickAvatar}
+                    />
+                  )}
+                  <ul
+                    className={`${css.toggleMenu} ${css.nothing} ${css.isHidden}`}
+                    ref={refAvatar}
+                  >
+                    <div>
+                      <li
+                        className={css.toggleMenuList}
+                        style={{ marginTop: "10px", color: "#909196" }}
+                      >
+                        {name}
+                      </li>
+                      <li
+                        className={css.toggleMenuList}
+                        style={{ marginBottom: "10px", color: "#909196" }}
+                      >
+                        {email}
+                      </li>
+                      <li className={css.toggleMenuList}>Profile</li>
+                      <li className={css.toggleMenuList}>Nothing2</li>
+                    </div>
+                    <li className={css.toggleMenuList} id={"5"}>
+                      Setting
+                    </li>
+                    <li className={css.toggleMenuList}>
+                      <SignOut />
+                    </li>
                   </ul>
                 </div>
               </div>

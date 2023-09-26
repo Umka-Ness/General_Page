@@ -1,16 +1,18 @@
 .NavigationBtn {
   position: relative;
   margin-left: 10px;
-  // margin-top: 50px;
   min-width: 100px;
   min-height: 50px;
   color: #000;
-  border-bottom-left-radius: 50% 10%;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(56, 55, 55, 0.619);
   transition: transform 1s;
+  border-radius: 10px;
   &:hover {
-    transform: scale(1.3);
+    background-color: var(--accent-color);
+    color: white;
+
+    transition: 0.5s;
   }
 }
 
@@ -21,15 +23,43 @@
   height: calc(100vh - 70px);
 }
 .avatarImg {
+  border: 1px solid black;
   border-radius: 50%;
   width: 45px;
+  margin-right: 22px;
 }
 .toggleMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 60px;
+  left: -180px;
 
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+  border-radius: 12px;
   border: 1px solid black;
-  height: 100px;
+  height: 200px;
+  width: 220px;
   list-style: none;
+}
+.toggleMenuList {
+  cursor: default;
+  padding: 0px;
+  margin-bottom: 5px;
+  width: 100%;
+  &:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transition: 1s;
+  }
+}
+.isHidden {
+  opacity: 0;
+  transition: 0.5s;
+}
+.nothing {
+  transition: 0.5s;
 }

@@ -39,9 +39,9 @@ export const SignOut = () => {
 
   return (
     <>
-      <button onClick={handleSignOut} className={css.signOut}>
+      <div onClick={handleSignOut} className={css.signOut}>
         Sign out
-      </button>
+      </div>
       {/* Сделать тут настройки аккаунта с изменением пароля, логина и выход из акк */}
     </>
   );
