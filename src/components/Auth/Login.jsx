@@ -49,24 +49,6 @@ export const Login = (id) => {
   const [imageAvatar, setImageAvatar] = useState();
 
   const { auth } = useContext(Context);
-  // let imageAvatar = "";
-
-  // useEffect(() => {
-  //   // Проверка авторизации пользователя при загрузке компонента
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setIsGood(true);
-  //       console.log(user);
-  //     } else {
-  //       setIsGood(false);
-  //     }
-  //   });
-
-  //   return () => {
-  //     <NavigationBtn />;
-  //     unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
-  //   };
-  // }, [auth]);
 
   const registerGmail = async (e) => {
     e.preventDefault();
@@ -209,10 +191,13 @@ export const Login = (id) => {
         const userData = userArray[i].data();
         const userLogin = userData.login;
         const userPassword = userData.password;
+        const userKey = userData.key;
         if (login === userLogin && password === userPassword) {
           setIsGood(true);
+          localStorage.setItem("keyUser", userKey);
 
           console.log("Success");
+
           break; // Прерываем цикл после нахождения первого совпадения
         } else {
           errorRefCurrent.style.display = "inherit";
@@ -235,7 +220,12 @@ export const Login = (id) => {
     ) {
       return (
         <>
-          <avatarImageContext.Provider value={{ imageAvatar, setImageAvatar }}>
+          <avatarImageContext.Provider
+            value={{
+              imageAvatar,
+              setImageAvatar,
+            }}
+          >
             {/* imageAvatar={imageAvatar} */}
             <NavigationBtn />
           </avatarImageContext.Provider>

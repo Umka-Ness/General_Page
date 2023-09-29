@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PageOne } from "../Game-page/pageOne";
 import { BtnForNavigation } from "./BtnForNavigation";
 
@@ -9,15 +9,20 @@ import imageQuestionAvatar from "./image/unnamed.jpg";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { SignOut } from "../SettingAcc/SignOut";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import firebaseConfig from "../../firebase";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
   const [photo, setPhoto] = useState("");
   const [email, setEmail] = useState("");
-
+  const [nameUser, setNameUser] = useState("");
   const [name, setName] = useState("");
-
   const refAvatar = useRef();
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
   const auth = getAuth();
   useEffect(() => {
@@ -41,8 +46,28 @@ export const NavigationBtn = () => {
     });
   }, []);
 
+  const fetchDataAsync = async () => {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const userArray = querySnapshot.docs;
+    const keyUser = localStorage.getItem("keyUser");
+
+    for (let i = 0; i < userArray.length; i++) {
+      const userData = userArray[i].data();
+      const userKey = userData.key;
+      const userName = userData.login;
+      console.log(userKey);
+      if (keyUser === userKey) {
+        setNameUser(userName);
+        console.log(userName, 12312312);
+        break;
+      } else {
+      }
+    }
+  };
   useEffect(() => {
     localStorage.setItem("numberPage", "NavigationBtn");
+
+    fetchDataAsync();
   }, []);
 
   const handleOnClick = (e) => {
@@ -126,14 +151,21 @@ export const NavigationBtn = () => {
                   >
                     <div>
                       <li
-                        className={css.toggleMenuList}
-                        style={{ marginTop: "10px", color: "#909196" }}
+                        style={{
+                          marginTop: "10px",
+                          marginBottom: "5px",
+                          color: "#909196",
+                          cursor: "default",
+                        }}
                       >
-                        {name}
+                        {name ? name : nameUser}
                       </li>
                       <li
-                        className={css.toggleMenuList}
-                        style={{ marginBottom: "10px", color: "#909196" }}
+                        style={{
+                          marginBottom: "10px",
+                          color: "#909196",
+                          cursor: "default",
+                        }}
                       >
                         {email}
                       </li>

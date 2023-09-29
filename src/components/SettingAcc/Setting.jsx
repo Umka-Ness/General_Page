@@ -31,9 +31,7 @@ export const Setting = () => {
             >
               Back
             </button>
-            <div>
-              <SignOut id="signOut" />
-            </div>
+            <div>{/* <SignOut id="signOut" /> */}</div>
           </div>
         </div>
       );
