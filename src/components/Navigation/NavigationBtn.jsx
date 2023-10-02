@@ -55,7 +55,7 @@ export const NavigationBtn = () => {
       const userData = userArray[i].data();
       const userKey = userData.key;
       const userName = userData.login;
-      console.log(userKey);
+
       if (keyUser === userKey) {
         setNameUser(userName);
         console.log(userName, 12312312);

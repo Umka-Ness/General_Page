@@ -46,19 +46,10 @@ const sessionTime = () => {
       console.log(`sessionTime fun: ${error} `);
       // Обработка ошибок при установке типа сохранения состояния аутентификации
     });
-  try {
-    setTimeout(() => {
-      setInterval(() => {
-        console.log(auth.currentUser);
-      }, 2000);
-    }, 1500);
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 sessionTime();
-export const Login = (id) => {
+export const Login = () => {
   const [value, setValue] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -192,6 +183,7 @@ export const Login = (id) => {
       unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
     };
   }, [auth, login, password]);
+
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
     // e.preventDefault();
@@ -211,24 +203,30 @@ export const Login = (id) => {
         const userKey = userData.key;
 
         if (login === userLogin && password === userPassword) {
-          setIsGood(true);
           localStorage.setItem("keyUser", userKey);
+          console.log(userArray);
+          const userLocalDataId = localStorage.getItem("docRef.id");
+          const userRef = doc(db, "users", userLocalDataId);
+          const userDoc = await getDoc(userRef);
+          // console.log(
+          //   userDoc._document.data.value.mapValue.fields.hasClickedLink
+          // );
 
-          // const userRef = doc(db, "users", userKey.key);
-
-          // const userDoc = await getDoc(userRef);
-          // console.log(userDoc);
-          // console.log("userDoc:", userDoc.data());
-
-          // if (userDoc.exists()) {
-          //   // Документ существует, можно обновить его
-          //   await updateDoc(userRef, {
-          //     hasClickedLink: true,
-          //   });
-          //   console.log("Success");
-          // } else {
-          //   console.error("User document not found.");
-          // }
+          if (userDoc.exists() && !userDoc.hasClickedLink) {
+            // Документ существует, можно обновить его
+            await updateDoc(userRef, {
+              hasClickedLink: true,
+            });
+            console.log("hasClickedLink: ", userDoc.hasClickedLink);
+          } else {
+            console.error("User document not found.");
+          }
+          console.log(userDoc._document.data.value.mapValue.fields);
+          if (userDoc._document.data.value.mapValue.fields.hasClickedLink) {
+            setIsGood(true);
+          } else {
+            return;
+          }
 
           console.log("Success");
 

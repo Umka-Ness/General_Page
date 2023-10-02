@@ -9,6 +9,8 @@ import {
   query,
   getDocs,
   where,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
 import firebaseConfig from "../../firebase";
 import { Login } from "./Login";
@@ -31,7 +33,6 @@ export const Register = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const refError = useRef(null);
-  const [goodSendEmail, setGoodSendEmail] = useState(false);
   // const [generateKeyStatus, setGenerateKeyStatus] = useState(true);
   //Generator hesh key
   function generateRandomKey(length) {
@@ -152,8 +153,14 @@ export const Register = () => {
             key: randomKey,
             hasClickedLink: false,
           });
+          const userRef = doc(db, "users", docRef.id);
+
+          await updateDoc(userRef, {
+            key: docRef.id,
+          });
 
           console.log("Document written with ID: ", docRef.id);
+          localStorage.setItem("docRef.id", docRef.id);
           setId(docRef.id);
           setValue(true);
         } catch (e) {
