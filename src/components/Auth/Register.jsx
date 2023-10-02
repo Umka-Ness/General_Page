@@ -31,6 +31,7 @@ export const Register = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const refError = useRef(null);
+  const [goodSendEmail, setGoodSendEmail] = useState(false);
   // const [generateKeyStatus, setGenerateKeyStatus] = useState(true);
   //Generator hesh key
   function generateRandomKey(length) {
@@ -96,7 +97,6 @@ export const Register = () => {
           errorRefCurrent.style.display = "none";
         }, 5000);
       } else {
-        console.log("else");
         // Продолжите процесс регистрации, так как email не существует в базе данных
         // ...
 
@@ -104,43 +104,53 @@ export const Register = () => {
           .then((userCredential) => {
             // Пользователь успешно зарегистрирован
             const user = userCredential.user;
+
+            // Ожидайте события изменения состояния аутентификации
+            onAuthStateChanged(auth, (user) => {
+              if (user) {
+                // Пользователь успешно авторизован
+                const uid = user.uid;
+                user.getIdToken();
+                console.log("Пользователь авторизован");
+                sendEmailVerification(auth.currentUser)
+                  .then(() => {
+                    // Письмо успешно отправлено
+                    console.log("Письмо успешно отправлено");
+                    console.log(auth.currentUser.emailVerified);
+                  })
+                  .catch((error) => {
+                    // Обработка ошибок
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                    console.log(auth.currentUser, "auth.currentUser");
+                  });
+
+                // Теперь вы можете вызвать getIdToken или выполнять другие действия с пользователем.
+
+                // Выполняйте операции, требующие аутентификации здесь.
+              } else {
+                // Пользователь не авторизован
+                console.log("Пользователь не авторизован");
+              }
+            });
+
             console.log(user);
           })
           .catch((error) => {
-            // Обработка ошибок
+            // Обработка ошибок регистрации
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
           });
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            // Пользователь успешно авторизован
-            const uid = user.uid;
-            user.getIdToken();
-            // Теперь вы можете вызвать getIdToken или выполнять другие действия с пользователем.
-          } else {
-            // Пользователь не авторизован
-            console.log("Пользователь не авторизован");
-          }
-        });
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            // Письмо успешно отправлено
-            console.log("Письмо успешно отправлено");
-            console.log(auth.currentUser.emailVerified);
-          })
-          .catch((error) => {
-            // Обработка ошибок
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
+
         try {
           const docRef = await addDoc(collection(db, "users"), {
             login: login,
             password: password,
             date: new Date(),
             key: randomKey,
+            hasClickedLink: false,
           });
 
           console.log("Document written with ID: ", docRef.id);

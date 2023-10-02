@@ -1,7 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import css from "../../main.module.css";
 import firebase from "firebase/compat/app";
-import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  updateDoc,
+} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { Register } from "./Register";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
@@ -23,6 +31,9 @@ import { Dice } from "../Dice/Dise";
 import { createContext } from "react";
 export const avatarImageContext = createContext();
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const sessionTime = () => {
   const auth = getAuth();
 
@@ -35,10 +46,17 @@ const sessionTime = () => {
       console.log(`sessionTime fun: ${error} `);
       // Обработка ошибок при установке типа сохранения состояния аутентификации
     });
+  try {
+    setTimeout(() => {
+      setInterval(() => {
+        console.log(auth.currentUser);
+      }, 2000);
+    }, 1500);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 sessionTime();
 export const Login = (id) => {
   const [value, setValue] = useState(false);
@@ -47,7 +65,6 @@ export const Login = (id) => {
   const [isGood, setIsGood] = useState(false);
   const refError = useRef("");
   const [imageAvatar, setImageAvatar] = useState();
-
   const { auth } = useContext(Context);
 
   const registerGmail = async (e) => {
@@ -177,7 +194,7 @@ export const Login = (id) => {
   }, [auth, login, password]);
   const fetchData = async (e) => {
     const errorRefCurrent = refError.current;
-    e.preventDefault();
+    // e.preventDefault();
     if (login === "" || password === "") {
       errorRefCurrent.style.display = "inherit";
       setTimeout(() => {
@@ -192,9 +209,26 @@ export const Login = (id) => {
         const userLogin = userData.login;
         const userPassword = userData.password;
         const userKey = userData.key;
+
         if (login === userLogin && password === userPassword) {
           setIsGood(true);
           localStorage.setItem("keyUser", userKey);
+
+          // const userRef = doc(db, "users", userKey.key);
+
+          // const userDoc = await getDoc(userRef);
+          // console.log(userDoc);
+          // console.log("userDoc:", userDoc.data());
+
+          // if (userDoc.exists()) {
+          //   // Документ существует, можно обновить его
+          //   await updateDoc(userRef, {
+          //     hasClickedLink: true,
+          //   });
+          //   console.log("Success");
+          // } else {
+          //   console.error("User document not found.");
+          // }
 
           console.log("Success");
 
