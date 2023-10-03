@@ -20,6 +20,7 @@ import {
   getAuth,
   setPersistence,
   browserLocalPersistence,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { PageOne } from "../Game-page/pageOne";
 import { StepByStep } from "../StepByStep/StepByStep";
@@ -57,10 +58,10 @@ export const Login = () => {
   const refError = useRef("");
   const [imageAvatar, setImageAvatar] = useState();
   const { auth } = useContext(Context);
+  const [errorAlert, setErrorAlert] = useState();
 
   const registerGmail = async (e) => {
     e.preventDefault();
-
     const provider = new firebase.auth.GoogleAuthProvider();
     const querySnapshot = await getDocs(collection(db, "users"));
 
@@ -121,7 +122,6 @@ export const Login = () => {
     const handleRedirectResult = async () => {
       try {
         const { user } = await auth.getRedirectResult();
-
         if (user) {
           // Здесь можете выполнить необходимые действия после успешного входа через Google аккаунт
 
@@ -188,6 +188,8 @@ export const Login = () => {
     const errorRefCurrent = refError.current;
     // e.preventDefault();
     if (login === "" || password === "") {
+      setErrorAlert("incorrect username or password");
+
       errorRefCurrent.style.display = "inherit";
       setTimeout(() => {
         errorRefCurrent.style.display = "none";
@@ -196,6 +198,7 @@ export const Login = () => {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       const userArray = querySnapshot.docs;
+
       for (let i = 0; i < userArray.length; i++) {
         const userData = userArray[i].data();
         const userLogin = userData.login;
@@ -221,6 +224,12 @@ export const Login = () => {
           } else {
             console.error("User document not found.");
           }
+          const { user } = await createUserWithEmailAndPassword(
+            auth,
+            login,
+            password
+          );
+          console.log(user);
           console.log(userDoc._document.data.value.mapValue.fields);
           if (userDoc._document.data.value.mapValue.fields.hasClickedLink) {
             setIsGood(true);
@@ -232,6 +241,8 @@ export const Login = () => {
 
           break; // Прерываем цикл после нахождения первого совпадения
         } else {
+          setErrorAlert("incorrect username or password");
+
           errorRefCurrent.style.display = "inherit";
           setTimeout(() => {
             errorRefCurrent.style.display = "none";
@@ -241,8 +252,15 @@ export const Login = () => {
       }
     } catch (error) {
       console.error("Ошибка при чтении данных:", error);
+      setErrorAlert("Your email already in use");
+
+      errorRefCurrent.style.display = "inherit";
+      setTimeout(() => {
+        errorRefCurrent.style.display = "none";
+      }, 10000);
     }
   };
+
   const renderContent = () => {
     if (value) {
       return <Register />;
@@ -291,7 +309,7 @@ export const Login = () => {
               <p className={css.namePage}>Login in</p>
 
               <p ref={refError} className={css.errorRegister}>
-                incorrect username or password
+                {errorAlert}
               </p>
               <input
                 type="email"

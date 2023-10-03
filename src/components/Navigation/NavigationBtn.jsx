@@ -25,16 +25,17 @@ export const NavigationBtn = () => {
   const db = getFirestore(app);
 
   const auth = getAuth();
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // В этом месте пользователь успешно аутентифицирован
         console.log("Текущий пользователь:", user);
         console.log(auth.currentUser.photoURL);
 
-        const photoUrl = auth.currentUser.photoURL;
-        const userEmail = auth.currentUser.email;
-        const userName = auth.currentUser.displayName;
+        const photoUrl = user.photoURL;
+        const userEmail = user.email;
+        const userName = user.displayName;
         setPhoto(photoUrl);
         setEmail(userEmail);
         setName(userName);
@@ -44,6 +45,8 @@ export const NavigationBtn = () => {
         // console.log(auth.currentUser.photoURL);
       }
     });
+
+    return () => unsubscribe(); // Отписка от обновлений при размонтировании компонента
   }, []);
 
   const fetchDataAsync = async () => {
@@ -130,21 +133,13 @@ export const NavigationBtn = () => {
                     height: "45px",
                   }}
                 >
-                  {photo ? (
-                    <img
-                      src={photo}
-                      alt="img"
-                      className={css.avatarImg}
-                      onClick={handleOnClickAvatar}
-                    />
-                  ) : (
-                    <img
-                      src={imageQuestionAvatar}
-                      alt="img"
-                      className={css.avatarImg}
-                      onClick={handleOnClickAvatar}
-                    />
-                  )}
+                  <img
+                    src={imageQuestionAvatar}
+                    alt="img"
+                    className={css.avatarImg}
+                    onClick={handleOnClickAvatar}
+                  />
+
                   <ul
                     className={`${css.toggleMenu} ${css.nothing} ${css.isHidden}`}
                     ref={refAvatar}
