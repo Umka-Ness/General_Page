@@ -21,6 +21,7 @@ import {
   setPersistence,
   browserLocalPersistence,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { PageOne } from "../Game-page/pageOne";
 import { StepByStep } from "../StepByStep/StepByStep";
@@ -69,35 +70,68 @@ export const Login = () => {
 
     try {
       const { user } = await auth.signInWithPopup(provider);
-      const avatarUrl = user.photoURL;
-      setImageAvatar(avatarUrl);
+      const querySnapshot = await getDocs(collection(db, "users"));
+      const userArray = querySnapshot.docs;
 
-      const existingUser = querySnapshot.docs.find(
-        (doc) => doc.data().email === user.email
-      );
-      if (!existingUser) {
-        // Пользователя с таким email нет в базе данных, добавляем его
-        await addDoc(collection(db, "users"), {
-          name: user.displayName,
-          login: login ? login : user.displayName,
-          password: password
-            ? password
-            : user.multiFactor.user.stsTokenManager.accessToken,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
-          accessToken: user.multiFactor.user.stsTokenManager.accessToken,
-          refreshToken: user.refreshToken,
-          photoURL: user.photoURL,
-          provider: user.providerData[0].providerId,
-          creationTime: user.metadata.creationTime,
-          // lastSignInTime: user.metadata.lastSignInTime,
-          // date: new Date(),
-        });
+      for (let i = 0; i < userArray.length; i++) {
+        const userData = userArray[i].data();
+        const userLogin = userData.login;
+        if (userLogin === user.email) {
+          //...
+          setErrorAlert("Email уже зарегистрирован");
+        } else {
+          const avatarUrl = user.photoURL;
+          console.log(user);
+          setImageAvatar(avatarUrl);
+
+          const existingUser = querySnapshot.docs.find(
+            (doc) => doc.data().login === user.email
+          );
+          if (!existingUser) {
+            // Пользователя с таким email нет в базе данных, добавляем его
+            await addDoc(collection(db, "users"), {
+              name: user.displayName,
+              login: login ? login : user.displayName,
+              password: password
+                ? password
+                : user.multiFactor.user.stsTokenManager.accessToken,
+              email: user.email,
+              phoneNumber: user.phoneNumber,
+              accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+              refreshToken: user.refreshToken,
+              photoURL: user.photoURL,
+              provider: user.providerData[0].providerId,
+              creationTime: user.metadata.creationTime,
+              // lastSignInTime: user.metadata.lastSignInTime,
+              // date: new Date(),
+            });
+            console.log("add user");
+            setIsGood(true);
+          } else {
+            const userLocalDataId = localStorage.getItem("docRef.id");
+            const userRef = doc(db, "users", userLocalDataId);
+            const userDoc = await getDoc(userRef);
+
+            await updateDoc(userRef, {
+              name: user.displayName,
+              password: password
+                ? password
+                : user.multiFactor.user.stsTokenManager.accessToken,
+              email: user.email,
+              phoneNumber: user.phoneNumber,
+              accessToken: user.multiFactor.user.stsTokenManager.accessToken,
+              refreshToken: user.refreshToken,
+              photoURL: user.photoURL,
+              provider: user.providerData[0].providerId,
+              hasClickedLink: true,
+            });
+            console.log("Пользователь уже зарегистрировал этот емейл");
+            setIsGood(true);
+          }
+
+          console.log(user);
+        }
       }
-
-      console.log(user);
-
-      setIsGood(true);
     } catch (e) {
       console.error("Error adding document or signInWithPopup is closed: ", e);
       alert("Reload page");
@@ -224,7 +258,7 @@ export const Login = () => {
           } else {
             console.error("User document not found.");
           }
-          const { user } = await createUserWithEmailAndPassword(
+          const { user } = await signInWithEmailAndPassword(
             auth,
             login,
             password
@@ -252,7 +286,7 @@ export const Login = () => {
       }
     } catch (error) {
       console.error("Ошибка при чтении данных:", error);
-      setErrorAlert("Your email already in use");
+      setErrorAlert("Your email already in use or invalid email");
 
       errorRefCurrent.style.display = "inherit";
       setTimeout(() => {

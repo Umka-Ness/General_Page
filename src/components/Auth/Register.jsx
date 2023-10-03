@@ -8,6 +8,7 @@ import {
   addDoc,
   updateDoc,
   doc,
+  getDocs,
 } from "firebase/firestore";
 import firebaseConfig from "../../firebase";
 import { Login } from "./Login";
@@ -64,106 +65,118 @@ export const Register = () => {
     const errorRefCurrent = refError.current;
     e.preventDefault();
 
-    if (login === "" || password === "") {
-      setErrorAlert("incorrect email or password");
-      errorRefCurrent.style.display = "inherit";
-      setTimeout(() => {
-        errorRefCurrent.style.display = "none";
-      }, 5000);
-    } else if (password.length < 6) {
-      setErrorAlert("Your password is too short");
-      errorRefCurrent.style.display = "inherit";
-      setTimeout(() => {
-        errorRefCurrent.style.display = "none";
-      }, 5000);
-    } else if (!validator.isEmail(login)) {
-      // Проверяем email с помощью регулярного выражения
-      setErrorAlert("Введите корректный email адрес");
-      errorRefCurrent.style.display = "inherit";
-      setTimeout(() => {
-        errorRefCurrent.style.display = "none";
-      }, 5000);
-    } else {
-      console.log(login);
-      console.log(password);
-      const emailAlreadyRegistered = await isEmailAlreadyRegistered(login);
-      if (emailAlreadyRegistered) {
-        setErrorAlert("Email уже зарегистрирован");
-        errorRefCurrent.style.display = "inherit";
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const userArray = querySnapshot.docs;
 
+    for (let i = 0; i < userArray.length; i++) {
+      const userData = userArray[i].data();
+      const userLogin = userData.login;
+      const userToken = userData?.accessToken;
+
+      if (login === "" || password === "") {
+        setErrorAlert("incorrect email or password");
+        errorRefCurrent.style.display = "inherit";
         setTimeout(() => {
           errorRefCurrent.style.display = "none";
         }, 5000);
+      } else if (password.length < 6) {
+        setErrorAlert("Your password is too short");
+        errorRefCurrent.style.display = "inherit";
+        setTimeout(() => {
+          errorRefCurrent.style.display = "none";
+        }, 5000);
+      } else if (!validator.isEmail(login)) {
+        // Проверяем email с помощью регулярного выражения
+        setErrorAlert("Введите корректный email адрес");
+        errorRefCurrent.style.display = "inherit";
+        setTimeout(() => {
+          errorRefCurrent.style.display = "none";
+        }, 5000);
+      } else if (login === userLogin && userToken) {
+        setErrorAlert("Емейл уже зарегистрирован");
       } else {
-        // Продолжите процесс регистрации, так как email не существует в базе данных
-        // ...
+        console.log(login);
+        console.log(password);
+        const emailAlreadyRegistered = await isEmailAlreadyRegistered(login);
+        if (emailAlreadyRegistered) {
+          setErrorAlert("Email уже зарегистрирован");
+          errorRefCurrent.style.display = "inherit";
 
-        createUserWithEmailAndPassword(auth, login, password)
-          .then((userCredential) => {
-            // Пользователь успешно зарегистрирован
-            const user = userCredential.user;
+          setTimeout(() => {
+            errorRefCurrent.style.display = "none";
+          }, 5000);
+        } else {
+          // Продолжите процесс регистрации, так как email не существует в базе данных
+          // ...
 
-            // Ожидайте события изменения состояния аутентификации
-            onAuthStateChanged(auth, (user) => {
-              if (user) {
-                // Пользователь успешно авторизован
-                const uid = user.uid;
-                user.getIdToken();
-                console.log("Пользователь авторизован");
-                sendEmailVerification(auth.currentUser)
-                  .then(() => {
-                    // Письмо успешно отправлено
-                    console.log("Письмо успешно отправлено");
-                    console.log(auth.currentUser.emailVerified);
-                  })
-                  .catch((error) => {
-                    // Обработка ошибок
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log(errorCode, errorMessage);
-                    console.log(auth.currentUser, "auth.currentUser");
-                  });
+          createUserWithEmailAndPassword(auth, login, password)
+            .then((userCredential) => {
+              // Пользователь успешно зарегистрирован
+              const user = userCredential.user;
 
-                // Теперь вы можете вызвать getIdToken или выполнять другие действия с пользователем.
+              // Ожидайте события изменения состояния аутентификации
+              onAuthStateChanged(auth, (user) => {
+                if (user) {
+                  // Пользователь успешно авторизован
+                  const uid = user.uid;
+                  user.getIdToken();
+                  console.log("Пользователь авторизован");
+                  sendEmailVerification(auth.currentUser)
+                    .then(() => {
+                      // Письмо успешно отправлено
+                      console.log("Письмо успешно отправлено");
+                      console.log(auth.currentUser.emailVerified);
+                    })
+                    .catch((error) => {
+                      // Обработка ошибок
+                      const errorCode = error.code;
+                      const errorMessage = error.message;
+                      console.log(errorCode, errorMessage);
+                      console.log(auth.currentUser, "auth.currentUser");
+                    });
 
-                // Выполняйте операции, требующие аутентификации здесь.
-              } else {
-                // Пользователь не авторизован
-                console.log("Пользователь не авторизован");
-              }
+                  // Теперь вы можете вызвать getIdToken или выполнять другие действия с пользователем.
+
+                  // Выполняйте операции, требующие аутентификации здесь.
+                } else {
+                  // Пользователь не авторизован
+                  console.log("Пользователь не авторизован");
+                }
+              });
+
+              console.log(user);
+            })
+            .catch((error) => {
+              // Обработка ошибок регистрации
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorCode, errorMessage);
             });
 
-            console.log(user);
-          })
-          .catch((error) => {
-            // Обработка ошибок регистрации
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
+          try {
+            const docRef = await addDoc(collection(db, "users"), {
+              login: login,
+              password: password,
+              date: new Date(),
+              key: randomKey,
+              hasClickedLink: false,
+            });
+            const userRef = doc(db, "users", docRef.id);
 
-        try {
-          const docRef = await addDoc(collection(db, "users"), {
-            login: login,
-            password: password,
-            date: new Date(),
-            key: randomKey,
-            hasClickedLink: false,
-          });
-          const userRef = doc(db, "users", docRef.id);
+            await updateDoc(userRef, {
+              key: docRef.id,
+            });
 
-          await updateDoc(userRef, {
-            key: docRef.id,
-          });
-
-          console.log("Document written with ID: ", docRef.id);
-          localStorage.setItem("docRef.id", docRef.id);
-          setId(docRef.id);
-          setValue(true);
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        } finally {
+            console.log("Document written with ID: ", docRef.id);
+            localStorage.setItem("docRef.id", docRef.id);
+            setId(docRef.id);
+            setValue(true);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          } finally {
+          }
         }
+        break;
       }
     }
   };

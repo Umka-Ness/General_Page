@@ -15,9 +15,7 @@ import firebaseConfig from "../../firebase";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
-  const [photo, setPhoto] = useState("");
   const [email, setEmail] = useState("");
-  const [nameUser, setNameUser] = useState("");
   const [name, setName] = useState("");
   const refAvatar = useRef();
 
@@ -31,12 +29,10 @@ export const NavigationBtn = () => {
       if (user) {
         // В этом месте пользователь успешно аутентифицирован
         console.log("Текущий пользователь:", user);
-        console.log(auth.currentUser.photoURL);
+        // console.log(auth.currentUser.photoURL);
 
-        const photoUrl = user.photoURL;
         const userEmail = user.email;
         const userName = user.displayName;
-        setPhoto(photoUrl);
         setEmail(userEmail);
         setName(userName);
       } else {
@@ -60,7 +56,6 @@ export const NavigationBtn = () => {
       const userName = userData.login;
 
       if (keyUser === userKey) {
-        setNameUser(userName);
         console.log(userName, 12312312);
         break;
       } else {
@@ -153,7 +148,7 @@ export const NavigationBtn = () => {
                           cursor: "default",
                         }}
                       >
-                        {name ? name : nameUser}
+                        {name ? name : null}
                       </li>
                       <li
                         style={{
