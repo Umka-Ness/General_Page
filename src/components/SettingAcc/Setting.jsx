@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { SignOut } from "./SignOut";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
+import { ResetPass } from "../Auth/ResetPass";
 
 export const Setting = () => {
   const [backBtn, setBackBtn] = useState(false);
@@ -31,7 +32,7 @@ export const Setting = () => {
             >
               Back
             </button>
-            <div>{/* <SignOut id="signOut" /> */}</div>
+            <div>{<ResetPass />}</div>
           </div>
         </div>
       );

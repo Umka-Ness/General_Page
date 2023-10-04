@@ -126,6 +126,7 @@ export const Login = () => {
               hasClickedLink: true,
             });
             console.log("Пользователь уже зарегистрировал этот емейл");
+            console.log(user.emailVerified);
             setIsGood(true);
           }
 
@@ -146,6 +147,7 @@ export const Login = () => {
 
       if (user) {
         // setIsGood(true);
+
         console.log(user);
       } else {
         setIsGood(false);
@@ -252,7 +254,7 @@ export const Login = () => {
           if (userDoc.exists() && !userDoc.hasClickedLink) {
             // Документ существует, можно обновить его
             await updateDoc(userRef, {
-              hasClickedLink: true,
+              // hasClickedLink: true,
             });
             console.log("hasClickedLink: ", userDoc.hasClickedLink);
           } else {
@@ -265,9 +267,13 @@ export const Login = () => {
           );
           console.log(user);
           console.log(userDoc._document.data.value.mapValue.fields);
-          if (userDoc._document.data.value.mapValue.fields.hasClickedLink) {
+          if (user.emailVerified) {
             setIsGood(true);
           } else {
+            setErrorAlert(
+              "Confirm your email, the email has already been sent"
+            );
+
             return;
           }
 
