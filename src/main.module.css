@@ -653,6 +653,18 @@ span {
   opacity: 0.7;
 }
 
+.resetPassInput {
+  padding: 3px 3px 3px 5px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.resetPassBtn {
+  padding: 3px 3px 3px 5px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
 .burgerContainer {
   width: 100vw;
   height: 100vh;

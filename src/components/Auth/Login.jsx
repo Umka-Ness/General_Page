@@ -20,7 +20,6 @@ import {
   getAuth,
   setPersistence,
   browserLocalPersistence,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { PageOne } from "../Game-page/pageOne";
@@ -51,7 +50,8 @@ const sessionTime = () => {
 };
 
 sessionTime();
-export const Login = () => {
+
+export const Login = ({ textSendEmail }) => {
   const [value, setValue] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -124,6 +124,7 @@ export const Login = () => {
               photoURL: user.photoURL,
               provider: user.providerData[0].providerId,
               hasClickedLink: true,
+              loginMethod: "Google",
             });
             console.log("Пользователь уже зарегистрировал этот емейл");
             console.log(user.emailVerified);
@@ -139,6 +140,17 @@ export const Login = () => {
     } finally {
     }
   };
+  // ...
+  useEffect(() => {
+    if (textSendEmail) {
+      refError.current.style.display = "inherit";
+      refError.current.style.color = "green";
+
+      console.log(textSendEmail); // Просто используйте textSendEmail напрямую
+      setErrorAlert(textSendEmail);
+    }
+  }, [textSendEmail]); // Укажите textSendEmail в зависимостях useEffect
+  // ...
 
   useEffect(() => {
     // Проверка авторизации пользователя при загрузке компонента
@@ -242,6 +254,8 @@ export const Login = () => {
         const userKey = userData.key;
 
         if (login === userLogin && password === userPassword) {
+          setErrorAlert("");
+
           localStorage.setItem("keyUser", userKey);
           console.log(userArray);
           const userLocalDataId = localStorage.getItem("docRef.id");
@@ -254,7 +268,7 @@ export const Login = () => {
           if (userDoc.exists() && !userDoc.hasClickedLink) {
             // Документ существует, можно обновить его
             await updateDoc(userRef, {
-              // hasClickedLink: true,
+              hasClickedLink: true,
             });
             console.log("hasClickedLink: ", userDoc.hasClickedLink);
           } else {
@@ -280,8 +294,10 @@ export const Login = () => {
           console.log("Success");
 
           break; // Прерываем цикл после нахождения первого совпадения
+        } else if (userLogin === userData.email) {
+          setErrorAlert("Email уже зарегистрирован");
         } else {
-          setErrorAlert("incorrect username or password");
+          setErrorAlert("incorrect username or passwordddd");
 
           errorRefCurrent.style.display = "inherit";
           setTimeout(() => {

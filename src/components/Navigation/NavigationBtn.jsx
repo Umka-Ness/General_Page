@@ -5,7 +5,7 @@ import { BtnForNavigation } from "./BtnForNavigation";
 import { Lecture } from "../Lecture/Lecture";
 import { Setting } from "../SettingAcc/Setting";
 import css from "../../main.module.css";
-import imageQuestionAvatar from "./image/unnamed.jpg";
+import imageQuestionAvatar from "./image/Avatar.png";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { SignOut } from "../SettingAcc/SignOut";
@@ -70,7 +70,6 @@ export const NavigationBtn = () => {
 
   const handleOnClick = (e) => {
     const id = e.target.id;
-    console.log(id);
     setSelectedId(id);
   };
   const handleOnClickAvatar = () => {

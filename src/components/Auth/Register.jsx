@@ -21,6 +21,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import validator from "validator";
+
 export const Register = () => {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
@@ -30,6 +31,7 @@ export const Register = () => {
   const [errorAlert, setErrorAlert] = useState();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [sendVerify, setSendVerify] = useState("");
   const refError = useRef(null);
   // const [generateKeyStatus, setGenerateKeyStatus] = useState(true);
   //Generator hesh key
@@ -124,6 +126,8 @@ export const Register = () => {
                   sendEmailVerification(auth.currentUser)
                     .then(() => {
                       // Письмо успешно отправлено
+                      setSendVerify("Письмо успешно отправлено на Email");
+                      console.log(sendVerify);
                       console.log("Письмо успешно отправлено");
                       console.log(auth.currentUser.emailVerified);
                     })
@@ -160,6 +164,7 @@ export const Register = () => {
               date: new Date(),
               key: randomKey,
               hasClickedLink: false,
+              loginMethod: "Email",
             });
             const userRef = doc(db, "users", docRef.id);
 
@@ -182,7 +187,7 @@ export const Register = () => {
   };
   const renderContent = () => {
     if (value) {
-      return <Login id={id} />;
+      return <Login id={id} textSendEmail={sendVerify} />;
     } else {
       return (
         <>

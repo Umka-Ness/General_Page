@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
-  AuthErrorCodes,
   EmailAuthProvider,
-  getAuth,
   reauthenticateWithCredential,
   updatePassword,
 } from "firebase/auth";
@@ -10,13 +8,13 @@ import { Context } from "../../App";
 import {
   collection,
   doc,
-  getDoc,
   getDocs,
   getFirestore,
   updateDoc,
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../../firebase";
+import css from "../../main.module.css";
 
 export const ResetPass = () => {
   const { auth } = useContext(Context);
@@ -24,11 +22,9 @@ export const ResetPass = () => {
   const errorParagraf = useRef();
   const [errorPass, setErrorPass] = useState();
   const [password, setPassword] = useState();
-  const refNewPassCurrent = refNewPass.current;
   const errorParagrafCurrent = errorParagraf.current;
   console.log(refNewPass);
 
-  const authUser = getAuth();
   const userId = localStorage.getItem("docRef.id");
 
   const app = initializeApp(firebaseConfig);
@@ -89,7 +85,6 @@ export const ResetPass = () => {
             // Изменяем пароль пользователя
             await updatePassword(user, password);
             const userRef = doc(db, "users", userId);
-            const userDoc = await getDoc(userRef);
             await updateDoc(userRef, {
               password: password,
             });
@@ -107,10 +102,14 @@ export const ResetPass = () => {
             console.log(error.code);
             if (error.code === "invalid-argument") {
               setErrorPass("password less than 6 characters");
-              errorParagrafCurrent.style.display = "inherit";
-              setTimeout(() => {
-                errorParagrafCurrent.style.display = "none";
-              }, 5000);
+              try {
+                errorParagrafCurrent.style.display = "inherit";
+                setTimeout(() => {
+                  errorParagrafCurrent.style.display = "none";
+                }, 5000);
+              } catch (error) {
+                console.error(error);
+              }
             } else if (error.code === "auth/weak-password") {
               setErrorPass("Weak-password");
               errorParagrafCurrent.style.display = "inherit";
@@ -154,10 +153,14 @@ export const ResetPass = () => {
           <input
             type="text"
             ref={refNewPass}
+            className={css.resetPassInput}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Your new password"
           />
 
-          <button onClick={changePassword}>Reset Password</button>
+          <button onClick={changePassword} className={css.resetPassBtn}>
+            Reset Password
+          </button>
         </div>
       </div>
     </>
