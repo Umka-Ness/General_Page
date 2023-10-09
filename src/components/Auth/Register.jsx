@@ -32,6 +32,7 @@ export const Register = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [sendVerify, setSendVerify] = useState("");
+  const [sendAgainEmailVerify, setSendAgainEmailVerify] = useState("");
   const refError = useRef(null);
   // const [generateKeyStatus, setGenerateKeyStatus] = useState(true);
   //Generator hesh key
@@ -128,6 +129,8 @@ export const Register = () => {
                       // Письмо успешно отправлено
                       setSendVerify("Письмо успешно отправлено на Email");
                       console.log(sendVerify);
+                      setSendAgainEmailVerify(auth.currentUser.email);
+                      console.log(auth.currentUser.email);
                       console.log("Письмо успешно отправлено");
                       console.log(auth.currentUser.emailVerified);
                     })
@@ -187,7 +190,13 @@ export const Register = () => {
   };
   const renderContent = () => {
     if (value) {
-      return <Login id={id} textSendEmail={sendVerify} />;
+      return (
+        <Login
+          id={id}
+          textSendEmail={sendVerify}
+          emailAgain={sendAgainEmailVerify}
+        />
+      );
     } else {
       return (
         <>

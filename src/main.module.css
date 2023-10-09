@@ -665,6 +665,19 @@ span {
   border-radius: 15px;
 }
 
+.sendAgainBtn {
+  display: none;
+  position: absolute;
+  left: 100px;
+  top: -20px;
+  width: 100px;
+  border-radius: 15px;
+  border: 1px solid #000;
+  padding: 2px 10px 2px 10px;
+  background: white;
+  cursor: default;
+}
+
 .burgerContainer {
   width: 100vw;
   height: 100vh;

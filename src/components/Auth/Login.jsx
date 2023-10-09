@@ -21,6 +21,8 @@ import {
   setPersistence,
   browserLocalPersistence,
   signInWithEmailAndPassword,
+  sendEmailVerification,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { PageOne } from "../Game-page/pageOne";
 import { StepByStep } from "../StepByStep/StepByStep";
@@ -51,15 +53,19 @@ const sessionTime = () => {
 
 sessionTime();
 
-export const Login = ({ textSendEmail }) => {
+export const Login = ({ textSendEmail, emailAgain }) => {
   const [value, setValue] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [isGood, setIsGood] = useState(false);
   const refError = useRef("");
+  const sendAgainRef = useRef();
+  const timerCountRef = useRef();
   const [imageAvatar, setImageAvatar] = useState();
   const { auth } = useContext(Context);
   const [errorAlert, setErrorAlert] = useState();
+  const [timerSendEmailAgain, setTimerSendEmailAgain] = useState(60);
+  const [workTimer, setWorkTimer] = useState(false);
 
   const registerGmail = async (e) => {
     e.preventDefault();
@@ -142,14 +148,42 @@ export const Login = ({ textSendEmail }) => {
   };
   // ...
   useEffect(() => {
-    if (textSendEmail) {
+    if (textSendEmail && !workTimer) {
       refError.current.style.display = "inherit";
+      sendAgainRef.current.style.display = "flex";
+      sendAgainRef.current.style.background = "#bbbbbb";
+
       refError.current.style.color = "green";
 
       console.log(textSendEmail); // Просто используйте textSendEmail напрямую
       setErrorAlert(textSendEmail);
+      const intervalId = setInterval(() => {
+        setTimerSendEmailAgain((prevTimer) => {
+          if (prevTimer === 0) {
+            clearInterval(intervalId); // Остановка интервала, когда таймер достигнет 0
+            const timerCountRefCurrent = timerCountRef.current;
+            const sendAgainRefCurrent = sendAgainRef.current;
+
+            setWorkTimer(true);
+            setTimerSendEmailAgain(60);
+            sendAgainRefCurrent.style.background = "white";
+
+            timerCountRefCurrent.style.display = "none";
+            console.log(prevTimer, "zero");
+
+            return prevTimer; // Не изменяем таймер, если он равен 0
+          }
+          console.log(prevTimer);
+
+          return prevTimer - 1; // Уменьшаем таймер, если он больше 0
+        });
+      }, 1000);
+
+      // Возвращаем функцию очистки, чтобы остановить интервал при размонтировании компонента
+      return () => clearInterval(intervalId);
     }
-  }, [textSendEmail]); // Укажите textSendEmail в зависимостях useEffect
+  }, [textSendEmail, workTimer]);
+
   // ...
 
   useEffect(() => {
@@ -317,6 +351,59 @@ export const Login = ({ textSendEmail }) => {
     }
   };
 
+  const sendAgainEmailVerify = () => {
+    if (workTimer) {
+      const timerCountRefCurrent = timerCountRef.current;
+
+      if (timerCountRefCurrent && emailAgain) {
+        timerCountRefCurrent.style.display = "inherit";
+
+        // Проверяем, авторизован ли пользователь
+        const user = auth.currentUser; // Предполагая, что auth - это ваш объект аутентификации Firebase
+
+        if (user) {
+          // Пользователь авторизован, теперь можно отправлять письмо на подтверждение
+          console.log(emailAgain);
+          console.log(user);
+
+          onAuthStateChanged(auth, (user) => {
+            if (user) {
+              // Пользователь успешно авторизован
+              console.log(user);
+              console.log("Пользователь авторизован");
+              sendEmailVerification(auth.currentUser)
+                .then(() => {
+                  // Письмо успешно отправлено
+                  console.log(auth.currentUser.email);
+                  console.log("Письмо успешно отправлено");
+                  console.log(auth.currentUser.emailVerified);
+                })
+                .catch((error) => {
+                  // Обработка ошибок
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorCode, errorMessage);
+                  console.log(auth.currentUser, "auth.currentUser");
+                });
+
+              // Теперь вы можете вызвать getIdToken или выполнять другие действия с пользователем.
+
+              // Выполняйте операции, требующие аутентификации здесь.
+            } else {
+              // Пользователь не авторизован
+              console.log("Пользователь не авторизован");
+            }
+          });
+        } else {
+          // Пользователь не авторизован, просто игнорируем отправку письма
+          console.log("Пользователь не авторизован");
+        }
+      }
+      setWorkTimer(false);
+    } else {
+    }
+  };
+
   const renderContent = () => {
     if (value) {
       return <Register />;
@@ -389,7 +476,20 @@ export const Login = ({ textSendEmail }) => {
               <button onClick={fetchData} className={css.loginInBtn}>
                 Login in
               </button>
-              <p style={{ color: "#000", textAlign: "center" }}>or</p>
+              <div style={{ position: "relative" }}>
+                <div>
+                  <div
+                    style={{ justifyContent: "space-between" }}
+                    onClick={sendAgainEmailVerify}
+                    ref={sendAgainRef}
+                    className={css.sendAgainBtn}
+                  >
+                    <p ref={timerCountRef}> {timerSendEmailAgain}s</p>
+                    <p>Send Again</p>
+                  </div>
+                </div>
+                <p style={{ color: "#000", textAlign: "center" }}>or</p>
+              </div>
 
               <button onClick={() => setValue(true)} className={css.createBtn}>
                 Create account
