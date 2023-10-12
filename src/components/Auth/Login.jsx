@@ -65,6 +65,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
   const { auth } = useContext(Context);
   const [errorAlert, setErrorAlert] = useState();
   const [timerSendEmailAgain, setTimerSendEmailAgain] = useState(60);
+  const [intervalIdState, setIntervalIdState] = useState();
   const [workTimer, setWorkTimer] = useState(false);
 
   const registerGmail = async (e) => {
@@ -159,6 +160,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
       setErrorAlert(textSendEmail);
       const intervalId = setInterval(() => {
         setTimerSendEmailAgain((prevTimer) => {
+          setIntervalIdState(intervalId);
           if (prevTimer === 0) {
             clearInterval(intervalId); // Остановка интервала, когда таймер достигнет 0
             const timerCountRefCurrent = timerCountRef.current;
@@ -289,7 +291,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
 
         if (login === userLogin && password === userPassword) {
           setErrorAlert("");
-
+          clearInterval(intervalIdState);
           localStorage.setItem("keyUser", userKey);
           console.log(userArray);
           const userLocalDataId = localStorage.getItem("docRef.id");
@@ -331,7 +333,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
         } else if (userLogin === userData.email) {
           setErrorAlert("Email уже зарегистрирован");
         } else {
-          setErrorAlert("incorrect username or passwordddd");
+          setErrorAlert("incorrect username or password");
 
           errorRefCurrent.style.display = "inherit";
           setTimeout(() => {
