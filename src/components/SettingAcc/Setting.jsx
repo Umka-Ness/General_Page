@@ -42,30 +42,19 @@ export const Setting = () => {
     } else {
       return (
         <>
-          {hiddenResetPass ? (
-            <div className={css.settingContainer}>
-              <div>
-                <button
-                  className={css.BackBtn}
-                  onClick={handleOnClick}
-                  id="back"
-                  // style={{ position: "absolute", top: "0" }}
-                >
-                  Back
-                </button>
-                <div>{<ResetPass />}</div>
-              </div>
+          <div className={css.settingContainer}>
+            <div>
+              <button
+                className={css.BackBtn}
+                onClick={handleOnClick}
+                id="back"
+                // style={{ position: "absolute", top: "0" }}
+              >
+                Back
+              </button>
+              {hiddenResetPass ? <div>{<ResetPass />}</div> : <div></div>}
             </div>
-          ) : (
-            <button
-              className={css.BackBtn}
-              onClick={handleOnClick}
-              id="back"
-              // style={{ position: "absolute", top: "0" }}
-            >
-              Back
-            </button>
-          )}
+          </div>
         </>
       );
     }

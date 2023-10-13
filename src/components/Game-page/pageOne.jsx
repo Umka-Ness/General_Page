@@ -11,6 +11,8 @@ import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { StepByStep } from "../StepByStep/StepByStep";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { Dice } from "../Dice/Dise";
+import { NavMenu } from "../Navigation/NavMenu";
+import { Setting } from "../SettingAcc/Setting";
 
 export const PageOne = () => {
   const el = document.getElementsByTagName("body")[0];
@@ -43,15 +45,18 @@ export const PageOne = () => {
       return <DragAndDrop />;
     } else if (DraggableDiv === "Dice") {
       return <Dice />;
+    } else if (selectedId === "5") {
+      return <Setting />;
     } else {
       return (
-        <div>
-          <div
+        <div onClick={handleOnClick}>
+          {/* <div
             style={{
               display: "flex",
               textAlign: "center",
             }}
-          ></div>
+          ></div> */}
+          <NavMenu />
           <div
             style={{
               display: "flex",
@@ -61,10 +66,15 @@ export const PageOne = () => {
               padding: "20px",
               verticalAlign: "middle",
               maxWidth: "100%",
+              marginTop: "50px",
               // minHeight: "100vh",
             }}
           >
-            <button className={css.BackBtn} onClick={handleOnClick} id="back">
+            <button
+              className={css.BackBtn}
+              id="back"
+              style={{ marginTop: "60px" }}
+            >
               Back
             </button>
             {/* {DraggableDiv === true ? <MoveBox /> : <p>dadada</p>} */}

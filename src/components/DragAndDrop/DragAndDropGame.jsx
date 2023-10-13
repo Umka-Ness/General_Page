@@ -126,9 +126,9 @@ export const DragAndDropGame = ({
       setCurrentValue(updatedValue);
     }
   };
-  const dragulaFun = () => {
-    dragula([document.querySelector(".lalaonetwo")], {});
-  };
+  // const dragulaFun = () => {
+  //   dragula([document.querySelector(".lalaonetwo"), { copy: false }]);
+  // };
   // dragulaFun();
   // const DragSensor = (card) => {
   //   interact(".cama").draggable({
@@ -284,7 +284,7 @@ export const DragAndDropGame = ({
                   justifyContent: "center",
                 }}
                 className="lalaonetwo"
-                onLoad={dragulaFun()}
+                // onLoad={dragulaFun()}
               >
                 {cardList.sort(sortCards).map((card) => {
                   if (card.text === "") {

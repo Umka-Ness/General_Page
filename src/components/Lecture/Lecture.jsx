@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { BurgerBtn } from "./BurgerBtn";
+import { NavMenu } from "../Navigation/NavMenu";
+import { Setting } from "../SettingAcc/Setting";
 
 export const Lecture = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -18,18 +20,27 @@ export const Lecture = () => {
   const renderContent = () => {
     if (selectedId === "back") {
       return <NavigationBtn />;
+    } else if (selectedId === "5") {
+      return <Setting />;
     } else {
       return (
         <>
-          <button className={css.BackBtn} onClick={handleOnClick} id="back">
-            Back
-          </button>
-          <div className={css.burgerContainer}>
-            <BurgerBtn name="one" />
-            <BurgerBtn name="two" />
-            <BurgerBtn name="three" />
-            <BurgerBtn name="four" />
-            <BurgerBtn name="five" />
+          <div onClick={handleOnClick}>
+            <button
+              className={css.BackBtn}
+              id="back"
+              style={{ marginTop: "60px" }}
+            >
+              Back
+            </button>
+            <NavMenu />
+            <div className={css.burgerContainer}>
+              <BurgerBtn name="one" />
+              <BurgerBtn name="two" />
+              <BurgerBtn name="three" />
+              <BurgerBtn name="four" />
+              <BurgerBtn name="five" />
+            </div>
           </div>
         </>
       );

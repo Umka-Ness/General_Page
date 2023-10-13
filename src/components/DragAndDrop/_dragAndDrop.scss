@@ -86,7 +86,12 @@
 }
 
 .gu-mirror {
-  position: fixed;
-  z-index: 9999;
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
   background: green;
+  opacity: 0.8;
+}
+.gu-hide {
+  display: none !important;
 }

@@ -319,6 +319,7 @@ span {
   position: absolute;
   top: 60px;
   left: -180px;
+  z-index: 9999999;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
   border-radius: 12px;
@@ -341,6 +342,7 @@ span {
 }
 
 .isHidden {
+  display: none;
   opacity: 0;
   transition: 0.5s;
 }
@@ -858,9 +860,15 @@ span {
 }
 
 .gu-mirror {
-  position: fixed;
-  z-index: 9999;
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
   background: green;
+  opacity: 0.8;
+}
+
+.gu-hide {
+  display: none !important;
 }
 
 .diceContainer {
