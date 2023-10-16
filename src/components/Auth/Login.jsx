@@ -331,7 +331,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
 
           break; // Прерываем цикл после нахождения первого совпадения
         } else if (userLogin === userData.email) {
-          setErrorAlert("Email уже зарегистрирован");
+          setErrorAlert("Email already registered");
         } else {
           setErrorAlert("incorrect username or password");
 
@@ -451,7 +451,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
           ></div>
           <div className={css.authContainer}>
             <div className={css.auth}>
-              <p className={css.namePage}>Login in</p>
+              <p className={css.namePage}>Log in</p>
 
               <p ref={refError} className={css.errorRegister}>
                 {errorAlert}
@@ -476,7 +476,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
               />
 
               <button onClick={fetchData} className={css.loginInBtn}>
-                Login in
+                Log in
               </button>
               <div style={{ position: "relative" }}>
                 <div>

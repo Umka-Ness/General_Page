@@ -64,6 +64,12 @@ export const Register = () => {
     }
   };
 
+  const options = {
+    allow_utf8_local_part: false,
+    allow_ip_domain: false,
+    allow_display_name: true,
+    blacklisted_chars: "!@#$%^&*()'_№/+,?\"",
+  };
   const postData = async (e) => {
     const errorRefCurrent = refError.current;
     e.preventDefault();
@@ -88,7 +94,7 @@ export const Register = () => {
         setTimeout(() => {
           errorRefCurrent.style.display = "none";
         }, 5000);
-      } else if (!validator.isEmail(login)) {
+      } else if (!validator.isEmail(login, options) || login[0] === '"') {
         // Проверяем email с помощью регулярного выражения
         setErrorAlert("Введите корректный email адрес");
         errorRefCurrent.style.display = "inherit";
@@ -127,7 +133,9 @@ export const Register = () => {
                   sendEmailVerification(auth.currentUser)
                     .then(() => {
                       // Письмо успешно отправлено
-                      setSendVerify("Письмо успешно отправлено на Email");
+                      setSendVerify(
+                        "The letter was successfully sent to Email"
+                      );
                       console.log(sendVerify);
                       setSendAgainEmailVerify(auth.currentUser.email);
                       console.log(auth.currentUser.email);
