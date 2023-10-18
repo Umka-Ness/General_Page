@@ -22,6 +22,8 @@ export const Lecture = () => {
       return <NavigationBtn />;
     } else if (selectedId === "5") {
       return <Setting />;
+    } else if (selectedId === "GoHome") {
+      return <NavigationBtn />;
     } else {
       return (
         <>

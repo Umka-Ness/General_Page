@@ -12,6 +12,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../../firebase";
 import { NavMenu } from "./NavMenu";
+import { YourCourse } from "../Lecture/YourCourse";
 
 export const NavigationBtn = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -54,6 +55,8 @@ export const NavigationBtn = () => {
       return <Lecture />;
     } else if (selectedId === "5") {
       return <Setting />;
+    } else if (selectedId === "YourCourse") {
+      return <YourCourse />;
     } else {
       return (
         <>

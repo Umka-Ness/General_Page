@@ -47,6 +47,8 @@ export const PageOne = () => {
       return <Dice />;
     } else if (selectedId === "5") {
       return <Setting />;
+    } else if (selectedId === "GoHome") {
+      return <NavigationBtn />;
     } else {
       return (
         <div onClick={handleOnClick}>
@@ -57,6 +59,7 @@ export const PageOne = () => {
             }}
           ></div> */}
           <NavMenu />
+
           <div
             style={{
               display: "flex",

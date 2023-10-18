@@ -32,6 +32,7 @@ import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { DragAndDropLevels } from "../DragAndDrop/DragAndDropLevels";
 import { Dice } from "../Dice/Dise";
 import { createContext } from "react";
+import { YourCourse } from "../Lecture/YourCourse";
 export const avatarImageContext = createContext();
 
 const app = initializeApp(firebaseConfig);
@@ -61,7 +62,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
   const refError = useRef("");
   const sendAgainRef = useRef();
   const timerCountRef = useRef();
-  const [imageAvatar, setImageAvatar] = useState();
+  // const [imageAvatar, setImageAvatar] = useState();
   const { auth } = useContext(Context);
   const [errorAlert, setErrorAlert] = useState();
   const [timerSendEmailAgain, setTimerSendEmailAgain] = useState(60);
@@ -89,7 +90,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
         } else {
           const avatarUrl = user.photoURL;
           console.log(user);
-          setImageAvatar(avatarUrl);
+          // setImageAvatar(avatarUrl);
 
           const existingUser = querySnapshot.docs.find(
             (doc) => doc.data().login === user.email
@@ -263,7 +264,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
     handleRedirectResult(); // Вызов обработчика результатов перенаправления
 
     return () => {
-      <NavigationBtn />;
+      <YourCourse />;
       unsubscribe(); // Отписка от обновлений авторизации при размонтировании компонента
     };
   }, [auth, login, password]);
@@ -316,7 +317,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
             password
           );
           console.log(user);
-          console.log(userDoc._document.data.value.mapValue.fields);
+          // console.log(userDoc._document.data.value.mapValue.fields);
           if (user.emailVerified) {
             setIsGood(true);
           } else {
@@ -409,21 +410,11 @@ export const Login = ({ textSendEmail, emailAgain }) => {
   const renderContent = () => {
     if (value) {
       return <Register />;
-    } else if (
-      isGood ||
-      localStorage.getItem("numberPage") === "NavigationBtn"
-    ) {
+    } else if (isGood || localStorage.getItem("numberPage") === "YourCourse") {
       return (
         <>
-          <avatarImageContext.Provider
-            value={{
-              imageAvatar,
-              setImageAvatar,
-            }}
-          >
-            {/* imageAvatar={imageAvatar} */}
-            <NavigationBtn />
-          </avatarImageContext.Provider>
+          {/* imageAvatar={imageAvatar} */}
+          <YourCourse />
         </>
       );
     } else if (localStorage.getItem("numberPage") === "pageOne") {
@@ -442,6 +433,10 @@ export const Login = ({ textSendEmail, emailAgain }) => {
       return <DragAndDropLevels />;
     } else if (localStorage.getItem("numberPage") === "Dice") {
       return <Dice />;
+    } else if (localStorage.getItem("numberPage") === "YourCourse") {
+      return <YourCourse />;
+    } else if (localStorage.getItem("numberPage") === "NavigationBtn") {
+      return <NavigationBtn />;
     } else {
       return (
         <>

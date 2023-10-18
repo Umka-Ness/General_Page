@@ -4,6 +4,7 @@ import imageQuestionAvatar from "./image/Avatar.png";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { SignOut } from "../SettingAcc/SignOut";
 import { Setting } from "../SettingAcc/Setting";
+import { YourCourse } from "../Lecture/YourCourse";
 
 export const NavMenu = () => {
   const refAvatar = useRef();
@@ -51,19 +52,17 @@ export const NavMenu = () => {
         <>
           <div className={css.navContainer} onClick={handleOnClick}>
             <div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "15px",
-                  left: "15px",
-                }}
-              >
-                <div style={{ display: "flex" }}>
-                  Langalaxy <p style={{ color: "blue" }}>™</p>
+              <div id="GoHome" className={css.navLogo}>
+                <div style={{ display: "flex" }} id="GoHome">
+                  Langalaxy
+                  <p style={{ color: "blue" }} id="GoHome">
+                    ™
+                  </p>
                 </div>
               </div>
             </div>
             <div>awsdwdawd</div>
+            <div id={"YourCourse"}> X</div>
             <div
               style={{
                 position: "relative",
