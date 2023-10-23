@@ -13,6 +13,7 @@ import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { Dice } from "../Dice/Dise";
 import { NavMenu } from "../Navigation/NavMenu";
 import { Setting } from "../SettingAcc/Setting";
+import { YourCourse } from "../Lecture/YourCourse";
 
 export const PageOne = () => {
   const el = document.getElementsByTagName("body")[0];
@@ -45,10 +46,12 @@ export const PageOne = () => {
       return <DragAndDrop />;
     } else if (DraggableDiv === "Dice") {
       return <Dice />;
-    } else if (selectedId === "5") {
+    } else if (selectedId === "setting") {
       return <Setting />;
     } else if (selectedId === "GoHome") {
       return <NavigationBtn />;
+    } else if (selectedId === "YourCourse") {
+      return <YourCourse />;
     } else {
       return (
         <div onClick={handleOnClick}>

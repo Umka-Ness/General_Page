@@ -53,7 +53,7 @@ export const NavigationBtn = () => {
       return <PageOne />;
     } else if (selectedId === "2") {
       return <Lecture />;
-    } else if (selectedId === "5") {
+    } else if (selectedId === "setting") {
       return <Setting />;
     } else if (selectedId === "YourCourse") {
       return <YourCourse />;

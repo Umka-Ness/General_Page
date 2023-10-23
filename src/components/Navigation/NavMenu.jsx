@@ -61,14 +61,30 @@ export const NavMenu = () => {
                 </div>
               </div>
             </div>
-            <div>awsdwdawd</div>
-            <div id={"YourCourse"}> X</div>
+
             <div
               style={{
+                display: "flex",
+                gap: "20px",
+
+                alignItems: "center",
                 position: "relative",
                 height: "45px",
               }}
             >
+              <div>awsdwdawd</div>
+              <div
+                id={"YourCourse"}
+                style={{
+                  border: "1px solid black",
+                  padding: "5px",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                }}
+              >
+                Courses
+              </div>
+
               <img
                 src={imageQuestionAvatar}
                 alt="img"
@@ -103,7 +119,7 @@ export const NavMenu = () => {
                   <li className={css.toggleMenuList}>Profile</li>
                   <li className={css.toggleMenuList}>Nothing2</li>
                 </div>
-                <li className={css.toggleMenuList} id={"5"}>
+                <li className={css.toggleMenuList} id={"setting"}>
                   Setting
                 </li>
                 <li className={css.toggleMenuList}>

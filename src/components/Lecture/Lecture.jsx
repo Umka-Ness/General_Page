@@ -4,6 +4,7 @@ import { NavigationBtn } from "../Navigation/NavigationBtn";
 import { BurgerBtn } from "./BurgerBtn";
 import { NavMenu } from "../Navigation/NavMenu";
 import { Setting } from "../SettingAcc/Setting";
+import { YourCourse } from "./YourCourse";
 
 export const Lecture = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -20,10 +21,12 @@ export const Lecture = () => {
   const renderContent = () => {
     if (selectedId === "back") {
       return <NavigationBtn />;
-    } else if (selectedId === "5") {
+    } else if (selectedId === "setting") {
       return <Setting />;
     } else if (selectedId === "GoHome") {
       return <NavigationBtn />;
+    } else if (selectedId === "YourCourse") {
+      return <YourCourse />;
     } else {
       return (
         <>
