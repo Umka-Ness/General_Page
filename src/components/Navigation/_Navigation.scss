@@ -9,6 +9,7 @@
   border-radius: 10px;
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
+
   &:hover {
     background-color: var(--accent-color);
     color: white;
@@ -85,8 +86,8 @@
   padding: 10px;
   cursor: pointer;
 
-  font-family: "Permanent Marker", cursive;
-  letter-spacing: 2px;
+  font-family: var(--accent-font-family);
+  letter-spacing: var(--letter-spacing-for-font-family);
 
   &:hover {
     transform: scale(1.3);

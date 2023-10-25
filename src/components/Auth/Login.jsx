@@ -169,7 +169,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
 
             setWorkTimer(true);
             setTimerSendEmailAgain(60);
-            sendAgainRefCurrent.style.background = "white";
+            sendAgainRefCurrent.style.background = "rgb(116 247 207 / 60%)";
 
             timerCountRefCurrent.style.display = "none";
             console.log(prevTimer, "zero");
@@ -476,7 +476,7 @@ export const Login = ({ textSendEmail, emailAgain }) => {
               <div style={{ position: "relative" }}>
                 <div>
                   <div
-                    style={{ justifyContent: "space-between" }}
+                    style={{ justifyContent: "center", gap: "10px" }}
                     onClick={sendAgainEmailVerify}
                     ref={sendAgainRef}
                     className={css.sendAgainBtn}

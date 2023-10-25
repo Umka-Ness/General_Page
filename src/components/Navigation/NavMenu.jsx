@@ -73,15 +73,7 @@ export const NavMenu = () => {
               }}
             >
               <div>awsdwdawd</div>
-              <div
-                id={"YourCourse"}
-                style={{
-                  border: "1px solid black",
-                  padding: "5px",
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                }}
-              >
+              <div id={"YourCourse"} className={css.coursesText}>
                 Courses
               </div>
 
