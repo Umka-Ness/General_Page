@@ -90,7 +90,7 @@ export const ResetPass = () => {
             });
             // Пароль успешно изменен
             console.log("Password changed successfully");
-            setErrorPass("Weak-password");
+            setErrorPass("Password changed successfully");
             errorParagrafCurrent.style.color = "green";
 
             errorParagrafCurrent.style.display = "inherit";
@@ -119,6 +119,7 @@ export const ResetPass = () => {
             }
           }
         } else {
+          console.log(12312);
         }
       }
     }

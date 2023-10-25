@@ -319,7 +319,7 @@ span {
   text-align: center;
   position: absolute;
   top: 60px;
-  left: -180px;
+  left: -35px;
   z-index: 9999999;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
@@ -377,11 +377,6 @@ span {
   transition: 0.8s;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .blockCard {
   word-break: break-all;
   max-width: 350px;
@@ -389,19 +384,6 @@ span {
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 10px;
-}
-
-.blockCard::-webkit-scrollbar {
-  background: rgba(135, 173, 191, 0.5176470588);
-  max-height: 4px;
-  max-width: 7px;
-  border-radius: 25px;
-}
-
-.blockCard::-webkit-scrollbar-thumb {
-  /* плашка-бегунок */
-  background: #999;
-  border-radius: 25px;
 }
 
 .name {
@@ -829,16 +811,50 @@ span {
   margin-top: 40px;
   background: #fff;
 }
+@media screen and (max-width: 349px) {
+  .card {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .card {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+}
 
 .startBtnContainer {
   position: absolute;
   left: 50%;
-  top: 82%;
+  top: 87%;
   transform: translate(-50%);
 }
 
 .startBtn {
   padding: 30px 60px;
+}
+@media screen and (max-width: 349px) {
+  .startBtn {
+    padding: 15px 30px;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .startBtn {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .startBtn {
+    font-size: 20px;
+  }
 }
 
 .containerForLevelButton {
@@ -885,12 +901,134 @@ span {
 .currentPage {
   display: flex;
   justify-content: space-evenly;
-  width: 70vw;
+  width: 100vw;
   position: absolute;
   left: 50%;
   top: 78%;
   height: 4%;
   transform: translate(-50%);
+}
+@media screen and (max-width: 349px) {
+  .currentPage {
+    top: 87%;
+    gap: 130px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .currentPage {
+    top: 89%;
+    gap: 220px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .currentPage {
+    top: 87%;
+    gap: 220px;
+  }
+}
+
+.counerPage {
+  color: white;
+}
+@media screen and (max-width: 349px) {
+  .counerPage {
+    position: absolute;
+    top: -27px;
+    left: 125px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .counerPage {
+    position: absolute;
+    top: -38px;
+    left: 170px;
+  }
+}
+@media screen and (min-width: 351px) {
+  .counerPage {
+    position: inherit;
+    top: -38px;
+    left: 45.4545454545%;
+  }
+}
+@media screen and (min-width: 400px) {
+  .counerPage {
+    position: inherit;
+    top: -38px;
+    left: 188px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .counerPage {
+    position: inherit;
+    font-size: 30px;
+    top: -38px;
+    left: 45.4545454545%;
+  }
+}
+
+.frontBtn {
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 30%;
+  border-top-left-radius: 30%;
+  font-size: 20px;
+}
+@media screen and (max-width: 349px) {
+  .frontBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .frontBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 351px) {
+  .frontBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .frontBtn {
+    width: 100px;
+    height: 80px;
+  }
+}
+
+.backBtn {
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 30%;
+  border-top-right-radius: 30%;
+  font-size: 20px;
+}
+@media screen and (max-width: 349px) {
+  .backBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .backBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 351px) {
+  .backBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .backBtn {
+    width: 100px;
+    height: 80px;
+  }
 }
 
 .gu-mirror {
@@ -1102,4 +1240,22 @@ span {
   --accent-color: #413bf9ba;
   --accent-font-family: "Permanent Marker", cursive;
   --letter-spacing-for-font-family: 2px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  background: rgba(135, 173, 191, 0.5176470588);
+  max-height: 4px;
+  max-width: 7px;
+  border-radius: 25px;
+}
+
+*::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: #999;
+  border-radius: 25px;
 }/*# sourceMappingURL=main.module.css.map */

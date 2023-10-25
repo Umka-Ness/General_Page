@@ -3,3 +3,20 @@
   --accent-font-family: "Permanent Marker", cursive;
   --letter-spacing-for-font-family: 2px;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  background: #87adbf84;
+  max-height: 4px;
+  max-width: 7px;
+  border-radius: 25px;
+}
+
+*::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: #999;
+  border-radius: 25px;
+}

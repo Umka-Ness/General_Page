@@ -215,6 +215,7 @@ export const DragAndDropGame = ({
                   display: "flex",
                   width: "inherit",
                   justifyContent: "center",
+                  flexWrap: "wrap",
                 }}
                 className="lalaonetwo"
                 // onLoad={dragulaFun()}
@@ -256,16 +257,18 @@ export const DragAndDropGame = ({
                 <div className={css.currentPage}>
                   <button
                     onClick={() => jobChange("back")}
-                    id="back"
-                    style={{ width: "50px", height: "50px" }}
+                    id="backBtn"
+                    className={css.backBtn}
                   >
                     back
                   </button>
-                  <div>{localStorage.getItem("currentValue")} / 15</div>
+                  <div className={css.counerPage}>
+                    {localStorage.getItem("currentValue")} / 15
+                  </div>
                   <button
                     onClick={() => jobChange("front")}
                     id="front"
-                    style={{ width: "50px", height: "50px" }}
+                    className={css.frontBtn}
                   >
                     front
                   </button>
