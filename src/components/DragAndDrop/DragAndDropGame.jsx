@@ -187,65 +187,103 @@ export const DragAndDropGame = ({
             className={css.containteCard}
             style={{ backgroundImage: `url(${wood_bg})` }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                // width: "inherit",
-              }}
-            >
-              <div>
-                <img
-                  src={image}
-                  alt="lalala"
-                  style={{
-                    // paddingBottom: "40px",
-                    // position: "absolute",
-                    // top: "30%",
-                    // left: "40vw",
-                    width: imageWidth,
-                    height: "234px",
-                    border: "2px solid black",
-                  }}
-                />
-              </div>
+            <div>
               <div
                 style={{
                   display: "flex",
-                  width: "inherit",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  // width: "inherit",
                 }}
-                className="lalaonetwo"
-                // onLoad={dragulaFun()}
               >
-                {cardList.sort(sortCards).map((card) => {
-                  if (card.text === "") {
-                    console.log(card);
-                    return null;
-                  } else {
-                    return (
-                      <div
-                        onDragStart={(e) => dragStartHandler(e, card)}
-                        onDragLeave={(e) => dragLeaveHandler(e)}
-                        onDragEnd={(e) => dragEndHandler(e)}
-                        onDragOver={(e) => dragOverHandler(e)}
-                        onDrop={(e) => dragDropHandler(e, card)}
-                        draggable={true}
-                        className={css.card}
-                        id={card.id}
-                        key={card.id}
-                        // onLoad={DragSensor(card)}
-                      >
-                        {card.text}
-                      </div>
-                    );
-                  }
-                })}
-
-                <div className={css.startBtnContainer}>
+                <div>
+                  <img
+                    src={image}
+                    alt="lalala"
+                    style={{
+                      // paddingBottom: "40px",
+                      // position: "absolute",
+                      // top: "30%",
+                      // left: "40vw",
+                      // width: imageWidth,
+                      // height: "234px",
+                      border: "2px solid black",
+                    }}
+                    className={css.imagePic}
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "inherit",
+                      justifyContent: "center",
+                      flexWrap: "wrap",
+                    }}
+                    className="lalaonetwo"
+                    // onLoad={dragulaFun()}
+                  >
+                    {cardList.sort(sortCards).map((card) => {
+                      if (card.text === "") {
+                        console.log(card);
+                        return null;
+                      } else {
+                        return (
+                          <div
+                            onDragStart={(e) => dragStartHandler(e, card)}
+                            onDragLeave={(e) => dragLeaveHandler(e)}
+                            onDragEnd={(e) => dragEndHandler(e)}
+                            onDragOver={(e) => dragOverHandler(e)}
+                            onDrop={(e) => dragDropHandler(e, card)}
+                            draggable={true}
+                            className={css.card}
+                            id={card.id}
+                            key={card.id}
+                            // onLoad={DragSensor(card)}
+                          >
+                            {card.text}
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className={css.startBtnContainer}>
+                <div className={css.counerPage}>
+                  {localStorage.getItem("currentValue")} / 15
+                </div>
+                <div style={{ display: "flex", gap: "20px" }}>
                   <button
+                    onClick={() => jobChange("back")}
+                    id="backBtn"
+                    className={css.backBtn}
+                  >
+                    &#60;
+                  </button>
+                  <button
+                    onClick={CheckRightWords}
+                    className={css.startBtn}
+                    ref={goodBtnRef}
+                    style={{ background: cardList[currentValue].standart }}
+                  >
+                    Gooooo
+                  </button>
+                  <button
+                    onClick={() => jobChange("front")}
+                    id="front"
+                    className={css.frontBtn}
+                  >
+                    &#62;
+                  </button>
+                </div>
+                {/* <button
                     onClick={CheckRightWords}
                     className={css.startBtn}
                     ref={goodBtnRef}
@@ -260,19 +298,16 @@ export const DragAndDropGame = ({
                     id="backBtn"
                     className={css.backBtn}
                   >
-                    back
+                    &#60;
                   </button>
-                  <div className={css.counerPage}>
-                    {localStorage.getItem("currentValue")} / 15
-                  </div>
+
                   <button
                     onClick={() => jobChange("front")}
                     id="front"
                     className={css.frontBtn}
                   >
-                    front
-                  </button>
-                </div>
+                    &#62;
+                  </button> */}
               </div>
             </div>
           </div>

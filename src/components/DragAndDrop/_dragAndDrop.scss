@@ -32,26 +32,6 @@
   }
 }
 
-.startBtnContainer {
-  position: absolute;
-  left: 50%;
-  top: 87%;
-  transform: translate(-50%);
-}
-.startBtn {
-  padding: 30px 60px;
-  @media screen and (max-width: "349px") {
-    padding: 15px 30px;
-    font-size: 20px;
-  }
-  @media screen and (min-width: "350px") {
-    font-size: 20px;
-  }
-  @media screen and (min-width: "800px") {
-    font-size: 20px;
-  }
-}
-
 .containerForLevelButton {
   display: flex;
   justify-content: center;
@@ -112,43 +92,57 @@
   }
 
   @media screen and (min-width: "350px") {
-    top: 89%;
+    top: 87.5%;
     gap: 220px;
   }
   @media screen and (min-width: "768px") {
     top: 87%;
     gap: 220px;
   }
+  @media screen and (min-width: "1024px") and (min-height: "600px") {
+    top: 86%;
+  }
 }
 
 .counerPage {
   color: white;
-  @media screen and (max-width: "349px") {
-    position: absolute;
-    top: -27px;
-    left: 125px;
-  }
-  @media screen and (min-width: "350px") {
-    position: absolute;
-    top: -38px;
-    left: 170px;
-  }
-  @media screen and (min-width: "351px") {
-    position: inherit;
-    top: -38px;
-    left: calc(100% / 2.2);
-  }
-  @media screen and (min-width: "400px") {
-    position: inherit;
-    top: -38px;
-    left: 188px;
-  }
-  @media screen and (min-width: "768px") {
-    position: inherit;
-    font-size: 30px;
-    top: -38px;
-    left: calc(100% / 2.2);
-  }
+  text-align: center;
+  // @media screen and (max-width: "349px") {
+  //   position: absolute;
+  //   top: -27px;
+  //   left: 125px;
+  // }
+  // @media screen and (min-width: "350px") {
+  //   position: absolute;
+  //   top: -38px;
+  //   left: 170px;
+  // }
+  // @media screen and (min-width: "351px") {
+  //   position: inherit;
+  //   top: -30px;
+  //   left: calc(100% / 2.2);
+  // }
+  // @media screen and (min-width: "400px") {
+  //   position: inherit;
+  //   top: -38px;
+  //   left: 188px;
+  // }
+  // @media screen and (min-width: "500px") {
+  //   position: inherit;
+  //   top: -38px;
+  //   left: 245px;
+  //   font-size: 20px;
+  // }
+  // @media screen and (min-width: "768px") {
+  //   position: inherit;
+  //   font-size: 30px;
+  //   top: -38px;
+  //   left: calc(100% / 2.2);
+  // }
+  // @media screen and (min-width: "1024px") and (min-height: "600px") {
+  //   top: -32px;
+  //   left: calc(100% / 2.15);
+  // }
 }
 
 .frontBtn {
@@ -157,18 +151,19 @@
   border-bottom-left-radius: 30%;
   border-top-left-radius: 30%;
   font-size: 20px;
-
+  // box-shadow: inset 0px 0px 4px 0px black;
   @media screen and (max-width: "349px") {
     width: 50px;
     height: 50px;
+    font-size: inherit;
   }
   @media screen and (min-width: "350px") {
     width: 50px;
     height: 50px;
   }
   @media screen and (min-width: "351px") {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 80px;
   }
   @media screen and (min-width: "768px") {
     width: 100px;
@@ -181,22 +176,72 @@
   border-bottom-right-radius: 30%;
   border-top-right-radius: 30%;
   font-size: 20px;
-
+  // box-shadow: inset 0px 0px 4px 0px black;
   @media screen and (max-width: "349px") {
     width: 50px;
     height: 50px;
+    font-size: inherit;
   }
   @media screen and (min-width: "350px") {
     width: 50px;
     height: 50px;
   }
   @media screen and (min-width: "351px") {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 80px;
   }
   @media screen and (min-width: "768px") {
     width: 100px;
     height: 80px;
+  }
+}
+
+.imagePic {
+  @media screen and (max-width: "349px") {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media screen and (min-width: "351px") {
+    width: 230px;
+    height: 230px;
+  }
+  @media screen and (min-width: "768px") and (min-height: "800px") {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.startBtnContainer {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%);
+  @media screen and (min-width: "350px") {
+    top: 85.5%;
+  }
+}
+.startBtn {
+  padding: 25px 50px;
+  border-radius: 15px;
+  // box-shadow: inset 0px 0px 4px 0px black;
+  @media screen and (max-width: "349px") {
+    padding: 15px 30px;
+    font-size: inherit;
+  }
+  // @media screen and (min-width: "350px") {
+  //   font-size: 20px;
+  //   padding: 25px 60px;
+  // }
+  @media screen and (min-width: "400px") {
+    font-size: 20px;
+    padding: 25px 60px;
+  }
+  @media screen and (min-width: "800px") {
+    font-size: 20px;
+  }
+  @media screen and (min-width: "1024px") and (min-height: "600px") {
+    padding: 20px 90px;
   }
 }
 
