@@ -33,6 +33,8 @@ import { DragAndDropLevels } from "../DragAndDrop/DragAndDropLevels";
 import { Dice } from "../Dice/Dise";
 import { createContext } from "react";
 import { YourCourse } from "../Lecture/YourCourse";
+import { Materials } from "../Navigation/Materials";
+import { SaimonsCat } from "../Navigation/SaimonsCat/SaimonsCat";
 export const avatarImageContext = createContext();
 
 const app = initializeApp(firebaseConfig);
@@ -437,6 +439,10 @@ export const Login = ({ textSendEmail, emailAgain }) => {
       return <YourCourse />;
     } else if (localStorage.getItem("numberPage") === "NavigationBtn") {
       return <NavigationBtn />;
+    } else if (localStorage.getItem("numberPage") === "Materials") {
+      return <Materials />;
+    } else if (localStorage.getItem("numberPage") === "SaimonsCat") {
+      return <SaimonsCat />;
     } else {
       return (
         <>
