@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "../../main.module.css";
 import { NavigationBtn } from "./NavigationBtn";
 import { SaimonsCat } from "./SaimonsCat/SaimonsCat";
-
+import cat from "./SaimonsCat/image/Screenshot_1.png";
 export const Materials = () => {
   useEffect(() => {
     localStorage.setItem("numberPage", "Materials");
@@ -49,16 +49,21 @@ export const Materials = () => {
               style={{
                 position: "relative",
                 border: "2px solid black",
-                width: "200px",
+                width: "300px",
                 height: "200px",
                 borderRadius: "15px",
                 textAlign: "center",
               }}
               onClick={saimonsCat}
             >
-              <p style={{ position: "absolute", top: "160px", left: "55px" }}>
+              <img
+                src={cat}
+                alt=""
+                style={{ width: "100%", height: "100%", borderRadius: "15px" }}
+              />
+              {/* <p style={{ position: "absolute", top: "160px", left: "55px" }}>
                 Simon`s cat
-              </p>
+              </p> */}
             </div>
           </div>
         </>

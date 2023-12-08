@@ -47,97 +47,205 @@ export const SaimonsCat = () => {
               paddingTop: "50px",
             }}
           >
-            <video
-              src={video1}
-              autoPlay="true"
-              controls
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video2}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video1}
+                autoPlay="true"
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+              ></video>
+              <p>Simon`s cat one</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video3}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video2}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+              ></video>
+              <p>Simon`s cat two</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video4}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video3}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat three</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video5}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video4}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat four</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video6}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video5}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat five</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video7}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video6}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat six</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video8}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video7}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat seven</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video9}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video8}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat eight</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
-            <video
-              src={video10}
-              controls
+              className={css.simonsCat}
+            >
+              <video
+                src={video9}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat nine</p>
+            </div>
+            <div
               style={{
-                width: "80%",
-                height: "30%",
-                border: "2px solid black",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
               }}
-            ></video>
+              className={css.simonsCat}
+            >
+              <video
+                src={video10}
+                controls
+                style={{
+                  border: "2px solid black",
+                  width: "100%",
+                  height: "100%",
+                }}
+                className={css.simonsCat}
+              ></video>
+              <p>Simon`s cat ten</p>
+            </div>
           </div>
         </>
       );
