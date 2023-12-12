@@ -34,7 +34,10 @@ export const DragAndDropGame = ({
   const [secondLeater, setSecondLeater] = useState({ order: "", text: "" });
   const [currentValue, setCurrentValue] = useState(0);
   const goodBtnRef = useRef();
-  // const [draggedCard, setDraggedCard] = useState(null);
+
+  const touchStartCoords = useRef({ x: 0, y: 0 });
+  const touchMoveCoords = useRef({ x: 0, y: 0 });
+  const currentCards = useRef([]);
 
   const wordsCard = goodText;
 
@@ -141,6 +144,51 @@ export const DragAndDropGame = ({
   const defaultWidth = "227px";
   const imageWidth = imageWidthImage || defaultWidth;
 
+  const touchStartHandler = (e, card) => {
+    setFirstLeatter({ order: card.order, text: card.text });
+    setCurrentCard(card);
+
+    // Сохраняем начальные координаты касания
+    touchStartCoords.current = {
+      x: e.touches[0].clientX + 15,
+      y: e.touches[0].clientY + 15,
+    };
+  };
+
+  const touchMoveHandler = (e) => {
+    // Сохраняем текущие координаты перемещения
+    touchMoveCoords.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+
+    // Рассчитываем изменение координат
+    const deltaX = touchMoveCoords.current.x - touchStartCoords.current.x;
+    const deltaY = touchMoveCoords.current.y - touchStartCoords.current.y;
+
+    // Обновляем стили элемента для перемещения
+    if (currentCard) {
+      // Проверяем, что currentCard существует
+      const currentCardElement = document.getElementById(currentCard.id);
+      if (currentCardElement) {
+        currentCardElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+      }
+    }
+  };
+
+  const touchEndHandler = () => {
+    if (currentCard) {
+      const currentCardElement = document.getElementById(currentCard.id);
+      if (currentCardElement) {
+        // Сбрасываем стили и координаты при завершении перемещения
+        currentCardElement.style.transform = "translate(0, 0)";
+      }
+    }
+
+    touchStartCoords.current = { x: 0, y: 0 };
+    touchMoveCoords.current = { x: 0, y: 0 };
+  };
+
   const renderContent = () => {
     if (selectedId === "back") {
       return <DragAndDrop />;
@@ -234,11 +282,16 @@ export const DragAndDropGame = ({
                       } else {
                         return (
                           <div
+                            ref={(el) => (currentCards.current[card.id] = el)}
                             onDragStart={(e) => dragStartHandler(e, card)}
                             onDragLeave={(e) => dragLeaveHandler(e)}
                             onDragEnd={(e) => dragEndHandler(e)}
                             onDragOver={(e) => dragOverHandler(e)}
                             onDrop={(e) => dragDropHandler(e, card)}
+                            onTouchStart={(e) => touchStartHandler(e, card)}
+                            onTouchMove={touchMoveHandler}
+                            onTouchEnd={touchEndHandler}
+                            onTouchCancel={(e) => console.log("onTouchCancel")}
                             draggable={true}
                             className={css.card}
                             id={card.id}
