@@ -3,6 +3,7 @@ import css from "../../main.module.css";
 import { PageOne } from "../Game-page/pageOne";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import Screenshot_plecak from "./img/Screenshot_plecak.png";
+import { Test } from "./Test";
 
 export const DragAndDrop = () => {
   const [selectedId, setSelectedId] = useState("");
@@ -22,6 +23,9 @@ export const DragAndDrop = () => {
       return <PageOne />;
     } else if (selectedId === "1") {
       return <DragAndDropLevels />;
+    } else if (selectedId === "test") {
+      console.log(12312);
+      return <Test />;
     } else {
     }
     return (
@@ -54,6 +58,9 @@ export const DragAndDrop = () => {
             className={css.levelSelectionBtn}
           >
             High Level
+          </button>
+          <button id="test" onClick={(e) => setSelectedId(e.target.id)}>
+            123
           </button>
         </div>
       </>

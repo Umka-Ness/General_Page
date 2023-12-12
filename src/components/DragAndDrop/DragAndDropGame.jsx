@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import interact from "interactjs";
 import css from "../../main.module.css";
 import { DragAndDropLevels } from "./DragAndDropLevels";
 import { DragAndDrop } from "./DragAndDrop";
 import wood_bg from "./img/wood_bg.png";
-import dragula from "dragula";
 
 export const DragAndDropGame = ({
   textData,

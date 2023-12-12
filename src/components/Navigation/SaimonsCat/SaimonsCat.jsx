@@ -42,7 +42,7 @@ export const SaimonsCat = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: "20px",
+              gap: "30px",
               flexWrap: "wrap",
               paddingTop: "50px",
             }}
